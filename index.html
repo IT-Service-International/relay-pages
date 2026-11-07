@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,12 +56,27 @@ section, header, footer {
 @media (prefers-reduced-motion: reduce) {
   .cursor { animation: none; }
 }
+
+.avatar {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--green);
+  filter: drop-shadow(0 0 12px #2c6e3e);
+  margin-top: 20px;
+}
 </style>
 </head>
 
 <body>
 <header>
   <div class="prompt">n0hup@relay:~$ whoami</div>
+  <img src="assets/avatar.webp"
+     alt="RELAY / n0hup"
+     class="avatar"
+     width="160"
+     height="160">
   <h1>RELAY<span class="cursor">_</span></h1>
   <p class="motto">
     Connection lost. Mission continues.
