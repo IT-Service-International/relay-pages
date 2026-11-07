@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0a110c">
+<title>AD Health Check, fixed price // RELAY</title>
+<meta name="description" content="Fixed-price Active Directory health check from €500. Read-only, remote, report and review call in 5 business days.">
+<link rel="stylesheet" href="assets/relay-sales.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<nav class="top" aria-label="Main">
+  <a href="index.html">HOME</a>
+  <a href="ad-health-check.html" aria-current="page">AD CHECK €500</a>
+  <a href="services.html">SERVICES</a>
+  <a href="tailored.html">TAILORED</a>
+  <a href="toolkit.html">TOOLKIT</a>
+  <a href="operator.html">OPERATOR</a>
+  <a href="notes/">NOTES</a>
+  <a href="logs/relay.log">LOG</a>
+</nav>
+
+<main id="main">
+<p class="prompt">n0hup@relay:~$ <b>./ad-check --fixed</b></p>
+<h1>Active Directory Health Check</h1>
+<p class="lead">A fixed-price, read-only review of your on-premises Active Directory. You get a prioritised findings report and a 60-minute review call within 5 business days. No admin credentials leave your network.</p>
+
+<div class="offer" aria-labelledby="offer-h">
+  <h2 id="offer-h" style="border:0;margin:0;padding:0">Standard package</h2>
+  <p class="price">€500</p>
+  <p class="dim">Fixed fee, excluding VAT. Invoiced by IT Service International (Netherlands).</p>
+  <dl class="spec">
+    <dt>Environment</dt><dd>1 forest, up to 2 domains, up to 6 domain controllers, up to 2,000 user accounts</dd>
+    <dt>Delivery</dt><dd>Remote, 5 business days from receipt of complete collection output</dd>
+    <dt>Access</dt><dd>None required. Your team runs the read-only collector and sends us the output.</dd>
+    <dt>You receive</dt><dd>Findings report (PDF), prioritised action list, 60-minute review call</dd>
+    <dt>Payment</dt><dd>100% on order, by bank transfer</dd>
+  </dl>
+  <p><a class="btn" href="mailto:n0hup.relay@gmail.com?subject=AD%20Health%20Check%20%E2%80%94%20order%20request">[[ ORDER THE AD HEALTH CHECK ]]</a></p>
+</div>
+
+<h2>What we check</h2>
+<div class="grid">
+  <div class="box"><h3>Replication &amp; topology</h3><p>Replication status and errors, sites and site links, FSMO role placement.</p></div>
+  <div class="box"><h3>Domain controllers</h3><p>DC health, OS lifecycle, time synchronisation, SYSVOL replication method.</p></div>
+  <div class="box"><h3>DNS</h3><p>AD-integrated zones, scavenging, forwarders, stale and missing records.</p></div>
+  <div class="box"><h3>Privileged access</h3><p>Membership of privileged groups, stale admin accounts, delegation risks.</p></div>
+  <div class="box"><h3>Accounts &amp; hygiene</h3><p>Inactive users and computers, password policy, never-expiring passwords.</p></div>
+  <div class="box"><h3>Group Policy</h3><p>Unlinked, empty and conflicting GPOs, version mismatches.</p></div>
+</div>
+
+<h2>How it works</h2>
+<ol class="steps">
+  <li><strong>Order.</strong> Email us your company name, environment size and preferred start date. We confirm scope and send the invoice.</li>
+  <li><strong>Collect.</strong> Your administrator runs the read-only <a href="toolkit.html">RELAY AD Health Toolkit</a> collector (Windows PowerShell 5.1 + RSAT) and sends us the output through an agreed secure channel.</li>
+  <li><strong>Analyse.</strong> We review the evidence, verify findings and rank them by risk and effort.</li>
+  <li><strong>Report.</strong> You receive the report and action list within 5 business days.</li>
+  <li><strong>Review.</strong> A 60-minute call walks your team through the findings and the order of fixes.</li>
+</ol>
+
+<h2>Not included</h2>
+<p>Making changes to your environment, Entra ID / Microsoft 365, on-site work, and penetration testing. Remediation, hybrid identity review and deeper security assessment can be quoted separately as part of our <a href="services.html">engineering services</a>.</p>
+
+<h2>Larger environment?</h2>
+<p>Multiple forests, more domains or controllers, or a need for interviews and architecture review: see the full <a href="services.html">Active Directory Health Check</a> service, quoted after discovery.</p>
+
+<p class="note">Keep passwords, tokens and confidential configuration out of your first email. Collection output is shared only after the order is confirmed, through a channel we agree with you.</p>
+</main>
+
+<footer>
+  RELAY / RLY-01 · a brand of IT Service International · <a href="operator.html#imprint">Imprint</a><br>
+  Connection lost. Mission continues.
+</footer>
+</body>
+</html>
