@@ -8,7 +8,40 @@
 <meta name="description" content="RELAY AD Health Toolkit Community Edition. Read-only on-prem Active Directory observations, local HTML and CSV reports, and an isolated synthetic demo.">
 <link rel="stylesheet" href="assets/relay.css">
 <style>.release-note{border-left:3px solid #d7b66c;padding:12px 18px;background:#14180c;color:#c9cfb3}.toolkit-facts{display:flex;flex-wrap:wrap;gap:12px 24px;padding:0;list-style:none}.toolkit-facts li{border:1px solid var(--border);padding:6px 12px}.commercial code{overflow-wrap:anywhere}.commercial .eyebrow{color:#93ad98}.commercial .scope{columns:2;column-gap:36px}.scope li{break-inside:avoid;margin-bottom:6px}@media(max-width:640px){.commercial .scope{columns:1}}</style>
-<link rel="stylesheet" href="assets/relay-nav.css">
+<style>
+/* RELAY shared top menu (inlined from assets/relay-nav.css so the page does not depend on that file) */
+/* RELAY / n0hup — shared top menu.
+   Same look on every page except the homepage (index.html keeps its own menu).
+   Loaded after the page's own stylesheet, so it wins over relay.css and inline styles. */
+html { overflow-x: hidden; }
+
+body > nav.top {
+  position: sticky; top: 0; z-index: 50;
+  box-sizing: border-box;
+  width: 100vw;
+  margin: 0 0 0 calc(50% - 50vw);   /* full width even inside a max-width body */
+  display: flex; flex-wrap: wrap; gap: .2rem 1.2rem;
+  padding: .7rem 1.25rem;
+  background: #0a110c;
+  border-bottom: 1px solid #1f3a26;
+  font: .85rem/1.65 ui-monospace, "SFMono-Regular", "JetBrains Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  letter-spacing: normal; text-align: left;
+}
+body > nav.top a {
+  margin: 0; padding: 0; font: inherit;
+  color: #7fae8a; text-decoration: none;
+}
+body > nav.top a:hover,
+body > nav.top a[aria-current="page"] { color: #4dff7a; text-decoration: none; }
+body > nav.top a:focus-visible { outline: 2px solid #4dff7a; outline-offset: 3px; }
+
+/* Pages built on relay.css (or similar inline styles) have top padding on <body>;
+   remove it so the menu sits flush with the top of the window, like operator.html. */
+body.nav-flush { padding-top: 0 !important; }
+body.nav-flush > nav.top { margin-bottom: 2rem; }
+
+@media print { body > nav.top { display: none; } }
+</style>
 </head>
 <body class="nav-flush commercial">
 <a class="skip-link" href="#main">Skip to content</a>
