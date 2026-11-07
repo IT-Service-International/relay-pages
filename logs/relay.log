@@ -1,0 +1,16 @@
+
+# RELAY OPERATOR LOG
+# NODE: RLY-01
+# HANDLE: n0hup
+# FORMAT: YYYY-MM-DD HH:MM UTC | EVENT | MESSAGE
+# Historical entries use date-only timestamps when exact time is unknown.
+# -----------------------------------------------
+
+2026-11-07 | INIT   | RELAY identity established
+2026-11-07 | DEPLOY | Codeberg Pages homepage published
+2026-11-07 | CONFIG | RELAY Manifesto created
+2026-11-07 | DEPLOY | Interactive terminal introduced
+2026-11-07 | CONFIG | Virtual Unix filesystem introduced
+
+# STATUS: OPERATIONAL
+# EOF
