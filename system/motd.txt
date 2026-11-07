@@ -1,0 +1,17 @@
+
+RELAY OPERATING ENVIRONMENT
+===========================
+
+NODE: RLY-01
+OPERATOR: n0hup
+
+Connection lost. Mission continues.
+
+Continuity over visibility.
+Understanding over authority.
+Resilience over perfection.
+Precision over noise.
+
+Type 'help' for available commands.
+
+-- END OF MESSAGE --
