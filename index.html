@@ -1,315 +1,103 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0a110c">
-<title>RELAY // n0hup</title>
-<meta name="description"
- content="RELAY / n0hup. Unix, networks, resilience and independent systems.">
-
-<style>
-:root {
-  color-scheme: dark;
-  --bg: #0a110c;
-  --fg: #a4c9a9;
-  --green: #8cf5a4;
-  --muted: #73927a;
-  --border: #274831;
-}
-* { box-sizing: border-box; }
-body {
-  background: var(--bg);
-  color: var(--fg);
-  font: 15px/1.8 "Courier New", monospace;
-  max-width: 800px;
-  margin: auto;
-  padding: 55px 24px;
-}
-h1 {
-  color: var(--green);
-  font-size: clamp(3rem, 10vw, 5rem);
-  letter-spacing: 4px;
-  line-height: 1.2;
-  margin: 15px 0;
-}
-h2 {
-  color: var(--green);
-  font-size: 17px;
-  margin-top: 0;
-}
-a { color: var(--green); }
-a:hover { color: white; }
-section, header, footer {
-  border-bottom: 1px solid var(--border);
-  margin-bottom: 34px;
-  padding-bottom: 25px;
-}
-.prompt, .motto { color: var(--green); }
-.muted { color: var(--muted); }
-.cursor {
-  animation: blink 1s steps(1) infinite;
-}
-@keyframes blink {
-  50% { opacity: 0; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .cursor { animation: none; }
-}
-
-.avatar {
-  width: 160px;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 2px solid var(--green);
-  filter: drop-shadow(0 0 12px #2c6e3e);
-  margin-top: 20px;
-}
-  .site-nav {
-  display: flex;
-  gap: 22px;
-  flex-wrap: wrap;
-  margin-bottom: 35px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid var(--border);
-}
-
-  
-/* RELAY INTERACTIVE TERMINAL */
-
-.terminal-window {
-  background: #050b07;
-  border: 1px solid #315d3b;
-  border-radius: 8px;
-  box-shadow: 0 0 22px rgba(55, 170, 80, 0.12);
-  padding: 16px;
-  margin: 28px 0 40px;
-}
-
-.terminal-header {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  color: #8cf5a4;
-  font-size: 12px;
-  border-bottom: 1px solid #274831;
-  padding-bottom: 12px;
-  margin-bottom: 14px;
-}
-
-.terminal-output {
-  height: 280px;
-  overflow-y: auto;
-  overflow-wrap: anywhere;
-  font-size: 13px;
-  line-height: 1.6;
-}
-
-.terminal-line {
-  white-space: pre-wrap;
-  color: #a4c9a9;
-  margin-bottom: 8px;
-}
-
-.terminal-line.command {
-  color: #8cf5a4;
-}
-
-.terminal-line.error {
-  color: #e69b83;
-}
-
-.terminal-form {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 15px;
-}
-
-.terminal-form label {
-  color: #8cf5a4;
-  font-size: 13px;
-  white-space: nowrap;
-}
-
-.terminal-form input {
-  flex: 1;
-  min-width: 0;
-  background: transparent;
-  border: none;
-  outline: none;
-  color: #a4c9a9;
-  font: inherit;
-  font-size: 13px;
-  caret-color: #8cf5a4;
-}
-
-.terminal-form:focus-within {
-  outline: 1px solid #315d3b;
-  outline-offset: 5px;
-}
-
-.terminal-hint {
-  color: #73927a;
-  font-size: 11px;
-  margin: 14px 0 0;
-}
-
-  
-</style>
-  <link rel="stylesheet" href="assets/relay.css">
+<title>RELAY // Infrastructure resilience engineering</title>
+<meta name="description" content="RELAY: Active Directory, Microsoft 365, Unix/Linux and disaster recovery engineering for organisations that cannot afford downtime. Fixed-price AD Health Check from €500.">
+<link rel="stylesheet" href="assets/relay-sales.css">
+<!-- KEEP: if your existing terminal needs its own stylesheet or script, add those <link>/<script> tags here -->
 </head>
-
 <body>
-<header>
-  <div class="prompt">n0hup@relay:~$ whoami</div>
-  <img src="assets/avatar.webp"
-     alt="RELAY / n0hup"
-     class="avatar"
-     width="160"
-     height="160">
-  <h1>RELAY<span class="cursor">_</span></h1>
-  <p class="motto">
-    Connection lost. Mission continues.
-  </p>
-  <p class="muted">
-    HANDLE&nbsp; : n0hup<br>
-    CALLSIGN : RLY-01<br>
-    SYSTEM&nbsp; : UNIX / SIGNALS / NETWORKS<br>
-    STATUS&nbsp; : OPERATIONAL
-  </p>
-</header>
-
-<main>
-  
-<section class="terminal-window" aria-label="Interactive Unix terminal">
-  <div class="terminal-header">
-    <span>RELAY TERMINAL / tty0</span>
-    <span>RLY-01</span>
-  </div>
-
-  <div id="terminal-output"
-       class="terminal-output"
-       role="log"
-       aria-live="polite"
-       aria-relevant="additions text">
-  </div>
-
-  <form id="terminal-form" class="terminal-form">
-    <label for="terminal-input">n0hup@relay:~$</label>
-    <input
-      type="text"
-      id="terminal-input"
-      aria-label="Terminal command"
-      autocomplete="off"
-      autocapitalize="off"
-      spellcheck="false">
-  </form>
-
-  <p class="terminal-hint">
-    Browser simulation. No real shell commands are executed.
-  </p>
-</section>
-
-  <nav class="site-nav">
-  <a href="index.html">HOME</a>
+<a class="skip" href="#main">Skip to content</a>
+<nav class="top" aria-label="Main">
+  <a href="index.html" aria-current="page">HOME</a>
+  <a href="ad-health-check.html">AD CHECK €500</a>
   <a href="services.html">SERVICES</a>
   <a href="tailored.html">TAILORED</a>
-  <a href="toolkit.html">TOOLKIT</a><a href="manifesto.html">MANIFESTO</a>
+  <a href="toolkit.html">TOOLKIT</a>
+  <a href="operator.html">OPERATOR</a>
+  <a href="manifesto.html">MANIFESTO</a>
   <a href="notes/">NOTES</a>
-  <a href="logs/relay.log">LOG</a>   
-  <a href="https://codeberg.org/n0hup">CODEBERG</a>
+  <a href="logs/relay.log">LOG</a>
 </nav>
-<section>
-  <h2>ENGINEERING / WORK WITH RELAY</h2>
-  <p>Microsoft infrastructure, Unix/Linux, servers, storage, networks and resilience. Scoped assessments, implementation and client-specific automation.</p>
-  <p><a href="services.html">[ ENGINEERING SERVICES ]</a><br>
-  <a href="tailored.html">[ TAILORED SOLUTIONS ]</a></p>
-</section>
-<section id="toolkit" aria-labelledby="toolkit-heading">
-  <h2 id="toolkit-heading">PRODUCT / AD HEALTH TOOLKIT</h2>
-  <p class="motto">RELAY AD Health Toolkit v0.1 · Community Edition</p>
-  <p>Read-only observations for on-premises Active Directory. Ten diagnostic areas, local HTML/CSV reports and a separate synthetic demo. Free under the MIT licence.</p>
-  <p><a href="toolkit.html">[ EXPLORE THE TOOLKIT ]</a><br>
-  <a href="ad-health-demo.html">[ VIEW SYNTHETIC DEMO ]</a><br>
-  <a href="https://codeberg.org/n0hup/relay-ad-health-toolkit/releases/download/v0.1.0/RELAY-AD-Health-Toolkit-v0.1.0-Community.zip">[ DOWNLOAD v0.1.0 ZIP ]</a></p>
-  <p class="muted">Community preview. Live target: Windows PowerShell 5.1 x64 + RSAT. Windows/AD lab validation is pending.</p>
-</section>
-<section>
-  <h2>01 / IDENTITY</h2>
-  <p>
-    A digital identity rooted in the Unix tradition,
-    early Internet culture, and independent systems.
-  </p>
-  <p>
-    n0hup represents persistence beyond a session.
-    RELAY represents continuity beyond a connection.
-  </p>
+
+<main id="main">
+<section class="hero">
+  <div>
+    <p class="prompt">n0hup@relay:~$ <b>cat mission</b></p>
+    <h1>Keep critical infrastructure running when the connection drops<span class="cursor"></span></h1>
+    <p class="lead">Active Directory, Microsoft 365, Unix/Linux and disaster recovery engineering, from people who ran IT for a remote oil field where downtime was not an option.</p>
+    <p>
+      <a class="btn" href="ad-health-check.html">[[ AD HEALTH CHECK · €500 ]]</a>
+      <a class="btn" href="mailto:n0hup.relay@gmail.com?subject=Infrastructure%20enquiry">[[ DESCRIBE YOUR PROBLEM ]]</a>
+    </p>
+  </div>
+  <img src="assets/avatar.webp" alt="RELAY call-sign emblem" width="120" height="120">
 </section>
 
-<section>
-  <h2>02 / PHILOSOPHY</h2>
-  <p>The session ends. The purpose does not.</p>
-  <p>
-    Reliability is not the absence of failure.
-    It is the ability to adapt, recover, and continue.
-  </p>
-  <p>
-    Continuity over visibility.<br>
-    Understanding over authority.<br>
-    Resilience over perfection.<br>
-    Precision over noise.<br>
-    Purpose beyond connection.
-  </p>
-</section>
+<h2>Start here</h2>
+<div class="grid">
+  <div class="box">
+    <h3>Fixed price: AD Health Check</h3>
+    <p>Read-only review of your Active Directory. Report and review call in 5 business days. No credentials leave your network.</p>
+    <p class="price">€500</p>
+    <a class="btn" href="ad-health-check.html">[[ SEE WHAT’S INCLUDED ]]</a>
+  </div>
+  <div class="box">
+    <h3>Engineering services</h3>
+    <p>Infrastructure, Unix/Linux hardening, Microsoft 365, backup readiness and disaster recovery, scoped after discovery.</p>
+    <a class="btn" href="services.html">[[ ENGINEERING SERVICES ]]</a>
+  </div>
+  <div class="box">
+    <h3>Tailored tools</h3>
+    <p>PowerShell, Python and Bash automation, reports and integrations built around your environment.</p>
+    <a class="btn" href="tailored.html">[[ TAILORED SOLUTIONS ]]</a>
+  </div>
+</div>
 
-<section>
-  <h2>03 / INTERESTS</h2>
-  <p>
-    UNIX &amp; LINUX SYSTEMS<br>
-    NETWORK ENGINEERING<br>
-    COMMUNICATIONS &amp; SIGNALS<br>
-    SECURITY &amp; PRIVACY<br>
-    DISTRIBUTED INFRASTRUCTURE<br>
-    AUTOMATION &amp; RESILIENCE
-  </p>
-</section>
+<h2>Proven where it is hard</h2>
+<p>From 2019 to 2024 RELAY’s principal engineer led IT &amp; telecommunications for a major upstream oil field in the Middle East, then carried IT continuity through a change of field operator.</p>
+<div class="grid">
+  <div class="box"><p class="price">99%</p><p>SLA performance sustained</p></div>
+  <div class="box"><p class="price">−40%</p><p>downtime</p></div>
+  <div class="box"><p class="price">−25%</p><p>user complaints</p></div>
+</div>
+<p><a class="btn" href="operator.html">[[ WHO OPERATES RELAY ]]</a></p>
 
-<section>
-  <h2>04 / CONTACT</h2>
-  <p>
-    SECURE MAIL:
-    <a href="mailto:n0hup@proton.me">
-      n0hup@proton.me
-    </a>
-  </p>
-  <p>
-    GENERAL:
-    <a href="mailto:n0hup.relay@gmail.com">
-      n0hup.relay@gmail.com
-    </a>
-  </p>
-  <p>
-    SOURCE:
-    <a href="https://codeberg.org/n0hup">
-      codeberg.org/n0hup
-    </a>
-  </p>
-</section>
+<h2>Free tool: AD Health Toolkit</h2>
+<p>RELAY AD Health Toolkit v0.1, Community Edition. Read-only observations for on-premises Active Directory across ten diagnostic areas, with local HTML/CSV reports. Free under the MIT licence.</p>
+<p>
+  <a class="btn" href="toolkit.html">[[ EXPLORE THE TOOLKIT ]]</a>
+  <a class="btn" href="ad-health-demo.html">[[ VIEW SYNTHETIC DEMO ]]</a>
+</p>
+<p class="dim">Community preview. Target: Windows PowerShell 5.1 x64 + RSAT. Windows/AD lab validation is pending.</p>
+
+<h2>RELAY terminal</h2>
+<!-- ============================================================
+     PASTE YOUR EXISTING TERMINAL BLOCK HERE
+     Copy the whole terminal widget (the "RELAY TERMINAL / tty0"
+     element and its <script>) from your current index.html,
+     unchanged, and put it in place of this comment.
+     ============================================================ -->
+<p class="dim">Browser simulation. No real shell commands are executed.</p>
+
+<h2>Identity</h2>
+<p><code>nohup</code> keeps a process alive after the session ends. RELAY keeps a service alive after the connection drops. A digital identity rooted in the Unix tradition, early Internet culture and independent systems.</p>
+<p class="dim">Continuity over visibility. Understanding over authority. Resilience over perfection. Precision over noise.</p>
+<p><a class="btn" href="manifesto.html">[[ READ THE MANIFESTO ]]</a></p>
+
+<h2>Contact</h2>
+<p>Email: <a href="mailto:n0hup.relay@gmail.com">n0hup.relay@gmail.com</a><br>
+Secure mail: <a href="mailto:n0hup@proton.me">n0hup@proton.me</a><br>
+Source: <a href="https://codeberg.org/n0hup">codeberg.org/n0hup</a></p>
+<p class="dim">Keep passwords, tokens and confidential system details out of your first message.</p>
 </main>
 
 <footer>
-  <div class="prompt">
-    n0hup@relay:~$ echo $STATUS
-  </div>
-  <p>OPERATIONAL</p>
-  <small class="muted">
-    RELAY / RLY-01 · EST. 2026<br>
-    Signal fades. Purpose remains.
-  </small>
+  RELAY / RLY-01 · a brand of IT Service International · <a href="operator.html#imprint">Imprint</a><br>
+  Signal fades. Purpose remains.
 </footer>
-  <script src="assets/terminal.js" defer></script>
 </body>
 </html>
