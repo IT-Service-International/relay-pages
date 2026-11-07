@@ -1,4 +1,3 @@
-
 (() => {
   "use strict";
 
@@ -179,6 +178,38 @@
     return result;
   }
 
+
+  // RELAY v1.6 — Read published files
+
+  async function readPublishedFile(path) {
+    try {
+      print("Connecting to RELAY archive...");
+
+      const response = await fetch(path, {
+        cache: "no-store"
+      });
+
+      if (!response.ok) {
+        throw new Error("HTTP " + response.status);
+      }
+
+      const content = await response.text();
+
+      print(
+        content || "[EMPTY FILE]",
+        "archive-content"
+      );
+
+    } catch (error) {
+      print(
+        "relay-sh: unable to read archive: " +
+        error.message,
+        "error"
+      );
+    }
+  }
+
+  
   function execute(raw) {
     const args = raw.trim().split(/\s+/);
     const command = (args.shift() || "").toLowerCase();
@@ -193,6 +224,19 @@
     print(prompt() + raw, "command");
 
     switch (command) {
+
+
+      case "journal":
+        readPublishedFile("/logs/relay.log");
+        break;
+
+      case "notes":
+        print("Opening RELAY Technical Notes...");
+        window.location.assign("/notes/");
+        break;
+
+
+        
       case "help":
         print(
           "RELAY COMMAND REFERENCE\n\n" +
@@ -213,10 +257,14 @@
           " contact       Contact information\n" +
           " manifesto     Open manifesto.html\n" +
           " history       Command history\n" +
+          " journal       Read live operator log\n" +
+          " notes         Open technical notes\n" +
           " clear         Clear screen"
         );
         break;
 
+
+        
       case "pwd":
         print(cwd);
         break;
@@ -281,6 +329,18 @@
       }
 
       case "cat": {
+
+
+        if (
+          argument === "/logs/relay.log" ||
+          argument === "logs/relay.log"
+        ) {
+          readPublishedFile("/logs/relay.log");
+          break;
+        }
+
+
+        
         if (!argument) {
           print("usage: cat <file>", "error");
           break;
