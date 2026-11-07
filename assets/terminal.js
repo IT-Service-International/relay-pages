@@ -8,27 +8,147 @@
 
   if (!output || !input || !form) return;
 
-  const commands = [];
-  let position = 0;
-
-  const files = {
-    "identity.txt":
-      "HANDLE: n0hup\nCALLSIGN: RELAY\nID: RLY-01\nSTATUS: OPERATIONAL",
-    "philosophy.txt":
-      "The session ends. The purpose does not.\n\n" +
-      "Continuity over visibility.\n" +
-      "Understanding over authority.\n" +
-      "Resilience over perfection.\n" +
-      "Precision over noise.",
-    "contact.txt":
-      "SECURE: n0hup@proton.me\n" +
-      "GENERAL: n0hup.relay@gmail.com",
-    "readme.txt":
-      "RELAY Operating Environment\n" +
-      "A tribute to Unix and the independent Internet."
+  // RELAY Virtual Filesystem v1.4
+  const fs = {
+    type: "dir",
+    children: {
+      home: {
+        type: "dir",
+        children: {
+          n0hup: {
+            type: "dir",
+            children: {
+              "readme.txt": {
+                type: "file",
+                content:
+                  "RELAY Operating Environment\n" +
+                  "Callsign: RLY-01\n" +
+                  "Handle: n0hup\n" +
+                  "The session ends. The purpose does not."
+              },
+              "contact.txt": {
+                type: "file",
+                content:
+                  "SECURE: n0hup@proton.me\n" +
+                  "GENERAL: n0hup.relay@gmail.com"
+              },
+              about: {
+                type: "dir",
+                children: {
+                  "identity.txt": {
+                    type: "file",
+                    content:
+                      "RELAY / RLY-01\n" +
+                      "Unix. Signals. Systems. Resilience.\n" +
+                      "Independent by design."
+                  }
+                }
+              },
+              philosophy: {
+                type: "dir",
+                children: {
+                  "manifesto.txt": {
+                    type: "file",
+                    content:
+                      "THE RELAY MANIFESTO\n\n" +
+                      "Connection lost. Mission continues.\n\n" +
+                      "A relay preserves the signal.\n" +
+                      "A resilient system preserves the mission.\n\n" +
+                      "The session ends. The purpose does not."
+                  },
+                  "principles.txt": {
+                    type: "file",
+                    content:
+                      "I.   Continuity over visibility.\n" +
+                      "II.  Understanding over authority.\n" +
+                      "III. Resilience over perfection.\n" +
+                      "IV.  Precision over noise.\n" +
+                      "V.   Purpose beyond connection."
+                  }
+                }
+              },
+              notes: {
+                type: "dir",
+                children: {
+                  "unix.txt": {
+                    type: "file",
+                    content:
+                      "UNIX NOTES\n\n" +
+                      "Keep systems simple.\n" +
+                      "Understand your tools.\n" +
+                      "Prefer readable configurations.\n" +
+                      "Document what matters."
+                  },
+                  "signals.txt": {
+                    type: "file",
+                    content:
+                      "SIGNALS\n\n" +
+                      "A signal is only useful when received.\n" +
+                      "Verify the channel.\n" +
+                      "Preserve the message.\n" +
+                      "Maintain a fallback."
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   };
 
-  function print(text, className = "") {
+  const home = "/home/n0hup";
+  let cwd = home;
+  const history = [];
+  let historyPos = 0;
+  const started = Date.now();
+
+  function nodeAt(path) {
+    const parts = path.split("/").filter(Boolean);
+    let node = fs;
+
+    for (const part of parts) {
+      if (node.type !== "dir") return null;
+      node = node.children[part];
+      if (!node) return null;
+    }
+    return node;
+  }
+
+  function resolve(path = ".") {
+    let parts = path.startsWith("/")
+      ? []
+      : cwd.split("/").filter(Boolean);
+
+    const requested = path === "~"
+      ? home
+      : path.startsWith("~/")
+        ? home + path.slice(1)
+        : path;
+
+    if (requested.startsWith("/")) parts = [];
+
+    for (const item of requested.split("/")) {
+      if (!item || item === ".") continue;
+      if (item === "..") parts.pop();
+      else parts.push(item);
+    }
+
+    return "/" + parts.join("/");
+  }
+
+  function displayPath() {
+    if (cwd === home) return "~";
+    if (cwd.startsWith(home + "/"))
+      return "~" + cwd.slice(home.length);
+    return cwd;
+  }
+
+  function prompt() {
+    return "n0hup@relay:" + displayPath() + "$ ";
+  }
+
+  function print(text = "", className = "") {
     const line = document.createElement("div");
     line.className = "terminal-line " + className;
     line.textContent = text;
@@ -36,83 +156,204 @@
     output.scrollTop = output.scrollHeight;
   }
 
+  function tree(node, prefix = "", depth = 0) {
+    if (depth > 8 || node.type !== "dir") return [];
+
+    const entries = Object.entries(node.children);
+    const result = [];
+
+    entries.forEach(([name, child], index) => {
+      const last = index === entries.length - 1;
+      result.push(prefix + (last ? "└── " : "├── ") +
+        name + (child.type === "dir" ? "/" : ""));
+
+      if (child.type === "dir") {
+        result.push(...tree(
+          child,
+          prefix + (last ? "    " : "│   "),
+          depth + 1
+        ));
+      }
+    });
+
+    return result;
+  }
+
   function execute(raw) {
-    const parts = raw.trim().split(/\s+/);
-    const command = parts[0].toLowerCase();
-    const arg = parts.slice(1).join(" ");
+    const args = raw.trim().split(/\s+/);
+    const command = (args.shift() || "").toLowerCase();
+    const argument = args.join(" ");
 
     if (!command) return;
+    if (command === "clear") {
+      output.replaceChildren();
+      return;
+    }
 
-    print("n0hup@relay:~$ " + raw, "command");
+    print(prompt() + raw, "command");
 
     switch (command) {
       case "help":
         print(
-          "Available commands:\n\n" +
-          " help       Show available commands\n" +
-          " whoami     Show operator identity\n" +
-          " status     Show RELAY status\n" +
-          " uname      Show environment\n" +
-          " date       Show local time\n" +
-          " ls         List virtual files\n" +
-          " cat FILE   Read a virtual file\n" +
-          " neofetch   Display identity\n" +
-          " manifesto  Open the manifesto\n" +
-          " contact    Contact information\n" +
-          " history    Command history\n" +
-          " clear      Clear terminal"
+          "RELAY COMMAND REFERENCE\n\n" +
+          " help          Available commands\n" +
+          " pwd           Current directory\n" +
+          " ls [path]     List files\n" +
+          " ls -la        Detailed listing\n" +
+          " cd [path]     Change directory\n" +
+          " tree [path]   Directory tree\n" +
+          " cat <file>    Read file\n" +
+          " grep X FILE   Search file text\n" +
+          " whoami        Operator identity\n" +
+          " status        System status\n" +
+          " uname         Environment\n" +
+          " neofetch      ASCII identity\n" +
+          " uptime        Session uptime\n" +
+          " date          Local browser time\n" +
+          " contact       Contact information\n" +
+          " manifesto     Open manifesto.html\n" +
+          " history       Command history\n" +
+          " clear         Clear screen"
         );
         break;
 
+      case "pwd":
+        print(cwd);
+        break;
+
+      case "ls": {
+        const detailed = args.includes("-la") ||
+                         args.includes("-al") ||
+                         args.includes("-l");
+        const target = args.find(a => !a.startsWith("-")) || ".";
+        const node = nodeAt(resolve(target));
+
+        if (!node) {
+          print("ls: no such file or directory: " + target, "error");
+        } else if (node.type === "file") {
+          print(target);
+        } else {
+          const entries = Object.entries(node.children);
+          if (detailed) {
+            print("drwxr-xr-x  n0hup  .");
+            print("drwxr-xr-x  n0hup  ..");
+            for (const [name, child] of entries) {
+              const mode = child.type === "dir"
+                ? "drwxr-xr-x"
+                : "-rw-r--r--";
+              print(mode + "  n0hup  " + name);
+            }
+          } else {
+            print(entries.map(([name, child]) =>
+              name + (child.type === "dir" ? "/" : "")
+            ).join("  "));
+          }
+        }
+        break;
+      }
+
+      case "cd": {
+        const target = args[0] || "~";
+        const path = resolve(target);
+        const node = nodeAt(path);
+
+        if (!node) {
+          print("cd: no such directory: " + target, "error");
+        } else if (node.type !== "dir") {
+          print("cd: not a directory: " + target, "error");
+        } else {
+          cwd = path;
+        }
+        break;
+      }
+
+      case "tree": {
+        const target = args[0] || ".";
+        const node = nodeAt(resolve(target));
+        if (!node) {
+          print("tree: path not found: " + target, "error");
+        } else if (node.type === "file") {
+          print(target);
+        } else {
+          print(target + "\n" + tree(node).join("\n"));
+        }
+        break;
+      }
+
+      case "cat": {
+        if (!argument) {
+          print("usage: cat <file>", "error");
+          break;
+        }
+        const node = nodeAt(resolve(argument));
+        if (!node) {
+          print("cat: file not found: " + argument, "error");
+        } else if (node.type !== "file") {
+          print("cat: is a directory: " + argument, "error");
+        } else {
+          print(node.content);
+        }
+        break;
+      }
+
+      case "grep": {
+        if (args.length < 2) {
+          print("usage: grep <pattern> <file>", "error");
+          break;
+        }
+        const pattern = args[0];
+        const filename = args[1];
+        const node = nodeAt(resolve(filename));
+
+        if (!node || node.type !== "file") {
+          print("grep: invalid file: " + filename, "error");
+        } else {
+          const matches = node.content.split("\n")
+            .filter(line =>
+              line.toLowerCase().includes(pattern.toLowerCase())
+            );
+          if (matches.length) print(matches.join("\n"));
+        }
+        break;
+      }
+
       case "whoami":
         print("n0hup / RELAY / RLY-01");
-        print("Unix. Signals. Systems. Resilience.");
         break;
 
       case "status":
         print(
           "RELAY: OPERATIONAL\n" +
-          "MODE: STANDALONE\n" +
-          "ENVIRONMENT: BROWSER\n" +
-          "NETWORK STATUS: NOT MONITORED"
+          "ENVIRONMENT: BROWSER SIMULATION\n" +
+          "VIRTUAL FILESYSTEM: READY\n" +
+          "EXTERNAL CONNECTIVITY: NOT MONITORED"
         );
         break;
 
       case "uname":
-        print("RELAY Browser Shell / RLY-01");
+        print("RELAY Virtual Unix / relay-sh 1.4");
         break;
 
       case "date":
         print(new Date().toString());
         break;
 
-      case "ls":
-        print(Object.keys(files).join("  ") + "  manifesto.html");
+      case "uptime": {
+        const seconds = Math.floor((Date.now() - started) / 1000);
+        print("session uptime: " + seconds + " seconds");
         break;
-
-      case "cat":
-        if (Object.hasOwn(files, arg)) {
-          print(files[arg]);
-        } else {
-          print("cat: file not found: " + (arg || "(missing filename)"), "error");
-        }
-        break;
+      }
 
       case "neofetch":
         print(
-          "     [RLY-01]      n0hup@relay\n" +
-          "       ||          ------------\n" +
-          "    ---||---       ID: RELAY\n" +
-          "       ||          OS: Browser Shell\n" +
-          "      /  \\         Shell: relay-sh\n" +
-          "     /____\\        Mission: Continuity\n" +
-          "                    Status: Operational"
+          "       [RLY-01]       n0hup@relay\n" +
+          "         ||           -----------\n" +
+          "      ---||---        ID: RELAY\n" +
+          "         ||           Shell: relay-sh\n" +
+          "        /  \\          Version: 1.4\n" +
+          "       /____\\         Mode: Virtual\n" +
+          "                      Status: Operational"
         );
-        break;
-
-      case "manifesto":
-        print("Opening RELAY Manifesto...");
-        window.location.assign("manifesto.html");
         break;
 
       case "contact":
@@ -122,48 +363,54 @@
         );
         break;
 
-      case "history":
-        print(commands.map((c, i) => `${i + 1}  ${c}`).join("\n"));
+      case "manifesto":
+        window.location.assign("manifesto.html");
         break;
 
-      case "clear":
-        output.replaceChildren();
+      case "history":
+        print(history.map((c, i) =>
+          `${i + 1}  ${c}`
+        ).join("\n"));
         break;
 
       default:
-        print("relay-sh: command not found: " + command, "error");
+        print(
+          "relay-sh: command not found: " + command,
+          "error"
+        );
         print("Type 'help' for available commands.");
     }
-
-    output.scrollTop = output.scrollHeight;
   }
 
-  form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", event => {
     event.preventDefault();
     const value = input.value.trim();
     if (!value) return;
 
-    commands.push(value);
-    position = commands.length;
+    history.push(value);
+    historyPos = history.length;
     input.value = "";
     execute(value);
   });
 
-  input.addEventListener("keydown", (event) => {
+  input.addEventListener("keydown", event => {
     if (event.key === "ArrowUp") {
       event.preventDefault();
-      position = Math.max(0, position - 1);
-      input.value = commands[position] || "";
-    }
-
-    if (event.key === "ArrowDown") {
+      historyPos = Math.max(0, historyPos - 1);
+      input.value = history[historyPos] || "";
+    } else if (event.key === "ArrowDown") {
       event.preventDefault();
-      position = Math.min(commands.length, position + 1);
-      input.value = commands[position] || "";
+      historyPos = Math.min(history.length, historyPos + 1);
+      input.value = history[historyPos] || "";
     }
   });
 
-  print("RELAY Operating Environment / RLY-01");
-  print("Connection lost. Mission continues.");
-  print("Type 'help' to begin.");
+  print(
+    "RELAY OPERATING ENVIRONMENT\n" +
+    "RLY-01 / VIRTUAL UNIX SHELL\n" +
+    "-----------------------------------\n" +
+    "Connection lost. Mission continues.\n" +
+    "Type 'help' to begin.\n" +
+    "-----------------------------------"
+  );
 })();
