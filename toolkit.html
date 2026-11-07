@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0a110c">
+<title>AD Health Toolkit // RELAY</title>
+<meta name="description" content="RELAY AD Health Toolkit Community Edition. Read-only on-prem Active Directory observations, local HTML and CSV reports, and an isolated synthetic demo.">
+<link rel="stylesheet" href="assets/relay.css">
+<style>.release-note{border-left:3px solid #d7b66c;padding:12px 18px;background:#14180c;color:#c9cfb3}.toolkit-facts{display:flex;flex-wrap:wrap;gap:12px 24px;padding:0;list-style:none}.toolkit-facts li{border:1px solid var(--border);padding:6px 12px}.commercial code{overflow-wrap:anywhere}.commercial .eyebrow{color:#93ad98}.commercial .scope{columns:2;column-gap:36px}.scope li{break-inside:avoid;margin-bottom:6px}@media(max-width:640px){.commercial .scope{columns:1}}</style>
+</head>
+<body class="commercial">
+<a class="skip-link" href="#main">Skip to content</a>
+<nav class="site-nav" aria-label="Main navigation"><a href="index.html">HOME</a><a href="services.html">SERVICES</a><a href="tailored.html">TAILORED</a><a href="toolkit.html" aria-current="page">TOOLKIT</a><a href="manifesto.html">MANIFESTO</a><a href="notes/">NOTES</a><a href="logs/relay.log">LOG</a></nav>
+<header>
+<p class="prompt">n0hup@relay:~$ ./Invoke-RelayADHealth.ps1 -Mode Demo</p>
+<p class="eyebrow">RELAY / RLY-01 · COMMUNITY EDITION · v0.1.0</p>
+<h1>AD Health Toolkit<span class="cursor" aria-hidden="true">_</span></h1>
+<p class="motto">Read the directory. Make the evidence visible.</p>
+<p>A free PowerShell toolkit for read-only observations of on-premises Active Directory. Collect ten diagnostic areas and review the results in local HTML and CSV reports.</p>
+<ul class="toolkit-facts"><li>Read-only collection</li><li>No credential prompts</li><li>Local reports</li><li>MIT licence</li></ul>
+<div class="actions"><a class="button" href="https://codeberg.org/n0hup/relay-ad-health-toolkit/releases/download/v0.1.0/RELAY-AD-Health-Toolkit-v0.1.0-Community.zip">[ DOWNLOAD v0.1.0 ZIP ]</a><a href="ad-health-demo.html">View synthetic demo →</a><a href="https://codeberg.org/n0hup/relay-ad-health-toolkit">Source &amp; README →</a></div>
+<p class="release-note"><strong>Community preview — review before live use.</strong> Offline tests passed on macOS / PowerShell 7.6.9. Live Windows/AD validation and independent maintainer review remain pending. This is not a production certification or a complete AD security audit.</p>
+</header>
+<main id="main">
+<section aria-labelledby="coverage-heading"><h2 id="coverage-heading">01 / WHAT IT COLLECTS</h2>
+<ul class="scope"><li>Domain controller inventory</li><li>FSMO role ownership</li><li>Inbound replication metadata</li><li>DNS locator and address records</li><li>SYSVOL / NETLOGON access</li><li>Raw W32Time status</li><li>Direct privileged group membership</li><li>Inactive account candidates</li><li>Password policies</li><li>GPO inventory</li></ul>
+<p>Errors, skipped checks and incomplete results stay visible. There is no overall “healthy” score: a successful check confirms only its named observation. SYSVOL access does not prove DFSR consistency; time status needs manual interpretation; direct group membership is not a complete privilege graph.</p>
+<p><a href="https://codeberg.org/n0hup/relay-ad-health-toolkit#coverage-and-limits">Read the full coverage and limitations →</a></p></section>
+<section aria-labelledby="start-heading"><h2 id="start-heading">02 / START WITH THE OFFLINE DEMO</h2>
+<p>Download and extract the ZIP, open PowerShell in the extracted toolkit folder, then run:</p>
+<pre><code>./Invoke-RelayADHealth.ps1 -Mode Demo</code></pre>
+<p>The demo reads bundled fictional observations only. It makes no directory queries and requires no RSAT or secrets. PowerShell 7 can run the demo on Windows, macOS or Linux. Open the report path printed at the end.</p>
+<p><strong>Expected demo exit code: 2.</strong> The sample deliberately includes a simulated DNS collection error and warnings to show how incomplete evidence is reported.</p>
+<div class="actions"><a class="button" href="ad-health-demo.html">[ OPEN SYNTHETIC REPORT ]</a><a href="https://codeberg.org/n0hup/relay-ad-health-toolkit/src/tag/v0.1.0/docs/QUICKSTART-RU.md">Инструкция на русском →</a></div>
+<p>The browser report contains synthetic data only. Opening it does not run the toolkit or inspect your environment.</p></section>
+<section aria-labelledby="live-heading"><h2 id="live-heading">03 / LIVE REQUIREMENTS &amp; DATA HANDLING</h2>
+<dl class="domain-list"><dt>Runtime</dt><dd>Windows PowerShell 5.1, 64-bit. PowerShell 7 live mode is intentionally blocked in v0.1.</dd><dt>Prerequisites</dt><dd>Installed RSAT ActiveDirectory and GroupPolicy tools, approved domain connectivity and an existing Windows identity with the necessary read access.</dd><dt>Scope</dt><dd>One configured domain, plus forest role ownership and forest-root privileged groups. Explicit configuration, bounded collection and error reporting.</dd><dt>Data</dt><dd>Live reports can expose internal names, memberships and operational details. Store them privately; do not upload them to public repositories or send them through the initial enquiry form.</dd></dl>
+<p>No remediation, dependency installation, telemetry or automatic report upload. Review the source and complete lab acceptance before use in an approved environment.</p>
+<p><a href="https://codeberg.org/n0hup/relay-ad-health-toolkit/src/tag/v0.1.0/docs/REQUIREMENTS.md">Requirements</a> · <a href="https://codeberg.org/n0hup/relay-ad-health-toolkit/src/tag/v0.1.0/docs/VALIDATION.md">Validation evidence &amp; lab checks</a> · <a href="https://codeberg.org/n0hup/relay-ad-health-toolkit/src/tag/v0.1.0/SECURITY.md">Security notes</a></p></section>
+<section aria-labelledby="download-heading"><h2 id="download-heading">04 / RELEASE &amp; SOURCE</h2>
+<p>The package includes PowerShell source, JSON configuration, README, requirements, offline tests, test evidence, synthetic samples and an MIT licence. The implementation is AI-assisted and published for subsequent manual maintainer review.</p>
+<p><a href="https://codeberg.org/n0hup/relay-ad-health-toolkit/releases/tag/v0.1.0">[ RELEASE v0.1.0 ]</a><br><a href="https://codeberg.org/n0hup/relay-ad-health-toolkit/releases/download/v0.1.0/RELAY-AD-Health-Toolkit-v0.1.0-Community.zip">[ PACKAGED ZIP ]</a><br><a href="https://codeberg.org/n0hup/relay-ad-health-toolkit/releases/download/v0.1.0/RELAY-AD-Health-Toolkit-v0.1.0-Community.zip.sha256">[ ZIP SHA-256 ]</a><br><a href="https://codeberg.org/n0hup/relay-ad-health-toolkit">[ BROWSE SOURCE ON CODEBERG ]</a></p>
+<p>Use the packaged ZIP with its matching SHA-256 file for an exact download check. Automatically generated source archives may use different line endings.</p></section>
+<section aria-labelledby="tailored-heading"><h2 id="tailored-heading">05 / NEED CHECKS FOR YOUR ENVIRONMENT?</h2>
+<p>Community Edition is free to use under MIT. Tailored work can add agreed checks, reporting, integrations and evidence interpretation, with scope and support defined before work begins.</p>
+<div class="actions"><a class="button" href="tailored.html?service=Tailored%20solution#request">[ REQUEST TAILORED CHECKS ]</a><a href="services.html">Explore engineering services →</a></div>
+<p>Start with a short, non-confidential brief. Do not include credentials or a live directory report.</p></section>
+</main>
+<footer><p class="motto">Connection lost. Mission continues.</p><p>RELAY / n0hup · Engineering &amp; Digital Resilience</p><a href="index.html">[ RETURN HOME ]</a></footer>
+</body>
+</html>
