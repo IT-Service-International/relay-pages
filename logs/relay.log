@@ -1,4 +1,3 @@
-
 # RELAY OPERATOR LOG
 # NODE: RLY-01
 # HANDLE: n0hup
@@ -20,6 +19,7 @@
 2026-11-08 | DEPLOY | Engineering team page and six engineer profiles published
 2026-11-08 | CONFIG | Unified top menu across all pages except home
 2026-11-08 | CONFIG | Version 1.9 — commercial channel open
+2026-11-08 | CONFIG | Version 1.9.6 — The Engineering Team page has been enhanced, with an option to submit CVs.
 
 # STATUS: OPERATIONAL
 # EOF
