@@ -160,9 +160,57 @@ section, header, footer {
   
 </style>
   <link rel="stylesheet" href="assets/relay.css">
+<style>
+/* RELAY shared top menu (inlined from assets/relay-nav.css so the page does not depend on that file) */
+/* RELAY / n0hup — shared top menu.
+   Same look on every page of the site.
+   Loaded after the page's own stylesheet, so it wins over relay.css and inline styles. */
+html { overflow-x: hidden; }
+
+body > nav.top {
+  position: sticky; top: 0; z-index: 50;
+  box-sizing: border-box;
+  width: 100vw;
+  margin: 0 0 0 calc(50% - 50vw);   /* full width even inside a max-width body */
+  display: flex; flex-wrap: wrap; gap: .2rem 1.2rem;
+  padding: .7rem 1.25rem;
+  background: #0a110c;
+  border-bottom: 1px solid #1f3a26;
+  font: .85rem/1.65 ui-monospace, "SFMono-Regular", "JetBrains Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  letter-spacing: normal; text-align: left;
+}
+body > nav.top a {
+  margin: 0; padding: 0; font: inherit;
+  color: #7fae8a; text-decoration: none;
+}
+body > nav.top a:hover,
+body > nav.top a[aria-current="page"] { color: #4dff7a; text-decoration: none; }
+body > nav.top a:focus-visible { outline: 2px solid #4dff7a; outline-offset: 3px; }
+
+/* Pages built on relay.css (or similar inline styles) have top padding on the body element;
+   remove it so the menu sits flush with the top of the window, like operator.html. */
+body.nav-flush { padding-top: 0 !important; }
+body.nav-flush > nav.top { margin-bottom: 2rem; }
+
+@media print { body > nav.top { display: none; } }
+</style>
 </head>
 
-<body>
+<body class="nav-flush">
+<nav class="top" aria-label="Main">
+  <a href="index.html" aria-current="page">HOME</a>
+  <a href="services.html">SERVICES</a>
+  <a href="tailored.html">TAILORED</a>
+  <a href="ad-health-check.html">AD CHECK €500</a>
+  <a href="team.html">TEAM</a>
+  <a href="operator.html">OPERATOR</a>
+  <a href="engagement.html">ENGAGEMENT</a>
+  <a href="toolkit.html">TOOLKIT</a>
+  <a href="manifesto.html">MANIFESTO</a>
+  <a href="notes/">NOTES</a>
+  <a href="logs/relay.log">LOG</a>
+  <a href="https://codeberg.org/n0hup">CODEBERG</a>
+</nav>
 <header>
   <div class="prompt">n0hup@relay:~$ whoami</div>
   <img src="assets/avatar.webp"
@@ -212,19 +260,6 @@ section, header, footer {
     Browser simulation. No real shell commands are executed.
   </p>
 </section>
-
-  <nav class="site-nav">
-  <a href="index.html">HOME</a>
-  <a href="services.html">SERVICES</a>
-  <a href="tailored.html">TAILORED</a>
-  <a href="ad-health-check.html">AD CHECK €500</a>
-  <a href="team.html">TEAM</a>
-  <a href="operator.html">OPERATOR</a><a href="engagement.html">ENGAGEMENT</a>
-  <a href="toolkit.html">TOOLKIT</a><a href="manifesto.html">MANIFESTO</a>
-  <a href="notes/">NOTES</a>
-  <a href="logs/relay.log">LOG</a>   
-  <a href="https://codeberg.org/n0hup">CODEBERG</a>
-</nav>
 <section>
   <h2>ENGINEERING / WORK WITH RELAY</h2>
   <p>Microsoft infrastructure, Unix/Linux, servers, storage, networks and resilience. Scoped assessments, implementation and client-specific automation.</p>
