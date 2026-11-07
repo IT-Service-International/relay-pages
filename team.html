@@ -7,7 +7,40 @@
 <title>Engineering team // RELAY</title>
 <meta name="description" content="RELAY engineering team: fourteen engineers in Microsoft infrastructure, networks, security and industrial telecoms, about 300 years combined experience.">
 <link rel="stylesheet" href="assets/relay-sales.css">
-<link rel="stylesheet" href="assets/relay-nav.css">
+<style>
+/* RELAY shared top menu (inlined from assets/relay-nav.css so the page does not depend on that file) */
+/* RELAY / n0hup — shared top menu.
+   Same look on every page of the site.
+   Loaded after the page's own stylesheet, so it wins over relay.css and inline styles. */
+html { overflow-x: hidden; }
+
+body > nav.top {
+  position: sticky; top: 0; z-index: 50;
+  box-sizing: border-box;
+  width: 100vw;
+  margin: 0 0 0 calc(50% - 50vw);   /* full width even inside a max-width body */
+  display: flex; flex-wrap: wrap; gap: .2rem 1.2rem;
+  padding: .7rem 1.25rem;
+  background: #0a110c;
+  border-bottom: 1px solid #1f3a26;
+  font: .85rem/1.65 ui-monospace, "SFMono-Regular", "JetBrains Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  letter-spacing: normal; text-align: left;
+}
+body > nav.top a {
+  margin: 0; padding: 0; font: inherit;
+  color: #7fae8a; text-decoration: none;
+}
+body > nav.top a:hover,
+body > nav.top a[aria-current="page"] { color: #4dff7a; text-decoration: none; }
+body > nav.top a:focus-visible { outline: 2px solid #4dff7a; outline-offset: 3px; }
+
+/* Pages built on relay.css (or similar inline styles) have top padding on the body element;
+   remove it so the menu sits flush with the top of the window, like operator.html. */
+body.nav-flush { padding-top: 0 !important; }
+body.nav-flush > nav.top { margin-bottom: 2rem; }
+
+@media print { body > nav.top { display: none; } }
+</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -51,6 +84,16 @@
 <h2>Who leads which service</h2>
 <p>Lead means the engineer can own the engagement; Support means they deliver parts of it under a lead. See <a href="services.html">engineering services</a>, <a href="tailored.html">tailored solutions</a> and the fixed-price <a href="ad-health-check.html">AD Health Check</a>.</p>
 <div class="wrap"><table><thead><tr><th scope="col">Service</th><th scope="col">Lead</th><th scope="col">Support</th></tr></thead><tbody><tr><th scope="row">AD Health Check (fixed and full)</th><td><a href="team/mainframe.html">MAINFRAME</a>, <a href="team/r4dar.html">R4DAR</a>, <a href="team/ph4ntom.html">PH4NTOM</a>, <a href="team/transit.html">TRANSIT</a></td><td><a href="team/d4emon.html">D4EMON</a>, <a href="team/cr0n.html">CR0N</a>, <a href="team/w4tchdog.html">W4TCHDOG</a></td></tr><tr><th scope="row">Infrastructure Health Check</th><td><a href="team/mainframe.html">MAINFRAME</a>, <a href="team/r4dar.html">R4DAR</a>, <a href="team/ph4ntom.html">PH4NTOM</a>, <a href="team/d4emon.html">D4EMON</a>, <a href="team/pack3t.html">PACK3T</a></td><td><a href="team/transit.html">TRANSIT</a>, <a href="team/cr0n.html">CR0N</a>, <a href="team/spl1ce.html">SPL1CE</a>, <a href="team/blu3print.html">BLU3PRINT</a></td></tr><tr><th scope="row">Unix/Linux Hardening Review</th><td><a href="team/d4emon.html">D4EMON</a></td><td><a href="team/mainframe.html">MAINFRAME</a>, <a href="team/ph4ntom.html">PH4NTOM</a>, <a href="team/w4tchdog.html">W4TCHDOG</a></td></tr><tr><th scope="row">Resilience Architecture Assessment</th><td><a href="team/n0hup.html">N0HUP</a>, <a href="team/mainframe.html">MAINFRAME</a>, <a href="team/r4dar.html">R4DAR</a></td><td><a href="team/ph4ntom.html">PH4NTOM</a>, <a href="team/transit.html">TRANSIT</a>, <a href="team/d4emon.html">D4EMON</a>, <a href="team/pack3t.html">PACK3T</a>, <a href="team/w4tchdog.html">W4TCHDOG</a></td></tr><tr><th scope="row">Microsoft 365 Tenant Review</th><td><a href="team/mainframe.html">MAINFRAME</a>, <a href="team/ph4ntom.html">PH4NTOM</a>, <a href="team/w4tchdog.html">W4TCHDOG</a></td><td><a href="team/r4dar.html">R4DAR</a>, <a href="team/transit.html">TRANSIT</a>, <a href="team/cr0n.html">CR0N</a></td></tr><tr><th scope="row">Backup &amp; Recovery Readiness</th><td><a href="team/r4dar.html">R4DAR</a>, <a href="team/ph4ntom.html">PH4NTOM</a>, <a href="team/transit.html">TRANSIT</a></td><td><a href="team/mainframe.html">MAINFRAME</a>, <a href="team/d4emon.html">D4EMON</a>, <a href="team/cr0n.html">CR0N</a></td></tr><tr><th scope="row">DR Planning &amp; Exercise</th><td><a href="team/n0hup.html">N0HUP</a>, <a href="team/mainframe.html">MAINFRAME</a>, <a href="team/r4dar.html">R4DAR</a></td><td><a href="team/ph4ntom.html">PH4NTOM</a>, <a href="team/transit.html">TRANSIT</a></td></tr><tr><th scope="row">Architecture &amp; Migration</th><td><a href="team/n0hup.html">N0HUP</a>, <a href="team/mainframe.html">MAINFRAME</a>, <a href="team/ph4ntom.html">PH4NTOM</a>, <a href="team/transit.html">TRANSIT</a></td><td><a href="team/r4dar.html">R4DAR</a>, <a href="team/d4emon.html">D4EMON</a>, <a href="team/cr0n.html">CR0N</a>, <a href="team/pack3t.html">PACK3T</a></td></tr><tr><th scope="row">Implementation &amp; Hardening</th><td><a href="team/mainframe.html">MAINFRAME</a>, <a href="team/r4dar.html">R4DAR</a>, <a href="team/ph4ntom.html">PH4NTOM</a>, <a href="team/transit.html">TRANSIT</a>, <a href="team/d4emon.html">D4EMON</a>, <a href="team/cr0n.html">CR0N</a>, <a href="team/pack3t.html">PACK3T</a>, <a href="team/w4tchdog.html">W4TCHDOG</a>, <a href="team/spl1ce.html">SPL1CE</a></td><td>—</td></tr><tr><th scope="row">Ongoing Advisory</th><td><a href="team/n0hup.html">N0HUP</a>, <a href="team/mainframe.html">MAINFRAME</a></td><td><a href="team/r4dar.html">R4DAR</a>, <a href="team/ph4ntom.html">PH4NTOM</a></td></tr><tr><th scope="row">Tailored Solutions (automation)</th><td><a href="team/ph4ntom.html">PH4NTOM</a></td><td><a href="team/mainframe.html">MAINFRAME</a>, <a href="team/transit.html">TRANSIT</a>, <a href="team/d4emon.html">D4EMON</a>, <a href="team/cr0n.html">CR0N</a></td></tr><tr><th scope="row">Industrial telecoms (tailored)</th><td><a href="team/squ3lch.html">SQU3LCH</a>, <a href="team/blu3print.html">BLU3PRINT</a>, <a href="team/d1altone.html">D1ALTONE</a>, <a href="team/scanl1ne.html">SCANL1NE</a>, <a href="team/spl1ce.html">SPL1CE</a></td><td><a href="team/pack3t.html">PACK3T</a>, <a href="team/r4dar.html">R4DAR</a></td></tr></tbody></table></div>
+
+<h2 id="join">Join RELAY</h2>
+<p>We work with engineers who have run real infrastructure where downtime is expensive. If that is you, send us your CV. We keep it on file and contact you when a project needs your skills.</p>
+<ul>
+<li><strong>Who we look for:</strong> Microsoft infrastructure, virtualization and storage, networks, IT security, industrial telecoms (fibre, radio, voice, video), experience in oil and gas or other remote and high-security sites.</li>
+<li><strong>How to apply:</strong> email your CV as a PDF with the subject “CV — your role”, plus a few lines on where and how you prefer to work (on site, rotational or remote).</li>
+<li><strong>Please do not send:</strong> passport or ID numbers, copies of documents, photos or your date of birth. We ask for these only later, if a client project requires them.</li>
+</ul>
+<p><a class="btn" href="mailto:n0hup.relay@gmail.com?subject=CV%20%E2%80%94%20your%20role">[[ SEND YOUR CV ]]</a></p>
+<p class="dim">CVs are used only for recruitment and are kept for up to 12 months. See the <a href="operator.html#privacy">privacy notice</a>.</p>
 
 <p class="dim">Client names are withheld under confidentiality; former employers are described by sector and size. Certificate verification is available to clients on request.</p>
 <p><a class="btn" href="mailto:n0hup.relay@gmail.com?subject=Team%20enquiry">[[ DISCUSS YOUR PROJECT ]]</a></p>

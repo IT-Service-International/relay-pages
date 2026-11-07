@@ -7,7 +7,40 @@
 <title>Operator &amp; imprint // RELAY</title>
 <meta name="description" content="Who operates RELAY: IT Service International, Netherlands. Background, track record, how we work, and legal information.">
 <link rel="stylesheet" href="assets/relay-sales.css">
-<link rel="stylesheet" href="assets/relay-nav.css">
+<style>
+/* RELAY shared top menu (inlined from assets/relay-nav.css so the page does not depend on that file) */
+/* RELAY / n0hup — shared top menu.
+   Same look on every page of the site.
+   Loaded after the page's own stylesheet, so it wins over relay.css and inline styles. */
+html { overflow-x: hidden; }
+
+body > nav.top {
+  position: sticky; top: 0; z-index: 50;
+  box-sizing: border-box;
+  width: 100vw;
+  margin: 0 0 0 calc(50% - 50vw);   /* full width even inside a max-width body */
+  display: flex; flex-wrap: wrap; gap: .2rem 1.2rem;
+  padding: .7rem 1.25rem;
+  background: #0a110c;
+  border-bottom: 1px solid #1f3a26;
+  font: .85rem/1.65 ui-monospace, "SFMono-Regular", "JetBrains Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  letter-spacing: normal; text-align: left;
+}
+body > nav.top a {
+  margin: 0; padding: 0; font: inherit;
+  color: #7fae8a; text-decoration: none;
+}
+body > nav.top a:hover,
+body > nav.top a[aria-current="page"] { color: #4dff7a; text-decoration: none; }
+body > nav.top a:focus-visible { outline: 2px solid #4dff7a; outline-offset: 3px; }
+
+/* Pages built on relay.css (or similar inline styles) have top padding on the body element;
+   remove it so the menu sits flush with the top of the window, like operator.html. */
+body.nav-flush { padding-top: 0 !important; }
+body.nav-flush > nav.top { margin-bottom: 2rem; }
+
+@media print { body > nav.top { display: none; } }
+</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -70,8 +103,9 @@
 </table>
 </div>
 
-<h3>Privacy</h3>
+<h3 id="privacy">Privacy</h3>
 <p>This site sets no cookies, runs no analytics and stores no form data. Contact forms open a draft in your own mail app; nothing is sent until you send it. Emails you send us are used only to answer your enquiry and deliver contracted work, and are deleted when no longer needed. Contact the email above to request access to or deletion of your data. Hosting is provided by Codeberg e.V. (Germany).</p>
+<p><strong>CVs and job applications.</strong> If you send us your CV, we use it only to assess you for current and future RELAY projects, on the basis of your consent. We keep it for up to 12 months, then delete it unless you ask us to keep it longer. We share it with a client only with your prior agreement for a specific project. You can withdraw consent and ask for your CV to be deleted at any time by emailing the address above. Please do not include ID numbers, document copies, photos or your date of birth.</p>
 </main>
 
 <footer>
