@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0a110c">
+<title>RELAY Manifesto // n0hup</title>
+<style>
+:root {
+  color-scheme: dark;
+  --bg: #0a110c;
+  --fg: #a4c9a9;
+  --green: #8cf5a4;
+  --muted: #73927a;
+  --border: #274831;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font: 15px/1.85 "Courier New", monospace;
+  max-width: 800px;
+  margin: auto;
+  padding: 55px 24px;
+}
+h1 {
+  color: var(--green);
+  font-size: clamp(2.2rem, 7vw, 4rem);
+  line-height: 1.2;
+}
+h2 {
+  color: var(--green);
+  font-size: 17px;
+}
+a { color: var(--green); }
+a:hover { color: #fff; }
+header, section, footer {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 22px;
+  margin-bottom: 32px;
+}
+.prompt, blockquote { color: var(--green); }
+blockquote {
+  border-left: 2px solid var(--green);
+  padding-left: 20px;
+  margin-left: 0;
+}
+.muted { color: var(--muted); }
+nav a { margin-right: 18px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="prompt">
+    n0hup@relay:~$ cat manifesto.txt
+  </div>
+  <h1>THE RELAY MANIFESTO</h1>
+  <p class="muted">
+    RLY-01 / UNIX / SIGNALS / RESILIENCE
+  </p>
+  <nav>
+    <a href="index.html">HOME</a>
+    <a href="#principles">PRINCIPLES</a>
+    <a href="#identity">IDENTITY</a>
+  </nav>
+</header>
+
+<main>
+<section id="identity">
+  <h2>01 / BEYOND THE SESSION</h2>
+  <p>
+    In Unix, nohup allows a process to survive
+    the termination of its controlling session.
+  </p>
+  <p>
+    It does not make the process immortal.
+    It simply removes one unnecessary dependency.
+  </p>
+  <p>
+    n0hup represents this principle:
+    understand dependencies, reduce fragility,
+    and preserve continuity.
+  </p>
+</section>
+
+<section>
+  <h2>02 / THE RELAY PRINCIPLE</h2>
+  <p>
+    A relay does not need to be the source
+    of the signal or its final destination.
+  </p>
+  <p>
+    Its purpose is to maintain a connection,
+    transmit information faithfully,
+    and extend the reach of a system.
+  </p>
+  <blockquote>
+    Connection lost. Mission continues.
+  </blockquote>
+</section>
+
+<section id="principles">
+  <h2>03 / FIVE PRINCIPLES</h2>
+
+  <p><strong>I. Continuity over visibility.</strong><br>
+  The system matters more than recognition.</p>
+
+  <p><strong>II. Understanding over authority.</strong><br>
+  Real control begins with understanding.</p>
+
+  <p><strong>III. Resilience over perfection.</strong><br>
+  Failure is inevitable. Recovery is engineered.</p>
+
+  <p><strong>IV. Precision over noise.</strong><br>
+  Information has value when it is accurate
+  and delivered with purpose.</p>
+
+  <p><strong>V. Purpose beyond connection.</strong><br>
+  Losing a channel does not erase the objective.</p>
+</section>
+
+<section>
+  <h2>04 / OPERATOR DISCIPLINE</h2>
+  <p>
+    Observe before acting.<br>
+    Verify before trusting.<br>
+    Understand before changing.<br>
+    Back up before replacing.<br>
+    Document before forgetting.
+  </p>
+  <p>
+    Autonomy is not freedom from responsibility.
+    It is the ability to make sound decisions
+    within known limits.
+  </p>
+</section>
+
+<section>
+  <h2>05 / THE OLD INTERNET</h2>
+  <p>
+    The Internet was once a network of personal
+    spaces, independent machines, and communities
+    built around curiosity.
+  </p>
+  <p>
+    This site follows that tradition:
+    plain HTML, readable source, minimal dependencies,
+    and knowledge shared without unnecessary barriers.
+  </p>
+</section>
+
+<section>
+  <h2>06 / THE OPERATOR'S PLEDGE</h2>
+  <blockquote>
+    I do not need to be the loudest signal.<br>
+    I intend to be the one that gets through.
+  </blockquote>
+  <p>
+    I value competence over appearance,
+    clarity over complexity,
+    and reliability over promises.
+  </p>
+  <p>
+    When communication fails, I preserve direction.
+    When systems fail, I seek recovery.
+    When conditions change, I adapt.
+  </p>
+  <p>
+    The session ends. The purpose does not.
+  </p>
+</section>
+</main>
+
+<footer>
+  <div class="prompt">
+    n0hup@relay:~$ echo $STATUS
+  </div>
+  <p>OPERATIONAL</p>
+  <small class="muted">
+    RELAY / RLY-01 · EST. 2026
+  </small>
+  <p><a href="index.html">[ RETURN HOME ]</a></p>
+</footer>
+
+</body>
+</html>
