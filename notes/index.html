@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0a110c">
+<title>Technical Notes // RELAY</title>
+<meta name="description"
+ content="RELAY technical notes on Unix, networks and resilience.">
+<style>
+:root {
+  color-scheme: dark;
+  --bg: #0a110c;
+  --fg: #a4c9a9;
+  --green: #8cf5a4;
+  --muted: #73927a;
+  --border: #274831;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font: 15px/1.8 "Courier New", monospace;
+  max-width: 800px;
+  margin: auto;
+  padding: 48px 24px;
+}
+h1, h2 { color: var(--green); }
+h1 { font-size: clamp(2rem, 7vw, 3.5rem); }
+h2 { font-size: 1.1rem; }
+a { color: var(--green); }
+header, article, footer {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 24px;
+  margin-bottom: 30px;
+}
+.prompt { color: var(--green); }
+.muted, time { color: var(--muted); }
+nav {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+pre {
+  overflow-x: auto;
+  padding: 16px;
+  background: #050b07;
+  border: 1px solid var(--border);
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="prompt">n0hup@relay:~/notes$ ls</div>
+  <h1>TECHNICAL NOTES_</h1>
+  <p>Unix / Networks / Security / Resilience</p>
+  <nav>
+    <a href="../index.html">HOME</a>
+    <a href="../manifesto.html">MANIFESTO</a>
+    <a href="../logs/relay.log">OPERATOR LOG</a>
+  </nav>
+</header>
+
+<main>
+<article>
+  <h2>001 / THE NOHUP PRINCIPLE</h2>
+  <time datetime="2026-11-07">2026-11-07</time>
+  <p>
+    A process should not depend on an interactive
+    terminal longer than necessary.
+  </p>
+  <p>
+    In Unix, nohup arranges for a command to ignore
+    SIGHUP. It does not protect against every failure.
+  </p>
+  <pre><code>nohup ./worker.sh &gt; worker.log 2&gt;&amp;1 &amp;</code></pre>
+  <p>
+    The broader lesson: identify dependencies,
+    design for failure, and verify recovery.
+  </p>
+</article>
+
+<article>
+  <h2>002 / SIGNAL INTEGRITY</h2>
+  <time datetime="2026-11-07">2026-11-07</time>
+  <p>
+    A communication path is valuable only when
+    information arrives intact and can be trusted.
+  </p>
+  <p>
+    Monitor the channel. Verify the source.
+    Preserve message integrity.
+    Maintain an alternative route.
+  </p>
+</article>
+
+<article>
+  <h2>003 / OPERATIONAL RESILIENCE</h2>
+  <time datetime="2026-11-07">2026-11-07</time>
+  <p>
+    Reliability is engineered, not assumed.
+  </p>
+  <p>
+    Understand dependencies. Remove single
+    points of failure. Test backups. Document
+    recovery procedures. Observe the result.
+  </p>
+</article>
+</main>
+
+<footer>
+  <p class="prompt">n0hup@relay:~/notes$ _</p>
+  <p class="muted">RELAY / RLY-01 · EST. 2026</p>
+  <a href="../index.html">[ RETURN HOME ]</a>
+</footer>
+</body>
+</html>
