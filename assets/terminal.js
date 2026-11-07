@@ -262,6 +262,18 @@
     switch (command) {
 
 
+      case "services":
+        window.location.assign("services.html");
+        break;
+
+      case "tailored":
+        window.location.assign("tailored.html");
+        break;
+
+      case "request":
+        window.location.assign("tailored.html#request");
+        break;
+
       case "journal":
         readPublishedFile("/logs/relay.log");
         break;
@@ -285,6 +297,9 @@
         print(
           "RELAY COMMAND REFERENCE\n\n" +
           " help          Available commands\n" +
+          " services      Open engineering services\n" +
+          " tailored      Open tailored solutions\n" +
+          " request       Prepare a project request\n" +
           " pwd           Current directory\n" +
           " ls [path]     List files\n" +
           " ls -la        Detailed listing\n" +

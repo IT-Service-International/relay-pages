@@ -82,3 +82,49 @@ pre {
   box-shadow: 0 0 20px rgba(140,245,164,.25);
   margin: 24px 0;
 }
+
+/* Commercial pages: the same phosphor palette, with readable form controls. */
+.commercial { max-width: 1040px; }
+.commercial h1 { max-width: 850px; letter-spacing: -1px; }
+.commercial h3 { color: var(--green); font-size: 1.12rem; line-height: 1.5; }
+.commercial .eyebrow { color: var(--muted); font-size: .8rem; letter-spacing: .1em; }
+.commercial header { padding-top: 20px; }
+.commercial .site-nav { font-size: .85rem; border-bottom: 1px solid var(--border); padding-bottom: 20px; }
+.commercial [aria-current="page"] { color: #fff; text-decoration-thickness: 2px; text-underline-offset: 6px; }
+.commercial .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin: 24px 0; }
+.commercial .button, .commercial button { display: inline-block; border: 1px solid var(--green); padding: 10px 16px; background: #102319; color: var(--green); font: inherit; cursor: pointer; text-decoration: none; }
+.commercial .button:hover, .commercial button:hover { background: #1b3725; color: #fff; }
+.commercial :focus-visible { outline: 2px solid var(--green); outline-offset: 4px; }
+.commercial .domain-list { display: grid; grid-template-columns: 230px 1fr; gap: 14px 24px; }
+.commercial dt { color: var(--green); font-weight: bold; }
+.commercial dd { margin: 0; }
+.commercial .packages { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.commercial .package { margin: 0; padding: 24px; border: 1px solid var(--border); background: #080f0a; }
+.commercial .package:last-child { grid-column: 1 / -1; }
+.commercial .package dd { margin: 0 0 12px; }
+.commercial .engagements { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.commercial .engagements article { margin-bottom: 0; }
+.commercial .workflow { padding-left: 28px; }
+.commercial .workflow li { padding-left: 12px; margin-bottom: 24px; }
+.commercial .workflow li::marker { color: var(--green); }
+.commercial .workflow h3 { margin-bottom: 4px; }
+.commercial .workflow p { margin-top: 0; }
+.commercial label { display: block; margin: 0 0 18px; }
+.commercial input, .commercial select, .commercial textarea { display: block; width: 100%; min-width: 0; border: 1px solid #52785b; border-radius: 0; background: #050b07; color: var(--fg); padding: 12px; font: inherit; margin-top: 7px; }
+.commercial textarea { resize: vertical; }
+.commercial input::placeholder, .commercial textarea::placeholder { color: #88a58d; opacity: 1; }
+.commercial .field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px; }
+.commercial #request { scroll-margin-top: 20px; }
+.commercial #request-draft { padding: 20px; border: 1px solid var(--border); }
+.commercial .skip-link { position: absolute; left: -10000px; }
+.commercial .skip-link:focus { position: static; }
+.commercial [hidden] { display: none !important; }
+@media (max-width: 640px) {
+  .commercial { padding: 24px 18px; }
+  .commercial .domain-list, .commercial .packages, .commercial .engagements, .commercial .field-grid { grid-template-columns: 1fr; }
+  .commercial .domain-list { gap: 4px; }
+  .commercial .domain-list dd { margin-bottom: 18px; }
+  .commercial .package { padding: 18px; }
+  .commercial .site-nav { gap: 12px 18px; }
+  .commercial .actions > * { max-width: 100%; }
+}
