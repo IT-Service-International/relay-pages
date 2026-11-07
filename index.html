@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0a110c">
+<title>RELAY // n0hup</title>
+<meta name="description"
+ content="RELAY / n0hup. Unix, networks, resilience and independent systems.">
+
+<style>
+:root {
+  color-scheme: dark;
+  --bg: #0a110c;
+  --fg: #a4c9a9;
+  --green: #8cf5a4;
+  --muted: #73927a;
+  --border: #274831;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font: 15px/1.8 "Courier New", monospace;
+  max-width: 800px;
+  margin: auto;
+  padding: 55px 24px;
+}
+h1 {
+  color: var(--green);
+  font-size: clamp(3rem, 10vw, 5rem);
+  letter-spacing: 4px;
+  line-height: 1.2;
+  margin: 15px 0;
+}
+h2 {
+  color: var(--green);
+  font-size: 17px;
+  margin-top: 0;
+}
+a { color: var(--green); }
+a:hover { color: white; }
+section, header, footer {
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 34px;
+  padding-bottom: 25px;
+}
+.prompt, .motto { color: var(--green); }
+.muted { color: var(--muted); }
+.cursor {
+  animation: blink 1s steps(1) infinite;
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cursor { animation: none; }
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="prompt">n0hup@relay:~$ whoami</div>
+  <h1>RELAY<span class="cursor">_</span></h1>
+  <p class="motto">
+    Connection lost. Mission continues.
+  </p>
+  <p class="muted">
+    HANDLE&nbsp; : n0hup<br>
+    CALLSIGN : RLY-01<br>
+    SYSTEM&nbsp; : UNIX / SIGNALS / NETWORKS<br>
+    STATUS&nbsp; : OPERATIONAL
+  </p>
+</header>
+
+<main>
+<section>
+  <h2>01 / IDENTITY</h2>
+  <p>
+    A digital identity rooted in the Unix tradition,
+    early Internet culture, and independent systems.
+  </p>
+  <p>
+    n0hup represents persistence beyond a session.
+    RELAY represents continuity beyond a connection.
+  </p>
+</section>
+
+<section>
+  <h2>02 / PHILOSOPHY</h2>
+  <p>The session ends. The purpose does not.</p>
+  <p>
+    Reliability is not the absence of failure.
+    It is the ability to adapt, recover, and continue.
+  </p>
+  <p>
+    Continuity over visibility.<br>
+    Understanding over authority.<br>
+    Resilience over perfection.<br>
+    Precision over noise.<br>
+    Purpose beyond connection.
+  </p>
+</section>
+
+<section>
+  <h2>03 / INTERESTS</h2>
+  <p>
+    UNIX &amp; LINUX SYSTEMS<br>
+    NETWORK ENGINEERING<br>
+    COMMUNICATIONS &amp; SIGNALS<br>
+    SECURITY &amp; PRIVACY<br>
+    DISTRIBUTED INFRASTRUCTURE<br>
+    AUTOMATION &amp; RESILIENCE
+  </p>
+</section>
+
+<section>
+  <h2>04 / CONTACT</h2>
+  <p>
+    SECURE MAIL:
+    <a href="mailto:n0hup@proton.me">
+      n0hup@proton.me
+    </a>
+  </p>
+  <p>
+    GENERAL:
+    <a href="mailto:n0hup.relay@gmail.com">
+      n0hup.relay@gmail.com
+    </a>
+  </p>
+  <p>
+    SOURCE:
+    <a href="https://codeberg.org/n0hup">
+      codeberg.org/n0hup
+    </a>
+  </p>
+</section>
+</main>
+
+<footer>
+  <div class="prompt">
+    n0hup@relay:~$ echo $STATUS
+  </div>
+  <p>OPERATIONAL</p>
+  <small class="muted">
+    RELAY / RLY-01 · EST. 2026<br>
+    Signal fades. Purpose remains.
+  </small>
+</footer>
+</body>
+</html>
