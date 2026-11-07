@@ -209,6 +209,42 @@
     }
   }
 
+  // RELAY v1.7 — Published notes index
+
+  async function listPublishedNotes() {
+    try {
+      const response = await fetch("/notes/index.json", {
+        cache: "no-store"
+      });
+
+      if (!response.ok) {
+        throw new Error("HTTP " + response.status);
+      }
+
+      const data = await response.json();
+
+      if (!Array.isArray(data.notes)) {
+        throw new Error("Invalid notes index");
+      }
+
+      const names = data.notes
+        .filter(item =>
+          typeof item.name === "string" &&
+          /^[a-z0-9_-]+\.txt$/i.test(item.name)
+        )
+        .map(item => item.name);
+
+      print(names.join("  ") || "[NO NOTES]");
+
+    } catch (error) {
+      print(
+        "relay-sh: notes index unavailable: " +
+        error.message,
+        "error"
+      );
+    }
+  }
+
   
   function execute(raw) {
     const args = raw.trim().split(/\s+/);
@@ -236,6 +272,14 @@
         break;
 
 
+      case "motd":
+        readPublishedFile("/system/motd.txt");
+        break;
+
+      case "version":
+        readPublishedFile("/system/version.txt");
+        break;
+
         
       case "help":
         print(
@@ -259,6 +303,10 @@
           " history       Command history\n" +
           " journal       Read live operator log\n" +
           " notes         Open technical notes\n" +
+          " ls notes      List published notes\n" +
+          " cat notes/X   Read published note\n" +
+          " motd          Read message of the day\n" +
+          " version       Show RELAY version\n" +
           " clear         Clear screen"
         );
         break;
@@ -270,6 +318,15 @@
         break;
 
       case "ls": {
+        
+        if (
+          args.length === 1 &&
+          (args[0] === "notes" || args[0] === "notes/")
+        ) {
+          listPublishedNotes();
+          break;
+        }
+
         const detailed = args.includes("-la") ||
                          args.includes("-al") ||
                          args.includes("-l");
@@ -329,6 +386,29 @@
       }
 
       case "cat": {
+
+        
+        if (
+          argument === "notes/unix.txt" ||
+          argument === "notes/signals.txt" ||
+          argument === "/notes/unix.txt" ||
+          argument === "/notes/signals.txt"
+        ) {
+          const filename = argument.split("/").pop();
+          readPublishedFile("/notes/" + filename);
+          break;
+        }
+
+        if (
+          argument === "system/motd.txt" ||
+          argument === "/system/motd.txt" ||
+          argument === "system/version.txt" ||
+          argument === "/system/version.txt"
+        ) {
+          const filename = argument.split("/").pop();
+          readPublishedFile("/system/" + filename);
+          break;
+        }
 
 
         if (
