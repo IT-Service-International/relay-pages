@@ -74,6 +74,89 @@ section, header, footer {
   padding-bottom: 20px;
   border-bottom: 1px solid var(--border);
 }
+
+  
+/* RELAY INTERACTIVE TERMINAL */
+
+.terminal-window {
+  background: #050b07;
+  border: 1px solid #315d3b;
+  border-radius: 8px;
+  box-shadow: 0 0 22px rgba(55, 170, 80, 0.12);
+  padding: 16px;
+  margin: 28px 0 40px;
+}
+
+.terminal-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: #8cf5a4;
+  font-size: 12px;
+  border-bottom: 1px solid #274831;
+  padding-bottom: 12px;
+  margin-bottom: 14px;
+}
+
+.terminal-output {
+  height: 280px;
+  overflow-y: auto;
+  overflow-wrap: anywhere;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.terminal-line {
+  white-space: pre-wrap;
+  color: #a4c9a9;
+  margin-bottom: 8px;
+}
+
+.terminal-line.command {
+  color: #8cf5a4;
+}
+
+.terminal-line.error {
+  color: #e69b83;
+}
+
+.terminal-form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.terminal-form label {
+  color: #8cf5a4;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.terminal-form input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #a4c9a9;
+  font: inherit;
+  font-size: 13px;
+  caret-color: #8cf5a4;
+}
+
+.terminal-form:focus-within {
+  outline: 1px solid #315d3b;
+  outline-offset: 5px;
+}
+
+.terminal-hint {
+  color: #73927a;
+  font-size: 11px;
+  margin: 14px 0 0;
+}
+
+  
 </style>
 </head>
 
@@ -98,6 +181,36 @@ section, header, footer {
 </header>
 
 <main>
+  
+<section class="terminal-window" aria-label="Interactive Unix terminal">
+  <div class="terminal-header">
+    <span>RELAY TERMINAL / tty0</span>
+    <span>RLY-01</span>
+  </div>
+
+  <div id="terminal-output"
+       class="terminal-output"
+       role="log"
+       aria-live="polite"
+       aria-relevant="additions text">
+  </div>
+
+  <form id="terminal-form" class="terminal-form">
+    <label for="terminal-input">n0hup@relay:~$</label>
+    <input
+      type="text"
+      id="terminal-input"
+      aria-label="Terminal command"
+      autocomplete="off"
+      autocapitalize="off"
+      spellcheck="false">
+  </form>
+
+  <p class="terminal-hint">
+    Browser simulation. No real shell commands are executed.
+  </p>
+</section>
+
   <nav class="site-nav">
   <a href="index.html">HOME</a>
   <a href="manifesto.html">MANIFESTO</a>
@@ -176,5 +289,6 @@ section, header, footer {
     Signal fades. Purpose remains.
   </small>
 </footer>
+  <script src="assets/terminal.js" defer></script>
 </body>
 </html>
