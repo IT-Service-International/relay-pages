@@ -4,5 +4,5 @@ Codename: GIT-BACKED ARCHIVE
 Node: RLY-01
 Platform: Codeberg Pages
 Shell: relay-sh
-Mode: Browser Simulation (js)
+Mode: Browser Simulation
 Status: OPERATIONAL
