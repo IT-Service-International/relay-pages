@@ -5,6 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0a110c">
 <title>Technical Notes // RELAY</title>
+<link rel="canonical" href="https://n0hup.nl/notes/">
+<meta property="og:site_name" content="RELAY">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Technical Notes // RELAY">
+<meta property="og:description" content="RELAY technical notes on Unix, networks and resilience.">
+<meta property="og:url" content="https://n0hup.nl/notes/">
+<meta property="og:image" content="https://n0hup.nl/assets/og-relay.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="RELAY_ — Connection lost. Mission continues.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Technical Notes // RELAY">
+<meta name="twitter:description" content="RELAY technical notes on Unix, networks and resilience.">
+<meta name="twitter:image" content="https://n0hup.nl/assets/og-relay.png">
 <meta name="description"
  content="RELAY technical notes on Unix, networks and resilience.">
 <style>
@@ -71,7 +85,7 @@ pre {
 <style>
 /* RELAY shared top menu (inlined from assets/relay-nav.css so the page does not depend on that file) */
 /* RELAY / n0hup — shared top menu.
-   Same look on every page except the homepage (index.html keeps its own menu).
+   Same look on every page of the site.
    Loaded after the page's own stylesheet, so it wins over relay.css and inline styles. */
 html { overflow-x: hidden; }
 
@@ -95,7 +109,7 @@ body > nav.top a:hover,
 body > nav.top a[aria-current="page"] { color: #4dff7a; text-decoration: none; }
 body > nav.top a:focus-visible { outline: 2px solid #4dff7a; outline-offset: 3px; }
 
-/* Pages built on relay.css (or similar inline styles) have top padding on <body>;
+/* Pages built on relay.css (or similar inline styles) have top padding on the body element;
    remove it so the menu sits flush with the top of the window, like operator.html. */
 body.nav-flush { padding-top: 0 !important; }
 body.nav-flush > nav.top { margin-bottom: 2rem; }

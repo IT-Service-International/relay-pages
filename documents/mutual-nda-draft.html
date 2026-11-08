@@ -1,5 +1,54 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0a110c"><title>Mutual NDA // RELAY</title><link rel="stylesheet" href="../assets/relay-sales.css"><style>main{overflow-wrap:anywhere}@media print{nav,footer,.skip,.download{display:none}body{background:white;color:black;font:11pt/1.5 Georgia,serif}main{max-width:none;padding:0}h1,h2,h3,a,.dim,.note{color:black}h2{break-after:avoid}.note{background:white}}</style><link rel="stylesheet" href="../assets/relay-nav.css">
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0a110c"><title>Mutual NDA // RELAY</title>
+<meta name="description" content="Mutual NDA review draft from RELAY / IT Service International, for confidential discussions before an engagement.">
+<link rel="canonical" href="https://n0hup.nl/documents/mutual-nda-draft.html">
+<meta property="og:site_name" content="RELAY">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mutual NDA // RELAY">
+<meta property="og:description" content="Mutual NDA review draft from RELAY / IT Service International, for confidential discussions before an engagement.">
+<meta property="og:url" content="https://n0hup.nl/documents/mutual-nda-draft.html">
+<meta property="og:image" content="https://n0hup.nl/assets/og-relay.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="RELAY_ — Connection lost. Mission continues.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mutual NDA // RELAY">
+<meta name="twitter:description" content="Mutual NDA review draft from RELAY / IT Service International, for confidential discussions before an engagement.">
+<meta name="twitter:image" content="https://n0hup.nl/assets/og-relay.png">
+<link rel="stylesheet" href="../assets/relay-sales.css"><style>main{overflow-wrap:anywhere}@media print{nav,footer,.skip,.download{display:none}body{background:white;color:black;font:11pt/1.5 Georgia,serif}main{max-width:none;padding:0}h1,h2,h3,a,.dim,.note{color:black}h2{break-after:avoid}.note{background:white}}</style><style>
+/* RELAY shared top menu (inlined from assets/relay-nav.css so the page does not depend on that file) */
+/* RELAY / n0hup — shared top menu.
+   Same look on every page of the site.
+   Loaded after the page's own stylesheet, so it wins over relay.css and inline styles. */
+html { overflow-x: hidden; }
+
+body > nav.top {
+  position: sticky; top: 0; z-index: 50;
+  box-sizing: border-box;
+  width: 100vw;
+  margin: 0 0 0 calc(50% - 50vw);   /* full width even inside a max-width body */
+  display: flex; flex-wrap: wrap; gap: .2rem 1.2rem;
+  padding: .7rem 1.25rem;
+  background: #0a110c;
+  border-bottom: 1px solid #1f3a26;
+  font: .85rem/1.65 ui-monospace, "SFMono-Regular", "JetBrains Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  letter-spacing: normal; text-align: left;
+}
+body > nav.top a {
+  margin: 0; padding: 0; font: inherit;
+  color: #7fae8a; text-decoration: none;
+}
+body > nav.top a:hover,
+body > nav.top a[aria-current="page"] { color: #4dff7a; text-decoration: none; }
+body > nav.top a:focus-visible { outline: 2px solid #4dff7a; outline-offset: 3px; }
+
+/* Pages built on relay.css (or similar inline styles) have top padding on the body element;
+   remove it so the menu sits flush with the top of the window, like operator.html. */
+body.nav-flush { padding-top: 0 !important; }
+body.nav-flush > nav.top { margin-bottom: 2rem; }
+
+@media print { body > nav.top { display: none; } }
+</style>
 </head><body><a class="skip" href="#main">Skip to content</a>
 <nav class="top" aria-label="Main">
   <a href="../index.html">HOME</a>
@@ -18,7 +67,7 @@
 <p>Version 0.1 • 7 November 2026 • Business-to-business discussions</p>
 <p>DRAFT FOR DISCUSSION — NOT AN EXECUTED AGREEMENT. Complete all bracketed fields, confirm legal identities and authority, and obtain legal review before signature. Durations and dispute provisions are proposals for negotiation. Downloading this sample does not create confidentiality obligations by itself.</p>
 <h2>1. Parties, effective date and purpose</h2>
-<p>Party A: IT Service International, trading as RELAY / n0hup, Tomasso Albinonistraat 94, 1083HM Amsterdam, the Netherlands; KvK 72316185; VAT NL422256031B01; email n0hup.relay@gmail.com; secure contact n0hup@proton.me.<br>Legal form and full legal contracting identity: [confirm; identify the proprietor if applicable]. Authorised signatory: [name and capacity].<br>Party B: [full legal name, legal form, registered address, registration number, contact email and authorised signatory].<br>Effective date: [complete].<br>Purpose: evaluating, negotiating and, if separately agreed, performing [specific infrastructure assessment, engineering project or other described engagement]. Each party may disclose and receive information; the obligations apply equally in each direction. No unrelated use is permitted.</p>
+<p>Party A: IT Service International, trading as RELAY / n0hup, Tomasso Albinonistraat 94, 1083HM Amsterdam, the Netherlands; KvK 72316185; VAT NL422256031B01; email engage@n0hup.nl.<br>Legal form and full legal contracting identity: [confirm; identify the proprietor if applicable]. Authorised signatory: [name and capacity].<br>Party B: [full legal name, legal form, registered address, registration number, contact email and authorised signatory].<br>Effective date: [complete].<br>Purpose: evaluating, negotiating and, if separately agreed, performing [specific infrastructure assessment, engineering project or other described engagement]. Each party may disclose and receive information; the obligations apply equally in each direction. No unrelated use is permitted.</p>
 <h2>2. Confidential Information</h2>
 <p>Confidential Information is non-public information disclosed for the Purpose in any form which is marked confidential or which a reasonable recipient would understand to be confidential given its nature or context. This includes system architecture, security findings, configuration, source code, access information, commercial terms, client or employee information, reports, extracts and notes derived from it. The existence and substance of discussions and the parties’ involvement in the proposed project are also confidential unless agreed otherwise.<br>Oral or visual disclosures need not be marked where their confidentiality is apparent; the discloser should confirm material points in writing where practical. This Agreement covers disclosures from the effective date. Any earlier disclosures covered must be identified here: [dates and description, or “none”].</p>
 <h2>3. Exclusions</h2>

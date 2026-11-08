@@ -6,13 +6,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0a110c">
 <title>Engineering Services // RELAY</title>
+<link rel="canonical" href="https://n0hup.nl/services.html">
+<meta property="og:site_name" content="RELAY">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Engineering Services // RELAY">
+<meta property="og:description" content="Microsoft, Unix/Linux, servers, storage, networks and resilience. Scoped engineering engagements from assessment to handover.">
+<meta property="og:url" content="https://n0hup.nl/services.html">
+<meta property="og:image" content="https://n0hup.nl/assets/og-relay.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="RELAY_ — Connection lost. Mission continues.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Engineering Services // RELAY">
+<meta name="twitter:description" content="Microsoft, Unix/Linux, servers, storage, networks and resilience. Scoped engineering engagements from assessment to handover.">
+<meta name="twitter:image" content="https://n0hup.nl/assets/og-relay.png">
 <meta name="description" content="Microsoft, Unix/Linux, servers, storage, networks and resilience. Scoped engineering engagements from assessment to handover.">
 <link rel="stylesheet" href="assets/relay.css">
 <script src="assets/contact.js" defer></script>
 <style>
 /* RELAY shared top menu (inlined from assets/relay-nav.css so the page does not depend on that file) */
 /* RELAY / n0hup — shared top menu.
-   Same look on every page except the homepage (index.html keeps its own menu).
+   Same look on every page of the site.
    Loaded after the page's own stylesheet, so it wins over relay.css and inline styles. */
 html { overflow-x: hidden; }
 
@@ -36,7 +50,7 @@ body > nav.top a:hover,
 body > nav.top a[aria-current="page"] { color: #4dff7a; text-decoration: none; }
 body > nav.top a:focus-visible { outline: 2px solid #4dff7a; outline-offset: 3px; }
 
-/* Pages built on relay.css (or similar inline styles) have top padding on <body>;
+/* Pages built on relay.css (or similar inline styles) have top padding on the body element;
    remove it so the menu sits flush with the top of the window, like operator.html. */
 body.nav-flush { padding-top: 0 !important; }
 body.nav-flush > nav.top { margin-bottom: 2rem; }
@@ -159,7 +173,7 @@ body.nav-flush > nav.top { margin-bottom: 2rem; }
 <section id="request" aria-labelledby="request-heading">
 <h2 id="request-heading">05 / START A CONVERSATION</h2>
 <p>Describe the outcome you need. We will clarify scope, dependencies and deliverables before proposing the work.</p>
-<p>Email: <a href="mailto:n0hup.relay@gmail.com">n0hup.relay@gmail.com</a></p>
+<p>Email: <a href="mailto:engage@n0hup.nl">engage@n0hup.nl</a></p>
 <p id="request-note" class="muted">This page prepares an email draft in your mail app. Nothing is sent until you send it there. No request data is stored by this page. Keep passwords, access tokens and confidential system details out of the initial message.</p>
 <noscript><p>To request a proposal, email the address above with your name, service, environment, desired outcome and timing. The form requires JavaScript.</p></noscript>
 <form id="request-form" aria-describedby="request-note" hidden>
@@ -188,9 +202,9 @@ body.nav-flush > nav.top { margin-bottom: 2rem; }
 </form>
 <div id="request-draft" hidden>
 <h3>Your request draft</h3>
-<p>Review the text, then open your mail app. If it does not open, copy the draft and email it to <a href="mailto:n0hup.relay@gmail.com">n0hup.relay@gmail.com</a>.</p>
+<p>Review the text, then open your mail app. If it does not open, copy the draft and email it to <a href="mailto:engage@n0hup.nl">engage@n0hup.nl</a>.</p>
 <label>Draft text<textarea id="draft-text" rows="10" readonly></textarea></label>
-<div class="actions"><a class="button" id="draft-mail" href="mailto:n0hup.relay@gmail.com">[ OPEN MAIL APP ]</a><button id="copy-draft" type="button">[ COPY DRAFT ]</button></div>
+<div class="actions"><a class="button" id="draft-mail" href="mailto:engage@n0hup.nl">[ OPEN MAIL APP ]</a><button id="copy-draft" type="button">[ COPY DRAFT ]</button></div>
 <p id="draft-status" role="status" aria-live="polite"></p>
 </div>
 </section>

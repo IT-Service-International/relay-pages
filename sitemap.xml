@@ -1,6 +1,30 @@
-<![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://n0hup.nl/</loc>
-  </url>
-</urlset>]]>
+  <url><loc>https://n0hup.nl/</loc><lastmod>2026-11-08</lastmod><priority>1.0</priority></url>
+  <url><loc>https://n0hup.nl/ad-health-check.html</loc><lastmod>2026-11-08</lastmod><priority>0.9</priority></url>
+  <url><loc>https://n0hup.nl/services.html</loc><lastmod>2026-11-08</lastmod><priority>0.9</priority></url>
+  <url><loc>https://n0hup.nl/tailored.html</loc><lastmod>2026-11-08</lastmod><priority>0.9</priority></url>
+  <url><loc>https://n0hup.nl/team.html</loc><lastmod>2026-11-08</lastmod><priority>0.9</priority></url>
+  <url><loc>https://n0hup.nl/ad-health-demo.html</loc><lastmod>2026-11-08</lastmod><priority>0.7</priority></url>
+  <url><loc>https://n0hup.nl/engagement.html</loc><lastmod>2026-11-08</lastmod><priority>0.7</priority></url>
+  <url><loc>https://n0hup.nl/manifesto.html</loc><lastmod>2026-11-08</lastmod><priority>0.7</priority></url>
+  <url><loc>https://n0hup.nl/notes/</loc><lastmod>2026-11-08</lastmod><priority>0.7</priority></url>
+  <url><loc>https://n0hup.nl/operator.html</loc><lastmod>2026-11-08</lastmod><priority>0.7</priority></url>
+  <url><loc>https://n0hup.nl/toolkit.html</loc><lastmod>2026-11-08</lastmod><priority>0.7</priority></url>
+  <url><loc>https://n0hup.nl/documents/mutual-nda-draft.html</loc><lastmod>2026-11-08</lastmod><priority>0.4</priority></url>
+  <url><loc>https://n0hup.nl/documents/services-agreement-draft.html</loc><lastmod>2026-11-08</lastmod><priority>0.4</priority></url>
+  <url><loc>https://n0hup.nl/team/blu3print.html</loc><lastmod>2026-11-08</lastmod><priority>0.4</priority></url>
+  <url><loc>https://n0hup.nl/team/cr0n.html</loc><lastmod>2026-11-08</lastmod><priority>0.4</priority></url>
+  <url><loc>https://n0hup.nl/team/d1altone.html</loc><lastmod>2026-11-08</lastmod><priority>0.4</priority></url>
+  <url><loc>https://n0hup.nl/team/d4emon.html</loc><lastmod>2026-11-08</lastmod><priority>0.4</priority></url>
+  <url><loc>https://n0hup.nl/team/mainframe.html</loc><lastmod>2026-11-08</lastmod><priority>0.4</priority></url>
+  <url><loc>https://n0hup.nl/team/n0hup.html</loc><lastmod>2026-11-08</lastmod><priority>0.4</priority></url>
+  <url><loc>https://n0hup.nl/team/pack3t.html</loc><lastmod>2026-11-08</lastmod><priority>0.4</priority></url>
+  <url><loc>https://n0hup.nl/team/ph4ntom.html</loc><lastmod>2026-11-08</lastmod><priority>0.4</priority></url>
+  <url><loc>https://n0hup.nl/team/r4dar.html</loc><lastmod>2026-11-08</lastmod><priority>0.4</priority></url>
+  <url><loc>https://n0hup.nl/team/scanl1ne.html</loc><lastmod>2026-11-08</lastmod><priority>0.4</priority></url>
+  <url><loc>https://n0hup.nl/team/spl1ce.html</loc><lastmod>2026-11-08</lastmod><priority>0.4</priority></url>
+  <url><loc>https://n0hup.nl/team/squ3lch.html</loc><lastmod>2026-11-08</lastmod><priority>0.4</priority></url>
+  <url><loc>https://n0hup.nl/team/transit.html</loc><lastmod>2026-11-08</lastmod><priority>0.4</priority></url>
+  <url><loc>https://n0hup.nl/team/w4tchdog.html</loc><lastmod>2026-11-08</lastmod><priority>0.4</priority></url>
+</urlset>

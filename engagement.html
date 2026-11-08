@@ -1,5 +1,54 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0a110c"><title>Engagement // RELAY</title><link rel="stylesheet" href="assets/relay-sales.css"><style>main{overflow-wrap:anywhere}@media print{nav,footer,.skip,.download{display:none}body{background:white;color:black;font:11pt/1.5 Georgia,serif}main{max-width:none;padding:0}h1,h2,h3,a,.dim,.note{color:black}h2{break-after:avoid}.note{background:white}}</style><link rel="stylesheet" href="assets/relay-nav.css">
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0a110c"><title>Engagement // RELAY</title>
+<meta name="description" content="How RELAY engagements work: clear scope, deliverables, terms and draft agreements before the first command.">
+<link rel="canonical" href="https://n0hup.nl/engagement.html">
+<meta property="og:site_name" content="RELAY">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Engagement // RELAY">
+<meta property="og:description" content="How RELAY engagements work: clear scope, deliverables, terms and draft agreements before the first command.">
+<meta property="og:url" content="https://n0hup.nl/engagement.html">
+<meta property="og:image" content="https://n0hup.nl/assets/og-relay.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="RELAY_ — Connection lost. Mission continues.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Engagement // RELAY">
+<meta name="twitter:description" content="How RELAY engagements work: clear scope, deliverables, terms and draft agreements before the first command.">
+<meta name="twitter:image" content="https://n0hup.nl/assets/og-relay.png">
+<link rel="stylesheet" href="assets/relay-sales.css"><style>main{overflow-wrap:anywhere}@media print{nav,footer,.skip,.download{display:none}body{background:white;color:black;font:11pt/1.5 Georgia,serif}main{max-width:none;padding:0}h1,h2,h3,a,.dim,.note{color:black}h2{break-after:avoid}.note{background:white}}</style><style>
+/* RELAY shared top menu (inlined from assets/relay-nav.css so the page does not depend on that file) */
+/* RELAY / n0hup — shared top menu.
+   Same look on every page of the site.
+   Loaded after the page's own stylesheet, so it wins over relay.css and inline styles. */
+html { overflow-x: hidden; }
+
+body > nav.top {
+  position: sticky; top: 0; z-index: 50;
+  box-sizing: border-box;
+  width: 100vw;
+  margin: 0 0 0 calc(50% - 50vw);   /* full width even inside a max-width body */
+  display: flex; flex-wrap: wrap; gap: .2rem 1.2rem;
+  padding: .7rem 1.25rem;
+  background: #0a110c;
+  border-bottom: 1px solid #1f3a26;
+  font: .85rem/1.65 ui-monospace, "SFMono-Regular", "JetBrains Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  letter-spacing: normal; text-align: left;
+}
+body > nav.top a {
+  margin: 0; padding: 0; font: inherit;
+  color: #7fae8a; text-decoration: none;
+}
+body > nav.top a:hover,
+body > nav.top a[aria-current="page"] { color: #4dff7a; text-decoration: none; }
+body > nav.top a:focus-visible { outline: 2px solid #4dff7a; outline-offset: 3px; }
+
+/* Pages built on relay.css (or similar inline styles) have top padding on the body element;
+   remove it so the menu sits flush with the top of the window, like operator.html. */
+body.nav-flush { padding-top: 0 !important; }
+body.nav-flush > nav.top { margin-bottom: 2rem; }
+
+@media print { body > nav.top { display: none; } }
+</style>
 </head><body><a class="skip" href="#main">Skip to content</a>
 <nav class="top" aria-label="Main">
   <a href="index.html">HOME</a>
@@ -18,4 +67,4 @@
 <h2>01 / Start with a brief</h2><ol class="steps"><li><strong>Describe the task.</strong> Send your objective, environment size and preferred timing. Keep the first message free of credentials and sensitive exports.</li><li><strong>Protect the discussion.</strong> If confidential details are needed, agree and sign a mutual NDA first.</li><li><strong>Agree the work.</strong> Confirm deliverables, exclusions, fees, dates and acceptance criteria in a Services Agreement and Statement of Work.</li><li><strong>Prepare access and data handling.</strong> Agree secure transfer, authorised access and any required data processing agreement before sharing personal data.</li><li><strong>Deliver and review.</strong> Work to the agreed scope, document findings and complete the agreed handover.</li></ol>
 <h2>02 / Review the documents</h2><div class="grid"><section class="box"><h3>Services Agreement</h3><p>Scope, responsibilities, payment, acceptance, intellectual property, confidentiality and handover. Includes a Statement of Work template and an AD Health Check example.</p><a class="btn" href="documents/services-agreement-draft.html">[[ READ DRAFT ]]</a><br><a href="documents/services-agreement-draft.txt" download>Download editable text</a></section><section class="box"><h3>Mutual NDA</h3><p>Reciprocal confidentiality for project discussions and delivery: permitted use, access, exceptions, duration and return or deletion.</p><a class="btn" href="documents/mutual-nda-draft.html">[[ READ DRAFT ]]</a><br><a href="documents/mutual-nda-draft.txt" download>Download editable text</a></section></div><p class="dim">Both samples are in English. Reading versions support browser printing and Save as PDF. Your organisation’s draft can also be discussed.</p>
 <h2>03 / What we agree for your project</h2><ul><li>The exact systems and activities in scope, with explicit exclusions.</li><li>Deliverables, milestones, review criteria, fees and payment dates.</li><li>Rights to use the work, any support and an appropriate allocation of liability.</li><li>Confidentiality, secure transfer, data retention and any necessary DPA.</li></ul><p>An NDA protects confidential information; it does not replace a data processing agreement. Where we process personal data on your behalf, the required arrangements are agreed before processing starts.</p>
-<h2>04 / The contracting party</h2><p>Engagements are with IT Service International, trading as RELAY / n0hup. See the <a href="operator.html#imprint">company and contact details</a>. The final agreement identifies both legal parties and their authorised signatories.</p><p><a class="btn" href="mailto:n0hup.relay@gmail.com?subject=RELAY%20engagement%20enquiry">[[ DISCUSS AN ENGAGEMENT ]]</a></p><p class="dim">Email opens in your own mail app. Nothing is sent by this page.</p></main><footer>RELAY / RLY-01 · IT Service International · <a href="operator.html#imprint">Imprint</a><br>Connection lost. Mission continues.</footer></body></html>
+<h2>04 / The contracting party</h2><p>Engagements are with IT Service International, trading as RELAY / n0hup. See the <a href="operator.html#imprint">company and contact details</a>. The final agreement identifies both legal parties and their authorised signatories.</p><p><a class="btn" href="mailto:engage@n0hup.nl?subject=RELAY%20engagement%20enquiry">[[ DISCUSS AN ENGAGEMENT ]]</a></p><p class="dim">Email opens in your own mail app. Nothing is sent by this page.</p></main><footer>RELAY / RLY-01 · IT Service International · <a href="operator.html#imprint">Imprint</a><br>Connection lost. Mission continues.</footer></body></html>

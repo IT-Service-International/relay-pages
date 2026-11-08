@@ -32,8 +32,8 @@
       'Timing / budget context: ' + (get('timing') || 'To discuss'), '',
       'Please contact me to clarify scope and next steps.'
     ].join('\r\n');
-    text.value = 'To: n0hup.relay@gmail.com\r\nSubject: ' + subject + '\r\n\r\n' + body;
-    mail.href = 'mailto:n0hup.relay@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    text.value = 'To: engage@n0hup.nl\r\nSubject: ' + subject + '\r\n\r\n' + body;
+    mail.href = 'mailto:engage@n0hup.nl?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
     status.textContent = 'Draft ready. No email has been sent. You can edit the form and prepare it again.';
     draft.hidden = false;
     text.focus();

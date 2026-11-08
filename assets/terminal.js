@@ -28,8 +28,10 @@
               "contact.txt": {
                 type: "file",
                 content:
-                  "SECURE: n0hup@proton.me\n" +
-                  "GENERAL: n0hup.relay@gmail.com"
+                  "RELAY   : relay@n0hup.nl\n" +
+                  "PROJECTS: engage@n0hup.nl\n" +
+                  "TALENT  : talent@n0hup.nl\n" +
+                  "SOURCE  : codeberg.org/n0hup"
               },
               about: {
                 type: "dir",
@@ -513,8 +515,10 @@
 
       case "contact":
         print(
-          "SECURE: n0hup@proton.me\n" +
-          "GENERAL: n0hup.relay@gmail.com"
+          "RELAY   : relay@n0hup.nl\n" +
+          "PROJECTS: engage@n0hup.nl\n" +
+          "TALENT  : talent@n0hup.nl\n" +
+          "SOURCE  : codeberg.org/n0hup"
         );
         break;
 
