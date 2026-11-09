@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0a110c">
+<title>SSHole Check — passive SSH assessment // RELAY</title>
+<meta name="description" content="RELAY SSHole Check v0.1.0: passive, read-only local assessment for the SSHole OpenSSH password-authentication bypass (CVE-2026-123158). Free under the MIT licence.">
+<link rel="canonical" href="https://n0hup.nl/ssh-check.html">
+<meta property="og:site_name" content="RELAY">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SSHole Check — passive SSH assessment // RELAY">
+<meta property="og:description" content="RELAY SSHole Check v0.1.0: passive, read-only local assessment for the SSHole OpenSSH password-authentication bypass (CVE-2026-123158). Free under the MIT licence.">
+<meta property="og:url" content="https://n0hup.nl/ssh-check.html">
+<meta property="og:image" content="https://n0hup.nl/assets/og-relay.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="RELAY_ — Connection lost. Mission continues.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SSHole Check — passive SSH assessment // RELAY">
+<meta name="twitter:description" content="RELAY SSHole Check v0.1.0: passive, read-only local assessment for the SSHole OpenSSH password-authentication bypass (CVE-2026-123158). Free under the MIT licence.">
+<meta name="twitter:image" content="https://n0hup.nl/assets/og-relay.png">
+<link rel="stylesheet" href="assets/relay-sales.css">
+<style>
+/* RELAY shared top menu (inlined from assets/relay-nav.css so the page does not depend on that file) */
+/* RELAY / n0hup — shared top menu.
+   Same look on every page of the site.
+   Loaded after the page's own stylesheet, so it wins over relay.css and inline styles. */
+html { overflow-x: hidden; }
+
+body > nav.top {
+  position: sticky; top: 0; z-index: 50;
+  box-sizing: border-box;
+  width: 100vw;
+  margin: 0 0 0 calc(50% - 50vw);   /* full width even inside a max-width body */
+  display: flex; flex-wrap: wrap; gap: .2rem 1.2rem;
+  padding: .7rem 1.25rem;
+  background: #0a110c;
+  border-bottom: 1px solid #1f3a26;
+  font: .85rem/1.65 ui-monospace, "SFMono-Regular", "JetBrains Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  letter-spacing: normal; text-align: left;
+}
+body > nav.top a {
+  margin: 0; padding: 0; font: inherit;
+  color: #7fae8a; text-decoration: none;
+}
+body > nav.top a:hover,
+body > nav.top a[aria-current="page"] { color: #4dff7a; text-decoration: none; }
+body > nav.top a:focus-visible { outline: 2px solid #4dff7a; outline-offset: 3px; }
+
+/* Pages built on relay.css (or similar inline styles) have top padding on the body element;
+   remove it so the menu sits flush with the top of the window, like operator.html. */
+body.nav-flush { padding-top: 0 !important; }
+body.nav-flush > nav.top { margin-bottom: 2rem; }
+
+@media print { body > nav.top { display: none; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<nav class="top" aria-label="Main">
+  <a href="index.html">HOME</a>
+  <a href="services.html">SERVICES</a>
+  <a href="tailored.html">TAILORED</a>
+  <a href="ad-health-check.html">AD CHECK €500</a>
+  <a href="team.html">TEAM</a>
+  <a href="operator.html">OPERATOR</a>
+  <a href="engagement.html">ENGAGEMENT</a>
+  <a href="toolkit.html" aria-current="page">TOOLKIT</a>
+  <a href="manifesto.html">MANIFESTO</a>
+  <a href="notes/">NOTES</a>
+  <a href="logs/relay.log">LOG</a>
+  <a href="https://codeberg.org/n0hup">CODEBERG</a>
+</nav>
+
+<main id="main">
+<p class="prompt">n0hup@relay:~$ <b>./sshole-check --passive</b></p>
+<h1>SSHole Check</h1>
+<p class="lead">A passive local assessment for SSHole (CVE-2026-123158), the OpenSSH password-authentication bypass affecting certain musl-based, non-PAM deployments. It collects a small set of local facts without attempting authentication, and tells you where to look first.</p>
+<p>
+  <a class="btn" href="https://codeberg.org/n0hup/relay-ssh-check/releases/tag/v0.1.0">[[ RELEASE v0.1.0 ]]</a>
+  <a class="btn" href="https://codeberg.org/n0hup/relay-ssh-check">[[ SOURCE ON CODEBERG ]]</a>
+  <a class="btn" href="notes/sshole-en.html">[[ READ THE ADVISORY ]]</a>
+</p>
+
+<h2>What it reads</h2>
+<ul>
+<li><strong>System:</strong> distribution identifiers and Alpine package metadata.</li>
+<li><strong>Runtime:</strong> presence of a conventional musl loader and SSH binary.</li>
+<li><strong>Configuration:</strong> counts of selected directives in the main SSH configuration; an existing <code>sshd -T</code> report can be supplied and is labelled as supplied and unverified.</li>
+<li><strong>Accounts (optional):</strong> shadow inspection reports aggregate counts only. No username, password field or hash is printed.</li>
+</ul>
+
+<h2>Results</h2>
+<div class="wrap"><table>
+<thead><tr><th scope="col">Result</th><th scope="col">Meaning</th></tr></thead>
+<tbody>
+<tr><td><code>REVIEW_REQUIRED</code></td><td>Evidence remains incomplete.</td></tr>
+<tr><td><code>PRIORITY_REVIEW</code></td><td>A musl loader and the local account pattern coexist; investigate promptly.</td></tr>
+</tbody></table></div>
+<p>Neither result asserts exploitability, and neither is a safety certificate.</p>
+
+<h2>What it does not do</h2>
+<p>It does not run <code>sshd</code>, query NSS, call a package manager, create temporary files or contact a host. It counts configuration directives rather than reimplementing OpenSSH’s parser.</p>
+
+<h2>Release scope</h2>
+<p>Source, documentation and synthetic offline tests. Local validation covers <code>/bin/sh</code> and <code>dash</code> on macOS; it does not constitute Alpine, BusyBox or production integration testing. AI-assisted preparation is disclosed; independent security review remains pending. MIT licence.</p>
+
+<h2>Need a fleet-wide review?</h2>
+<p>RELAY can inventory reachable SSH services, images and appliances, establish vendor patch provenance and verify the running daemons as part of a <a href="services.html">Unix/Linux Hardening Review</a>.</p>
+<p><a class="btn" href="mailto:engage@n0hup.nl?subject=SSHole%20review">[[ DISCUSS AN SSH REVIEW ]]</a></p>
+</main>
+<footer>
+  RELAY / RLY-01 · a brand of IT Service International · <a href="operator.html#imprint">Imprint</a><br>
+  Connection lost. Mission continues.
+</footer>
+</body>
+</html>

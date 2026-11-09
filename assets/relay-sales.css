@@ -55,3 +55,6 @@ table.coverage th[scope="row"]{color:var(--text);width:auto}
 .cov-support{color:var(--text)}
 .cov-none{color:var(--dim)}
 .box h3 a{text-decoration:none}
+/* advisory articles */
+.advisory h1{font-size:clamp(1.6rem,4vw,2.4rem)}
+.advisory code{background:#0f1a12;padding:.05em .3em;overflow-wrap:anywhere}
