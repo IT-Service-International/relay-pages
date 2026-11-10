@@ -152,20 +152,15 @@ body.nav-flush > nav.top { margin-bottom: 2rem; }
 </article>
 
 <article>
-  <h2>001 / THE NOHUP PRINCIPLE</h2>
+  <h2>003 / OPERATIONAL RESILIENCE</h2>
   <time datetime="2026-11-07">2026-11-07</time>
   <p>
-    A process should not depend on an interactive
-    terminal longer than necessary.
+    Reliability is engineered, not assumed.
   </p>
   <p>
-    In Unix, nohup arranges for a command to ignore
-    SIGHUP. It does not protect against every failure.
-  </p>
-  <pre><code>nohup ./worker.sh &gt; worker.log 2&gt;&amp;1 &amp;</code></pre>
-  <p>
-    The broader lesson: identify dependencies,
-    design for failure, and verify recovery.
+    Understand dependencies. Remove single
+    points of failure. Test backups. Document
+    recovery procedures. Observe the result.
   </p>
 </article>
 
@@ -184,15 +179,20 @@ body.nav-flush > nav.top { margin-bottom: 2rem; }
 </article>
 
 <article>
-  <h2>003 / OPERATIONAL RESILIENCE</h2>
+  <h2>001 / THE NOHUP PRINCIPLE</h2>
   <time datetime="2026-11-07">2026-11-07</time>
   <p>
-    Reliability is engineered, not assumed.
+    A process should not depend on an interactive
+    terminal longer than necessary.
   </p>
   <p>
-    Understand dependencies. Remove single
-    points of failure. Test backups. Document
-    recovery procedures. Observe the result.
+    In Unix, nohup arranges for a command to ignore
+    SIGHUP. It does not protect against every failure.
+  </p>
+  <pre><code>nohup ./worker.sh &gt; worker.log 2&gt;&amp;1 &amp;</code></pre>
+  <p>
+    The broader lesson: identify dependencies,
+    design for failure, and verify recovery.
   </p>
 </article>
 </main>
