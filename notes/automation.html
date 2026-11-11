@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0a110c">
+<title>Automation Without Losing Control // RELAY</title>
+<meta name="description" content="Design explicit states, safe retries, accountable decisions and a recoverable exception path.">
+<link rel="canonical" href="https://n0hup.nl/notes/automation.html">
+<meta property="og:site_name" content="RELAY">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Automation Without Losing Control // RELAY">
+<meta property="og:description" content="Design explicit states, safe retries, accountable decisions and a recoverable exception path.">
+<meta property="og:url" content="https://n0hup.nl/notes/automation.html">
+<meta property="og:image" content="https://n0hup.nl/assets/og-relay.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root {
+  color-scheme: dark;
+  --bg: #0a110c;
+  --fg: #a4c9a9;
+  --green: #8cf5a4;
+  --muted: #73927a;
+  --border: #274831;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font: 15px/1.8 "Courier New", monospace;
+  max-width: 800px;
+  margin: auto;
+  padding: 48px 24px;
+}
+h1, h2 { color: var(--green); }
+h1 { font-size: clamp(2rem, 7vw, 3.5rem); }
+h2 { font-size: 1.1rem; }
+a { color: var(--green); }
+header, article, footer {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 24px;
+  margin-bottom: 30px;
+}
+.prompt { color: var(--green); }
+.muted, time { color: var(--muted); }
+nav {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+pre {
+  overflow-x: auto;
+  padding: 16px;
+  background: #050b07;
+  border: 1px solid var(--border);
+}
+  /* RELAY blinking cursor */
+
+.cursor {
+  display: inline-block;
+  color: var(--green);
+  animation: blink 1s steps(1, end) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor {
+    animation: none;
+  }
+}
+</style>
+<link rel="stylesheet" href="../assets/relay.css">
+<style>
+/* RELAY shared top menu (inlined from assets/relay-nav.css so the page does not depend on that file) */
+/* RELAY / n0hup — shared top menu.
+   Same look on every page of the site.
+   Loaded after the page's own stylesheet, so it wins over relay.css and inline styles. */
+html { overflow-x: hidden; }
+
+body > nav.top {
+  position: sticky; top: 0; z-index: 50;
+  box-sizing: border-box;
+  width: 100vw;
+  margin: 0 0 0 calc(50% - 50vw);   /* full width even inside a max-width body */
+  display: flex; flex-wrap: wrap; gap: .2rem 1.2rem;
+  padding: .7rem 1.25rem;
+  background: #0a110c;
+  border-bottom: 1px solid #1f3a26;
+  font: .85rem/1.65 ui-monospace, "SFMono-Regular", "JetBrains Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  letter-spacing: normal; text-align: left;
+}
+body > nav.top a {
+  margin: 0; padding: 0; font: inherit;
+  color: #7fae8a; text-decoration: none;
+}
+body > nav.top a:hover,
+body > nav.top a[aria-current="page"] { color: #4dff7a; text-decoration: none; }
+body > nav.top a:focus-visible { outline: 2px solid #4dff7a; outline-offset: 3px; }
+
+/* Pages built on relay.css (or similar inline styles) have top padding on the body element;
+   remove it so the menu sits flush with the top of the window, like operator.html. */
+body.nav-flush { padding-top: 0 !important; }
+body.nav-flush > nav.top { margin-bottom: 2rem; }
+
+@media print { body > nav.top { display: none; } }
+</style>
+<style>
+h1 { overflow-wrap: anywhere; }
+.skip { position: absolute; left: -10000px; }
+.skip:focus { position: static; }
+:focus-visible { outline: 2px solid var(--green); outline-offset: 4px; }
+</style>
+</head>
+<body class="nav-flush">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="top" aria-label="Main">
+  <a href="../index.html">HOME</a>
+  <a href="../services.html">SERVICES</a>
+  <a href="../tailored.html">TAILORED</a>
+  <a href="../ad-health-check.html">AD CHECK €500</a>
+  <a href="../team.html">TEAM</a>
+  <a href="../operator.html">OPERATOR</a>
+  <a href="../engagement.html">ENGAGEMENT</a>
+  <a href="../toolkit.html">TOOLKIT</a>
+  <a href="../manifesto.html">MANIFESTO</a>
+  <a href="../notes/" aria-current="page">NOTES</a>
+  <a href="../logs/relay.log">LOG</a>
+  <a href="https://codeberg.org/n0hup">CODEBERG</a>
+</nav>
+<header>
+<p class="prompt">n0hup@relay:~/notes$ open automation.html</p>
+<h1>Automation Without Losing Control<span class="cursor" aria-hidden="true">_</span></h1>
+<p class="muted">NOTE 006 / ENGINEERING PRACTICE / <time datetime="2026-11-11">2026-11-11</time></p>
+<p>Design explicit states, safe retries, accountable decisions and a recoverable exception path.</p>
+</header>
+<main id="main"><article>
+
+<p class="motto">An automated action still needs an accountable owner.</p>
+<p>Automation can move information faster than a team can correct it. A workflow that copies a request, sends an approval and updates a register may look simple, yet every boundary can introduce delay, duplication or ambiguity. The engineering task is to make the process understandable when one of those steps fails.</p>
+<h2>01 / Define the process before the trigger</h2>
+<p>Start with the decision and its owner. State what makes a request valid, who can authorize it, which record is authoritative and what counts as completion. A flow diagram should expose rejected, expired and failed requests as clearly as successful ones. Avoid using an email notification as the only evidence that business state changed.</p>
+<pre><code>DRAFT → SUBMITTED → REVIEW → APPROVED → APPLYING → COMPLETED
+                      ↓                     ↓
+                   REJECTED             EXCEPTION
+
+Notification status is separate from business status.</code></pre>
+<p>In a SharePoint-based resource request, for example, distinguish the submitted allocation from the approved allocation and the allocation actually recorded downstream. An approval is permission to apply a change; it is not proof that the receiving system accepted it. These are design states, not assumptions about any particular platform's built-in behavior.</p>
+<h2>02 / Design for repeated and delayed events</h2>
+<p>Treat duplicate delivery and uncertain outcomes as normal cases to handle. Give each request a stable identifier and each intended operation a deduplication key. Before applying an action, check whether that operation has already completed. Keep the decision and its recorded outcome together where the underlying system permits an atomic operation.</p>
+<p>A timeout does not establish that a remote write failed. Reconcile the destination using the request identifier before retrying. For systems without atomic deduplication, serialize work or use a durable operation ledger and an explicit reconciliation step. Do not claim exactly-once behavior merely because the trigger ran once in a test.</p>
+<h2>03 / Preserve the meaning of approval</h2>
+<p>Bind approval to the version of the request that was reviewed. If cost, dates, scope or recipients change, decide whether a new approval is required before applying the change. Recheck the relevant preconditions at execution time so that an old approval cannot silently authorize a different action.</p>
+<p>Use a managed execution identity with only the access the process needs. Document its owner and renewal path. Keep credentials out of list fields, screenshots and runbooks. Separation between requester, approver and executor should follow the process risk, with exceptional overrides recorded and reviewable.</p>
+<h2>04 / Make exceptions operable</h2>
+<p>Use bounded retries for temporary failures. Route persistent failures to a named queue with an owner, a reason, the last completed step and a safe next action. A stopped flow without an accountable queue is a hidden backlog. Alert on age and impact as well as failure count.</p>
+<ul><li>Record the request ID, version, actor, decision and timestamps.</li><li>Retain enough evidence to reconcile a partial write.</li><li>Provide a pause point before further external changes.</li><li>Define compensation or manual correction for irreversible effects.</li></ul>
+<p>A rollback of workflow code does not unsend a message or reverse a payment. Recovery instructions must describe the business correction separately from restoring the previous automation version.</p>
+<h2>05 / Test the uncomfortable paths</h2>
+<p>Exercise duplicate requests, late approvals, revoked access, changed records and a timeout immediately after a downstream write. Confirm that an operator can identify the outcome without replaying blindly. Promote a known version with a small initial scope, watch exception age and reconciliation results, and keep a way to stop new work.</p>
+<p>Automation earns trust when the team can explain what happened, who authorized it and how to recover. A shorter happy path is useful only when its failure paths remain under control.</p>
+
+</article>
+<nav aria-label="Related notes"><a href="infrastructure.html">Infrastructure Is a System</a> · <a href="continuity.html">Engineering Continuity</a></nav>
+</main>
+<footer><p class="prompt">Connection lost. Mission continues.</p>
+<p class="muted">RELAY / RLY-01 · EST. 2026</p>
+<a href="index.html">[ ALL TECHNICAL NOTES ]</a> · <a href="../index.html">[ RETURN HOME ]</a></footer>
+</body>
+</html>

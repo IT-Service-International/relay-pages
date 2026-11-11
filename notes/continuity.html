@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0a110c">
+<title>Engineering Continuity // RELAY</title>
+<meta name="description" content="Make knowledge transferable, recovery executable and service ownership resilient to absence.">
+<link rel="canonical" href="https://n0hup.nl/notes/continuity.html">
+<meta property="og:site_name" content="RELAY">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Engineering Continuity // RELAY">
+<meta property="og:description" content="Make knowledge transferable, recovery executable and service ownership resilient to absence.">
+<meta property="og:url" content="https://n0hup.nl/notes/continuity.html">
+<meta property="og:image" content="https://n0hup.nl/assets/og-relay.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root {
+  color-scheme: dark;
+  --bg: #0a110c;
+  --fg: #a4c9a9;
+  --green: #8cf5a4;
+  --muted: #73927a;
+  --border: #274831;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font: 15px/1.8 "Courier New", monospace;
+  max-width: 800px;
+  margin: auto;
+  padding: 48px 24px;
+}
+h1, h2 { color: var(--green); }
+h1 { font-size: clamp(2rem, 7vw, 3.5rem); }
+h2 { font-size: 1.1rem; }
+a { color: var(--green); }
+header, article, footer {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 24px;
+  margin-bottom: 30px;
+}
+.prompt { color: var(--green); }
+.muted, time { color: var(--muted); }
+nav {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+pre {
+  overflow-x: auto;
+  padding: 16px;
+  background: #050b07;
+  border: 1px solid var(--border);
+}
+  /* RELAY blinking cursor */
+
+.cursor {
+  display: inline-block;
+  color: var(--green);
+  animation: blink 1s steps(1, end) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor {
+    animation: none;
+  }
+}
+</style>
+<link rel="stylesheet" href="../assets/relay.css">
+<style>
+/* RELAY shared top menu (inlined from assets/relay-nav.css so the page does not depend on that file) */
+/* RELAY / n0hup — shared top menu.
+   Same look on every page of the site.
+   Loaded after the page's own stylesheet, so it wins over relay.css and inline styles. */
+html { overflow-x: hidden; }
+
+body > nav.top {
+  position: sticky; top: 0; z-index: 50;
+  box-sizing: border-box;
+  width: 100vw;
+  margin: 0 0 0 calc(50% - 50vw);   /* full width even inside a max-width body */
+  display: flex; flex-wrap: wrap; gap: .2rem 1.2rem;
+  padding: .7rem 1.25rem;
+  background: #0a110c;
+  border-bottom: 1px solid #1f3a26;
+  font: .85rem/1.65 ui-monospace, "SFMono-Regular", "JetBrains Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  letter-spacing: normal; text-align: left;
+}
+body > nav.top a {
+  margin: 0; padding: 0; font: inherit;
+  color: #7fae8a; text-decoration: none;
+}
+body > nav.top a:hover,
+body > nav.top a[aria-current="page"] { color: #4dff7a; text-decoration: none; }
+body > nav.top a:focus-visible { outline: 2px solid #4dff7a; outline-offset: 3px; }
+
+/* Pages built on relay.css (or similar inline styles) have top padding on the body element;
+   remove it so the menu sits flush with the top of the window, like operator.html. */
+body.nav-flush { padding-top: 0 !important; }
+body.nav-flush > nav.top { margin-bottom: 2rem; }
+
+@media print { body > nav.top { display: none; } }
+</style>
+<style>
+h1 { overflow-wrap: anywhere; }
+.skip { position: absolute; left: -10000px; }
+.skip:focus { position: static; }
+:focus-visible { outline: 2px solid var(--green); outline-offset: 4px; }
+</style>
+</head>
+<body class="nav-flush">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="top" aria-label="Main">
+  <a href="../index.html">HOME</a>
+  <a href="../services.html">SERVICES</a>
+  <a href="../tailored.html">TAILORED</a>
+  <a href="../ad-health-check.html">AD CHECK €500</a>
+  <a href="../team.html">TEAM</a>
+  <a href="../operator.html">OPERATOR</a>
+  <a href="../engagement.html">ENGAGEMENT</a>
+  <a href="../toolkit.html">TOOLKIT</a>
+  <a href="../manifesto.html">MANIFESTO</a>
+  <a href="../notes/" aria-current="page">NOTES</a>
+  <a href="../logs/relay.log">LOG</a>
+  <a href="https://codeberg.org/n0hup">CODEBERG</a>
+</nav>
+<header>
+<p class="prompt">n0hup@relay:~/notes$ open continuity.html</p>
+<h1>Engineering Continuity<span class="cursor" aria-hidden="true">_</span></h1>
+<p class="muted">NOTE 007 / ENGINEERING PRACTICE / <time datetime="2026-11-11">2026-11-11</time></p>
+<p>Make knowledge transferable, recovery executable and service ownership resilient to absence.</p>
+</header>
+<main id="main"><article>
+
+<p class="motto">Knowledge should survive individual engineers.</p>
+<p>A system can have redundant hardware and still depend on one person's memory. If only its original engineer knows how to renew a certificate, identify the correct backup or recover access, the organization has moved a single point of failure into its operating model. Continuity is the ability of another authorized person to carry the work forward.</p>
+<h2>01 / Define the minimum service to preserve</h2>
+<p>Begin with the outcome that matters during disruption. Identify the users, the essential transactions and the acceptable period of reduced service. Agree recovery time and data-loss objectives with the service owner, and distinguish those objectives from measured capability. A target is a requirement; a timed exercise is evidence.</p>
+<p>Write down dependencies on people and suppliers alongside technical dependencies. Who can authorize emergency access? Who can contact the provider? What happens if the primary engineer and their usual deputy are both unavailable? Name an escalation role and a maintained contact route rather than relying on an informal personal chat.</p>
+<h2>02 / Build an executable handover</h2>
+<p>A handover should let the receiving engineer find the system, understand its purpose and safely perform a bounded task. Include the current architecture, ownership, configuration source, monitoring, access procedure, known limitations and recent decisions. Explain why unusual choices exist so that a future maintainer does not remove an essential workaround without understanding it.</p>
+<pre><code>SERVICE RECORD
+Purpose and owner
+Dependencies and recovery order
+Access procedure and emergency route
+Normal checks and failure signals
+Recovery steps and expected evidence
+Last exercise, limitations and follow-up owner</code></pre>
+<p>Store secret material in the approved secret store and document how authorized people obtain it. Keep an accessible recovery copy of the instructions, with access controls appropriate to its contents. Test access from the conditions expected during an outage, including the loss of the normal identity or documentation service.</p>
+<h2>03 / Turn a runbook into a verifiable procedure</h2>
+<p>Each step should name its preconditions, action, expected result and stop condition. Record where a command runs and which environment it affects. Avoid steps such as “restore the database” without identifying the recovery point, consistency requirements and validation that follows. Include a checkpoint before an action can overwrite surviving data.</p>
+<p>For a restored application, verify more than process startup. Test authentication, a representative read, an authorized write and the downstream dependencies within the agreed scope. Keep the restored environment isolated until the plan permits reconnection, so that exercises do not send production notifications or create conflicting records.</p>
+<h2>04 / Rehearse with a different operator</h2>
+<p>Ask an authorized engineer who did not write the procedure to perform a controlled exercise. Let the author observe and record gaps rather than supply missing steps from memory. Measure elapsed recovery time, lost or unreconciled data and the points where outside help was needed.</p>
+<p>A failed exercise is useful when it yields a specific correction, an owner and a retest. A successful exercise also needs boundaries: what was simulated, which dependencies were available and what was excluded. Do not promote a limited test into a claim that every disaster scenario is covered.</p>
+<h2>05 / Maintain continuity through change</h2>
+<p>Treat changes to dependencies, access, data layout and ownership as triggers to review the recovery procedure. Attach the operational handover to the change's acceptance criteria. Track overdue documentation and exercises as work with owners, not as a general request to “improve documentation.”</p>
+<ul><li>Can another operator locate and understand the current instructions?</li><li>Can they obtain authorized access without the primary engineer?</li><li>Can they recover the agreed minimum service and demonstrate it?</li><li>Can they explain the remaining limitations to the service owner?</li></ul>
+<p>Continuity is a maintained capability. Systems should survive individual sessions. Operations should survive individual dependencies. Knowledge should survive individual engineers.</p>
+
+</article>
+<nav aria-label="Related notes"><a href="infrastructure.html">Infrastructure Is a System</a> · <a href="automation.html">Automation Without Losing Control</a></nav>
+</main>
+<footer><p class="prompt">Connection lost. Mission continues.</p>
+<p class="muted">RELAY / RLY-01 · EST. 2026</p>
+<a href="index.html">[ ALL TECHNICAL NOTES ]</a> · <a href="../index.html">[ RETURN HOME ]</a></footer>
+</body>
+</html>

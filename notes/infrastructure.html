@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0a110c">
+<title>Infrastructure Is a System // RELAY</title>
+<meta name="description" content="Map the service path, expose shared dependencies, and verify recovery at the user boundary.">
+<link rel="canonical" href="https://n0hup.nl/notes/infrastructure.html">
+<meta property="og:site_name" content="RELAY">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Infrastructure Is a System // RELAY">
+<meta property="og:description" content="Map the service path, expose shared dependencies, and verify recovery at the user boundary.">
+<meta property="og:url" content="https://n0hup.nl/notes/infrastructure.html">
+<meta property="og:image" content="https://n0hup.nl/assets/og-relay.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root {
+  color-scheme: dark;
+  --bg: #0a110c;
+  --fg: #a4c9a9;
+  --green: #8cf5a4;
+  --muted: #73927a;
+  --border: #274831;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font: 15px/1.8 "Courier New", monospace;
+  max-width: 800px;
+  margin: auto;
+  padding: 48px 24px;
+}
+h1, h2 { color: var(--green); }
+h1 { font-size: clamp(2rem, 7vw, 3.5rem); }
+h2 { font-size: 1.1rem; }
+a { color: var(--green); }
+header, article, footer {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 24px;
+  margin-bottom: 30px;
+}
+.prompt { color: var(--green); }
+.muted, time { color: var(--muted); }
+nav {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+pre {
+  overflow-x: auto;
+  padding: 16px;
+  background: #050b07;
+  border: 1px solid var(--border);
+}
+  /* RELAY blinking cursor */
+
+.cursor {
+  display: inline-block;
+  color: var(--green);
+  animation: blink 1s steps(1, end) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor {
+    animation: none;
+  }
+}
+</style>
+<link rel="stylesheet" href="../assets/relay.css">
+<style>
+/* RELAY shared top menu (inlined from assets/relay-nav.css so the page does not depend on that file) */
+/* RELAY / n0hup — shared top menu.
+   Same look on every page of the site.
+   Loaded after the page's own stylesheet, so it wins over relay.css and inline styles. */
+html { overflow-x: hidden; }
+
+body > nav.top {
+  position: sticky; top: 0; z-index: 50;
+  box-sizing: border-box;
+  width: 100vw;
+  margin: 0 0 0 calc(50% - 50vw);   /* full width even inside a max-width body */
+  display: flex; flex-wrap: wrap; gap: .2rem 1.2rem;
+  padding: .7rem 1.25rem;
+  background: #0a110c;
+  border-bottom: 1px solid #1f3a26;
+  font: .85rem/1.65 ui-monospace, "SFMono-Regular", "JetBrains Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  letter-spacing: normal; text-align: left;
+}
+body > nav.top a {
+  margin: 0; padding: 0; font: inherit;
+  color: #7fae8a; text-decoration: none;
+}
+body > nav.top a:hover,
+body > nav.top a[aria-current="page"] { color: #4dff7a; text-decoration: none; }
+body > nav.top a:focus-visible { outline: 2px solid #4dff7a; outline-offset: 3px; }
+
+/* Pages built on relay.css (or similar inline styles) have top padding on the body element;
+   remove it so the menu sits flush with the top of the window, like operator.html. */
+body.nav-flush { padding-top: 0 !important; }
+body.nav-flush > nav.top { margin-bottom: 2rem; }
+
+@media print { body > nav.top { display: none; } }
+</style>
+<style>
+h1 { overflow-wrap: anywhere; }
+.skip { position: absolute; left: -10000px; }
+.skip:focus { position: static; }
+:focus-visible { outline: 2px solid var(--green); outline-offset: 4px; }
+</style>
+</head>
+<body class="nav-flush">
+<a class="skip" href="#main">Skip to content</a>
+<nav class="top" aria-label="Main">
+  <a href="../index.html">HOME</a>
+  <a href="../services.html">SERVICES</a>
+  <a href="../tailored.html">TAILORED</a>
+  <a href="../ad-health-check.html">AD CHECK €500</a>
+  <a href="../team.html">TEAM</a>
+  <a href="../operator.html">OPERATOR</a>
+  <a href="../engagement.html">ENGAGEMENT</a>
+  <a href="../toolkit.html">TOOLKIT</a>
+  <a href="../manifesto.html">MANIFESTO</a>
+  <a href="../notes/" aria-current="page">NOTES</a>
+  <a href="../logs/relay.log">LOG</a>
+  <a href="https://codeberg.org/n0hup">CODEBERG</a>
+</nav>
+<header>
+<p class="prompt">n0hup@relay:~/notes$ open infrastructure.html</p>
+<h1>Infrastructure Is a System<span class="cursor" aria-hidden="true">_</span></h1>
+<p class="muted">NOTE 005 / ENGINEERING PRACTICE / <time datetime="2026-11-11">2026-11-11</time></p>
+<p>Map the service path, expose shared dependencies, and verify recovery at the user boundary.</p>
+</header>
+<main id="main"><article>
+
+<p class="motto">A healthy component does not prove a healthy service.</p>
+<p>A user sees a successful request or a failure. Between those outcomes sit name resolution, routing, identity, compute, storage and application state. Each team may report its component as available while the complete path remains broken. Engineering begins by describing that path and the evidence needed to trust it.</p>
+<h2>01 / Start at the service boundary</h2>
+<p>Choose one concrete transaction: a colleague signs in, opens a project record and saves a change. Record where the request enters, how identity is established, where data is read and written, and how success reaches the caller. Include supporting services such as time, certificates and secrets. A diagram of server names alone misses the relationships that decide whether the transaction works.</p>
+<pre><code>USER → NAME RESOLUTION → NETWORK → APPLICATION → DATA
+                                  ↕
+                               IDENTITY
+Shared dependencies: time / certificates / power / control plane</code></pre>
+<p>For every dependency, record its owner, its failure signal and the consequence of losing it. Distinguish what is required for a running service from what is required to start, scale or recover it. A workload may continue during a control-plane outage and still be impossible to rebuild.</p>
+<h2>02 / Find shared failure domains</h2>
+<p>Two instances are not independent if they share a storage array, an upstream link, an administrative account or a single recovery operator. Trace common dependencies before calling a design redundant. Ask what survives the loss of a host, a site and the primary identity service. State the scope of each answer; resilience to one failure says little about another.</p>
+<p>For example, moving an application to a second site can preserve compute capacity while leaving both sites dependent on the same resolver or authentication path. Test the complete login and data transaction from the recovery location. A successful ping establishes only a narrow observation.</p>
+<h2>03 / Separate observation from diagnosis</h2>
+<p>During an incident, retain the time, source and scope of each observation. “The service responds from one subnet” differs from “all users can authenticate.” Build a timeline before assigning a cause. Compare a failed transaction with a successful one and locate the first boundary where their behavior diverges.</p>
+<ul><li>Check the user's outcome and the application's error.</li><li>Correlate name resolution, connection, identity and data access evidence.</li><li>Record missing evidence as unknown, not healthy.</li><li>Change one bounded hypothesis at a time and verify its effect.</li></ul>
+<h2>04 / Make recovery a design input</h2>
+<p>Define the acceptable interruption and data loss with the service owner. Use those requirements to choose recovery arrangements and test scope. A backup job's success establishes that a job completed; a recovery exercise must establish that the data can be restored, opened and used consistently by the application.</p>
+<p>Keep recovery access and instructions available when the main service is unavailable. Establish the restoration order from dependencies, including how the recovery environment obtains identity, names and secrets. Avoid a circular plan in which the only instructions or credentials needed to restore a platform live inside that platform.</p>
+<h2>05 / Leave evidence the next engineer can use</h2>
+<p>A useful system record contains a service boundary, a dependency map, named owners, known failure domains and the results of the latest recovery exercise. Record the scenario and limits of each test. “Recovered in a lab with prepared credentials” is valuable evidence when its conditions are explicit.</p>
+<p>The next change should update that record. Infrastructure becomes understandable when its relationships, failure behavior and recovery path can be inspected by someone who did not build it.</p>
+
+</article>
+<nav aria-label="Related notes"><a href="automation.html">Automation Without Losing Control</a> · <a href="continuity.html">Engineering Continuity</a></nav>
+</main>
+<footer><p class="prompt">Connection lost. Mission continues.</p>
+<p class="muted">RELAY / RLY-01 · EST. 2026</p>
+<a href="index.html">[ ALL TECHNICAL NOTES ]</a> · <a href="../index.html">[ RETURN HOME ]</a></footer>
+</body>
+</html>
