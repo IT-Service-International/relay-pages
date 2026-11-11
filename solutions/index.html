@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta content="#0a110c" name="theme-color"/><meta content="noindex,nofollow" name="robots"/><title>Solutions // RELAY — Review</title><meta content="RELAY engineering solutions and proposed document workflow delivery." name="description"/><link href="../assets/relay-sales.css" rel="stylesheet"/><style>
+/* RELAY shared top menu (inlined from assets/relay-nav.css so the page does not depend on that file) */
+/* RELAY / n0hup — shared top menu.
+   Same look on every page of the site.
+   Loaded after the page's own stylesheet, so it wins over relay.css and inline styles. */
+html { overflow-x: hidden; }
+
+body > nav.top {
+  position: sticky; top: 0; z-index: 50;
+  box-sizing: border-box;
+  width: 100vw;
+  margin: 0 0 0 calc(50% - 50vw);   /* full width even inside a max-width body */
+  display: flex; flex-wrap: wrap; gap: .2rem 1.2rem;
+  padding: .7rem 1.25rem;
+  background: #0a110c;
+  border-bottom: 1px solid #1f3a26;
+  font: .85rem/1.65 ui-monospace, "SFMono-Regular", "JetBrains Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  letter-spacing: normal; text-align: left;
+}
+body > nav.top a {
+  margin: 0; padding: 0; font: inherit;
+  color: #7fae8a; text-decoration: none;
+}
+body > nav.top a:hover,
+body > nav.top a[aria-current="page"] { color: #4dff7a; text-decoration: none; }
+body > nav.top a:focus-visible { outline: 2px solid #4dff7a; outline-offset: 3px; }
+
+/* Pages built on relay.css (or similar inline styles) have top padding on the body element;
+   remove it so the menu sits flush with the top of the window, like operator.html. */
+body.nav-flush { padding-top: 0 !important; }
+body.nav-flush > nav.top { margin-bottom: 2rem; }
+
+@media print { body > nav.top { display: none; } }
+</style></head><body><a class="skip" href="#main">Skip to content</a><nav aria-label="Main" class="top">
+<a href="../index.html">HOME</a>
+<a href="../services.html">SERVICES</a><a aria-current="page" href="../solutions/index.html">SOLUTIONS</a>
+<a href="../tailored.html">TAILORED</a>
+<a href="../ad-health-check.html">AD CHECK €500</a>
+<a href="../team.html">TEAM</a>
+<a href="../operator.html">OPERATOR</a>
+<a href="../engagement.html">ENGAGEMENT</a>
+<a href="../toolkit.html">TOOLKIT</a>
+<a href="../manifesto.html">MANIFESTO</a>
+<a href="../notes/">NOTES</a>
+<a href="../logs/relay.log">LOG</a>
+<a href="https://codeberg.org/n0hup">CODEBERG</a>
+</nav><main id="main"><p class="prompt">n0hup@relay:~$ <b>ls /solutions</b></p><h1>Solutions</h1><p class="lead">Practical engineering engagements. Scoped evidence, visible ownership and controlled handover.</p><h2>Document &amp; Process Operations</h2><div class="box"><h3><a href="portrix/index.html">PORTRIX / SHAREPOINT WORKFLOWS</a></h3><p>Concept proposal: document approval, tasks, knowledge base and low-code business process configuration on SharePoint Server SE / 2019.</p><p>Product ownership, licensing and implementation authority require commercial confirmation before a customer commitment.</p><a class="btn" href="portrix/index.html">[[ VIEW SOLUTION CONCEPT ]]</a></div><h2>Specialist delivery</h2><ul><li><strong>Enterprise applications &amp; workflow:</strong> C#/.NET, SharePoint, enterprise integrations.</li><li><strong>Network &amp; data centre design:</strong> Cisco, LAN/WAN, wireless and lifecycle.</li><li><strong>Network operations:</strong> incident recovery, remote connectivity and monitoring.</li><li><strong>IT programme delivery:</strong> PMO, governance, risks and vendor coordination.</li></ul><p><a class="btn" href="../services.html">[[ VIEW ENGINEERING SERVICES ]]</a> <a class="btn" href="../team.html">[[ ENGINEERING TEAM ]]</a></p><p class="dim">Review draft. Service availability and contractual scope are confirmed before engagement.</p></main><footer>RELAY / RLY-01 · <a href="../operator.html#imprint">Imprint</a><br/>Connection lost. Mission continues.</footer></body></html>

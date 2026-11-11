@@ -2,27 +2,25 @@
 
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#0a110c">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#0a110c" name="theme-color"/>
 <title>RELAY // n0hup</title>
-<link rel="canonical" href="https://n0hup.nl/">
-<meta property="og:site_name" content="RELAY">
-<meta property="og:type" content="website">
-<meta property="og:title" content="RELAY // n0hup">
-<meta property="og:description" content="RELAY / n0hup. Unix, networks, resilience and independent systems.">
-<meta property="og:url" content="https://n0hup.nl/">
-<meta property="og:image" content="https://n0hup.nl/assets/og-relay.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="RELAY_ — Connection lost. Mission continues.">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="RELAY // n0hup">
-<meta name="twitter:description" content="RELAY / n0hup. Unix, networks, resilience and independent systems.">
-<meta name="twitter:image" content="https://n0hup.nl/assets/og-relay.png">
-<meta name="description"
- content="RELAY / n0hup. Unix, networks, resilience and independent systems.">
-
+<link href="https://n0hup.nl/" rel="canonical"/>
+<meta content="RELAY" property="og:site_name"/>
+<meta content="website" property="og:type"/>
+<meta content="RELAY // n0hup" property="og:title"/>
+<meta content="RELAY / n0hup. Unix, networks, resilience and independent systems." property="og:description"/>
+<meta content="https://n0hup.nl/" property="og:url"/>
+<meta content="https://n0hup.nl/assets/og-relay.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="RELAY_ — Connection lost. Mission continues." property="og:image:alt"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="RELAY // n0hup" name="twitter:title"/>
+<meta content="RELAY / n0hup. Unix, networks, resilience and independent systems." name="twitter:description"/>
+<meta content="https://n0hup.nl/assets/og-relay.png" name="twitter:image"/>
+<meta content="RELAY / n0hup. Unix, networks, resilience and independent systems." name="description"/>
 <style>
 :root {
   color-scheme: dark;
@@ -173,7 +171,7 @@ section, header, footer {
 
   
 </style>
-  <link rel="stylesheet" href="assets/relay.css">
+<link href="assets/relay.css" rel="stylesheet"/>
 <style>
 /* RELAY shared top menu (inlined from assets/relay-nav.css so the page does not depend on that file) */
 /* RELAY / n0hup — shared top menu.
@@ -209,158 +207,141 @@ body.nav-flush > nav.top { margin-bottom: 2rem; }
 @media print { body > nav.top { display: none; } }
 </style>
 </head>
-
 <body class="nav-flush">
-<nav class="top" aria-label="Main">
-  <a href="index.html" aria-current="page">HOME</a>
-  <a href="services.html">SERVICES</a>
-  <a href="tailored.html">TAILORED</a>
-  <a href="ad-health-check.html">AD CHECK €500</a>
-  <a href="team.html">TEAM</a>
-  <a href="operator.html">OPERATOR</a>
-  <a href="engagement.html">ENGAGEMENT</a>
-  <a href="toolkit.html">TOOLKIT</a>
-  <a href="manifesto.html">MANIFESTO</a>
-  <a href="notes/">NOTES</a>
-  <a href="logs/relay.log">LOG</a>
-  <a href="https://codeberg.org/n0hup">CODEBERG</a>
+<nav aria-label="Main" class="top">
+<a aria-current="page" href="index.html">HOME</a>
+<a href="services.html">SERVICES</a><a href="solutions/index.html">SOLUTIONS</a>
+<a href="tailored.html">TAILORED</a>
+<a href="ad-health-check.html">AD CHECK €500</a>
+<a href="team.html">TEAM</a>
+<a href="operator.html">OPERATOR</a>
+<a href="engagement.html">ENGAGEMENT</a>
+<a href="toolkit.html">TOOLKIT</a>
+<a href="manifesto.html">MANIFESTO</a>
+<a href="notes/">NOTES</a>
+<a href="logs/relay.log">LOG</a>
+<a href="https://codeberg.org/n0hup">CODEBERG</a>
 </nav>
 <header>
-  <div class="prompt">n0hup@relay:~$ whoami</div>
-  <img src="assets/avatar.webp"
-     alt="RELAY / n0hup"
-     class="avatar"
-     width="160"
-     height="160">
-  <h1>RELAY<span class="cursor">_</span></h1>
-  <p class="motto">
+<div class="prompt">n0hup@relay:~$ whoami</div>
+<img alt="RELAY / n0hup" class="avatar" height="160" src="assets/avatar.webp" width="160"/>
+<h1>RELAY<span class="cursor">_</span></h1>
+<p class="motto">
     Connection lost. Mission continues.
   </p>
-  <p class="muted">
-    HANDLE&nbsp; : n0hup<br>
-    CALLSIGN : RLY-01<br>
-    SYSTEM&nbsp; : UNIX / SIGNALS / NETWORKS<br>
-    STATUS&nbsp; : OPERATIONAL
+<p class="muted">
+    HANDLE  : n0hup<br/>
+    CALLSIGN : RLY-01<br/>
+    SYSTEM  : UNIX / SIGNALS / NETWORKS<br/>
+    STATUS  : OPERATIONAL
   </p>
 </header>
-
 <main>
-  
-<section class="terminal-window" aria-label="Interactive Unix terminal">
-  <div class="terminal-header">
-    <span>RELAY TERMINAL / tty0</span>
-    <span>RLY-01</span>
-  </div>
-
-  <div id="terminal-output"
-       class="terminal-output"
-       role="log"
-       aria-live="polite"
-       aria-relevant="additions text">
-  </div>
-
-  <form id="terminal-form" class="terminal-form">
-    <label for="terminal-input">n0hup@relay:~$</label>
-    <input
-      type="text"
-      id="terminal-input"
-      aria-label="Terminal command"
-      autocomplete="off"
-      autocapitalize="off"
-      spellcheck="false">
-  </form>
-
-  <p class="terminal-hint">
+<section aria-label="Interactive Unix terminal" class="terminal-window">
+<div class="terminal-header">
+<span>RELAY TERMINAL / tty0</span>
+<span>RLY-01</span>
+</div>
+<div aria-live="polite" aria-relevant="additions text" class="terminal-output" id="terminal-output" role="log">
+</div>
+<form class="terminal-form" id="terminal-form">
+<label for="terminal-input">n0hup@relay:~$</label>
+<input aria-label="Terminal command" autocapitalize="off" autocomplete="off" id="terminal-input" spellcheck="false" type="text"/>
+</form>
+<p class="terminal-hint">
     Browser simulation. No real shell commands are executed.
   </p>
 </section>
 <section>
-  <h2>ENGINEERING / WORK WITH RELAY</h2>
-  <p>Microsoft infrastructure, Unix/Linux, servers, storage, networks and resilience. Scoped assessments, implementation and client-specific automation.</p>
-  <p><a href="services.html">[ ENGINEERING SERVICES ]</a><br>
-  <a href="tailored.html">[ TAILORED SOLUTIONS ]</a><br>
-  <a href="ad-health-check.html">[ AD HEALTH CHECK · €500 ]</a><br>
-  <a href="team.html">[ MEET THE TEAM ]</a></p>
+<h2>ENGINEERING / WORK WITH RELAY</h2>
+<p>Microsoft infrastructure, Unix/Linux, servers, storage, networks and resilience. Scoped assessments, implementation and client-specific automation.</p>
+<p><a href="services.html">[ ENGINEERING SERVICES ]</a><br/>
+<a href="tailored.html">[ TAILORED SOLUTIONS ]</a><br/>
+<a href="ad-health-check.html">[ AD HEALTH CHECK · €500 ]</a><br/>
+<a href="team.html">[ MEET THE TEAM ]</a><br/><a href="solutions/index.html">[ SOLUTIONS / WORKFLOWS ]</a></p>
+</section><section aria-labelledby="solutions-heading" id="solutions">
+<h2 id="solutions-heading">SOLUTIONS / DOCUMENTS &amp; PROCESSES</h2>
+<p class="motto">Visible ownership. Controlled workflows. Resilient operations.</p>
+<p>Explore a proposed solution for document approvals, assignments, deadlines and corporate knowledge on Microsoft SharePoint Server SE / 2019. The concept is subject to product licensing and implementation-authorisation confirmation before any commercial engagement.</p>
+<p><a href="solutions/index.html">[ SOLUTIONS DIRECTORY ]</a><br/>
+<a href="solutions/portrix/index.html">[ PORTRIX / DOCUMENT WORKFLOWS ]</a><br/>
+<a href="services.html">[ ENGINEERING CAPABILITIES ]</a></p>
 </section>
-<section id="toolkit" aria-labelledby="toolkit-heading">
-  <h2 id="toolkit-heading">PRODUCT / AD HEALTH TOOLKIT</h2>
-  <p class="motto">RELAY AD Health Toolkit v0.1 · Community Edition</p>
-  <p>Read-only observations for on-premises Active Directory. Ten diagnostic areas, local HTML/CSV reports and a separate synthetic demo. Free under the MIT licence.</p>
-  <p><a href="toolkit.html">[ EXPLORE THE TOOLKIT ]</a><br>
-  <a href="ad-health-demo.html">[ VIEW SYNTHETIC DEMO ]</a><br>
-  <a href="https://codeberg.org/n0hup/relay-ad-health-toolkit/releases/download/v0.1.0/RELAY-AD-Health-Toolkit-v0.1.0-Community.zip">[ DOWNLOAD v0.1.0 ZIP ]</a></p>
-  <p class="muted">Community Edition. Tested in real-world Windows Server / Active Directory environments. Target: Windows PowerShell 5.1 x64 + RSAT.</p>
+<section aria-labelledby="toolkit-heading" id="toolkit">
+<h2 id="toolkit-heading">PRODUCT / AD HEALTH TOOLKIT</h2>
+<p class="motto">RELAY AD Health Toolkit v0.1 · Community Edition</p>
+<p>Read-only observations for on-premises Active Directory. Ten diagnostic areas, local HTML/CSV reports and a separate synthetic demo. Free under the MIT licence.</p>
+<p><a href="toolkit.html">[ EXPLORE THE TOOLKIT ]</a><br/>
+<a href="ad-health-demo.html">[ VIEW SYNTHETIC DEMO ]</a><br/>
+<a href="https://codeberg.org/n0hup/relay-ad-health-toolkit/releases/download/v0.1.0/RELAY-AD-Health-Toolkit-v0.1.0-Community.zip">[ DOWNLOAD v0.1.0 ZIP ]</a></p>
+<p class="muted">Community Edition. Tested in real-world Windows Server / Active Directory environments. Target: Windows PowerShell 5.1 x64 + RSAT.</p>
 </section>
-<section id="sshole" aria-labelledby="sshole-heading">
-  <h2 id="sshole-heading">PRODUCT / SSHOLE CHECK</h2>
-  <p class="motto">RELAY SSHole Check v0.1.0 · Passive CLI</p>
-  <p>Passive local assessment for SSHole (CVE-2026-123158), the OpenSSH password-authentication bypass in certain musl-based, non-PAM deployments. Reads local facts, never attempts authentication, prints no account data. Free under the MIT licence.</p>
-  <p><a href="ssh-check.html">[ EXPLORE SSHOLE CHECK ]</a><br>
-  <a href="notes/sshole-en.html">[ READ THE ADVISORY ]</a><br>
-  <a href="https://codeberg.org/n0hup/relay-ssh-check">[ RELEASE v0.1.0 ]</a></p>
-  <p class="muted">Synthetic offline tests on /bin/sh and dash; independent security review pending.</p>
+<section aria-labelledby="sshole-heading" id="sshole">
+<h2 id="sshole-heading">PRODUCT / SSHOLE CHECK</h2>
+<p class="motto">RELAY SSHole Check v0.1.0 · Passive CLI</p>
+<p>Passive local assessment for SSHole (CVE-2026-123158), the OpenSSH password-authentication bypass in certain musl-based, non-PAM deployments. Reads local facts, never attempts authentication, prints no account data. Free under the MIT licence.</p>
+<p><a href="ssh-check.html">[ EXPLORE SSHOLE CHECK ]</a><br/>
+<a href="notes/sshole-en.html">[ READ THE ADVISORY ]</a><br/>
+<a href="https://codeberg.org/n0hup/relay-ssh-check">[ RELEASE v0.1.0 ]</a></p>
+<p class="muted">Synthetic offline tests on /bin/sh and dash; independent security review pending.</p>
 </section>
 <section>
-  <h2>01 / IDENTITY</h2>
-  <p>
+<h2>01 / IDENTITY</h2>
+<p>
     A digital identity rooted in the Unix tradition,
     early Internet culture, and independent systems.
   </p>
-  <p>
+<p>
     n0hup represents persistence beyond a session.
     RELAY represents continuity beyond a connection.
   </p>
 </section>
-
 <section>
-  <h2>02 / PHILOSOPHY</h2>
-  <p>The session ends. The purpose does not.</p>
-  <p>
+<h2>02 / PHILOSOPHY</h2>
+<p>The session ends. The purpose does not.</p>
+<p>
     Reliability is not the absence of failure.
     It is the ability to adapt, recover, and continue.
   </p>
-  <p>
-    Continuity over visibility.<br>
-    Understanding over authority.<br>
-    Resilience over perfection.<br>
-    Precision over noise.<br>
+<p>
+    Continuity over visibility.<br/>
+    Understanding over authority.<br/>
+    Resilience over perfection.<br/>
+    Precision over noise.<br/>
     Purpose beyond connection.
   </p>
 </section>
-
 <section>
-  <h2>03 / INTERESTS</h2>
-  <p>
-    UNIX &amp; LINUX SYSTEMS<br>
-    NETWORK ENGINEERING<br>
-    COMMUNICATIONS &amp; SIGNALS<br>
-    SECURITY &amp; PRIVACY<br>
-    DISTRIBUTED INFRASTRUCTURE<br>
+<h2>03 / INTERESTS</h2>
+<p>
+    UNIX &amp; LINUX SYSTEMS<br/>
+    NETWORK ENGINEERING<br/>
+    COMMUNICATIONS &amp; SIGNALS<br/>
+    SECURITY &amp; PRIVACY<br/>
+    DISTRIBUTED INFRASTRUCTURE<br/>
     AUTOMATION &amp; RESILIENCE
   </p>
 </section>
-
 <section>
-  <h2>04 / CONTACT</h2>
-  <p>
-    RELAY&nbsp;&nbsp;&nbsp;: <a href="mailto:relay@n0hup.nl">relay@n0hup.nl</a><br>
-    PROJECTS: <a href="mailto:engage@n0hup.nl">engage@n0hup.nl</a><br>
-    TALENT&nbsp;&nbsp;: <a href="mailto:talent@n0hup.nl">talent@n0hup.nl</a><br>
-    SOURCE&nbsp;&nbsp;: <a href="https://codeberg.org/n0hup">codeberg.org/n0hup</a>
-  </p>
+<h2>04 / CONTACT</h2>
+<p>
+    RELAY   : <a href="mailto:relay@n0hup.nl">relay@n0hup.nl</a><br/>
+    PROJECTS: <a href="mailto:engage@n0hup.nl">engage@n0hup.nl</a><br/>
+    TALENT  : <a href="mailto:talent@n0hup.nl">talent@n0hup.nl</a><br/>
+    SOURCE  : <a href="https://codeberg.org/n0hup">codeberg.org/n0hup</a>
+</p>
 </section>
 </main>
-
 <footer>
-  <div class="prompt">
+<div class="prompt">
     n0hup@relay:~$ echo $STATUS
   </div>
-  <p>OPERATIONAL</p>
-  <small class="muted">
-    RELAY / RLY-01 · EST. 2026<br>
+<p>OPERATIONAL</p>
+<small class="muted">
+    RELAY / RLY-01 · EST. 2026<br/>
     Signal fades. Purpose remains.
   </small>
 </footer>
-  <script src="assets/terminal.js" defer></script>
+<script defer="" src="assets/terminal.js"></script>
 </body>
 </html>
