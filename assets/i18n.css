@@ -1,0 +1,109 @@
+/* Shared locale UI and safe full-page RTL. Existing page styling stays intact. */
+.relay-language[hidden] { display: none; }
+.relay-language { display:flex; flex-wrap:wrap; align-items:center; gap:.4rem; padding:.75rem; margin:0 0 1.5rem; border:1px solid #31513a; background:#0a110c; color:#b8d9c1; direction:ltr; text-align:start; font:.85rem/1.6 ui-monospace,monospace; }
+.relay-language button { min-width:44px; min-height:44px; margin:0; padding:.4rem .65rem; border:1px solid #577c60; border-radius:0; background:#0a110c; color:#c4dfcb; font:inherit; cursor:pointer; }
+.relay-language button[aria-pressed="true"] { color:#0a110c; background:#4dff7a; border-color:#4dff7a; }
+.relay-language button:focus-visible { outline:2px solid #d9ffe3; outline-offset:3px; }
+.relay-language-status { flex-basis:100%; margin:.25rem 0 0; overflow-wrap:anywhere; }
+[data-i18n], [data-i18n-fixed] { unicode-bidi:isolate; }
+[data-i18n] { overflow-wrap:anywhere; }
+[data-i18n][dir="ltr"], [data-i18n-fixed] { direction:ltr; }
+[data-i18n][dir="rtl"] { direction:rtl; letter-spacing:normal; }
+html[dir="rtl"] body { direction:rtl; }
+html[dir="rtl"] :is(p,h1,h2,h3,h4,li,dt,dd,th,td,label) { text-align:start; }
+html[dir="rtl"] :is(h1,h2,h3,h4,.eyebrow,.kicker,nav.top a) { letter-spacing:normal; }
+html[dir="rtl"] body > nav.top { direction:rtl; text-align:right; }
+html[dir="rtl"] :is(.note,.release-note) { border-left:0; border-right:2px solid #d7b66c; }
+/* Logical page order may mirror, but technical islands never do. */
+pre,code,kbd,samp,.prompt,.consolebar,.terminal-window,.terminal-output,.terminal-form,
+#terminal-input,[data-i18n-ltr] { direction:ltr; unicode-bidi:isolate; text-align:left !important; }
+.terminal-line { direction:ltr; unicode-bidi:isolate; text-align:left !important; }
+.terminal-line bdi { unicode-bidi:isolate; }
+input[type="email"],input[type="url"] { direction:ltr; text-align:left; }
+a[href^="mailto:"], [data-i18n-fixed] { unicode-bidi:isolate; }
+html[dir="rtl"] .terminal-hint { direction:rtl; text-align:right; }
+html[dir="rtl"] .relay-language { direction:ltr; }
+html[dir="rtl"] .relay-language-status { direction:rtl; text-align:right; }
+.wrap:has(> table) { max-width:100%; overflow-x:auto; }
+@media (max-width:600px) { .relay-language { gap:.25rem; padding:.5rem; } [data-i18n] { overflow-wrap:break-word; } }
+@media print { .relay-language { display:none; } }
+
+/* Mirror the full-width navigation offset and keep skip links in the viewport. */
+html[dir="rtl"] body > nav.top {
+  margin-left: 0;
+  margin-right: calc(50% - 50vw);
+}
+html[dir="rtl"] :is(.skip, .skip-link):not(:focus) {
+  left: auto;
+  right: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.relay-language-status:empty { display: none; }
+.relay-language-menu[hidden] { display: none; }
+body > nav.top:has(.relay-language-menu) { direction: ltr; }
+html[dir="rtl"] body > nav.top:has(.relay-language-menu) {
+  direction: ltr;
+  margin-left: calc(50% - 50vw);
+  margin-right: 0;
+}
+.relay-language-menu { position: relative; margin-left: auto; }
+.relay-language-menu summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 0 .5rem;
+  border: 1px solid #31513a;
+  white-space: nowrap;
+}
+.relay-language-menu summary::-webkit-details-marker { display: none; }
+.relay-language-menu summary:focus-visible { outline: 2px solid #d9ffe3; }
+.relay-language-menu .relay-language {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  min-width: 10rem;
+  display: grid;
+  margin: .3rem 0 0;
+}
+.relay-language-menu .relay-language[hidden] { display: none; }
+.relay-language-menu button { text-align: start; }
+.commercial .relay-language-menu button {
+  padding: .4rem .65rem;
+  border-color: #577c60;
+  background: #0a110c;
+  color: #c4dfcb;
+}
+.commercial .relay-language-menu button[aria-pressed="true"] {
+  color: #0a110c;
+  background: #4dff7a;
+  border-color: #4dff7a;
+}
+
+/* Use Team's content grid and flush navigation on interior pages. */
+body.relay-interior {
+  padding-top: 0 !important;
+}
+
+body.nav-flush.relay-interior {
+  box-sizing: border-box;
+  max-width: 58rem;
+  padding-inline: 1.25rem;
+}
+
+body.relay-interior > nav.top {
+  margin-bottom: 0;
+}
+
+body.relay-interior > main {
+  box-sizing: border-box;
+  max-width: 58rem;
+  margin-inline: auto;
+}
+
+body.nav-flush.relay-interior > main {
+  padding-inline: 0;
+}

@@ -4,23 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0a110c">
-<title>Technical Notes // RELAY</title>
+<title data-i18n="td0363b638bb7">Technical Notes // RELAY</title>
 <link rel="canonical" href="https://n0hup.nl/notes/">
 <meta property="og:site_name" content="RELAY">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Technical Notes // RELAY">
-<meta property="og:description" content="RELAY technical notes on Unix, networks and resilience.">
+<meta property="og:title" content="Technical Notes // RELAY" data-i18n-attrs="{&quot;content&quot;:&quot;td0363b638bb7&quot;}">
+<meta property="og:description" content="RELAY technical notes on Unix, networks and resilience." data-i18n-attrs="{&quot;content&quot;:&quot;t8bdc95e809cc&quot;}">
 <meta property="og:url" content="https://n0hup.nl/notes/">
 <meta property="og:image" content="https://n0hup.nl/assets/og-relay.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="RELAY_ — Connection lost. Mission continues.">
+<meta property="og:image:alt" content="RELAY_ — Connection lost. Mission continues." data-i18n-attrs="{&quot;content&quot;:&quot;tb79e5cb115e9&quot;}">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Technical Notes // RELAY">
-<meta name="twitter:description" content="RELAY technical notes on Unix, networks and resilience.">
+<meta name="twitter:title" content="Technical Notes // RELAY" data-i18n-attrs="{&quot;content&quot;:&quot;td0363b638bb7&quot;}">
+<meta name="twitter:description" content="RELAY technical notes on Unix, networks and resilience." data-i18n-attrs="{&quot;content&quot;:&quot;t8bdc95e809cc&quot;}">
 <meta name="twitter:image" content="https://n0hup.nl/assets/og-relay.png">
 <meta name="description"
- content="RELAY technical notes on Unix, networks and resilience.">
+ content="RELAY technical notes on Unix, networks and resilience." data-i18n-attrs="{&quot;content&quot;:&quot;t8bdc95e809cc&quot;}">
 <style>
 :root {
   color-scheme: dark;
@@ -116,104 +116,120 @@ body.nav-flush > nav.top { margin-bottom: 2rem; }
 
 @media print { body > nav.top { display: none; } }
 </style>
+<link rel="stylesheet" href="../assets/i18n.css?v=full4"/>
+<script defer src="../assets/i18n.js?v=full4"></script>
 </head>
-<body class="nav-flush">
-<nav class="top" aria-label="Main">
-  <a href="../index.html">HOME</a>
-  <a href="../services.html">SERVICES</a>
-  <a href="../tailored.html">TAILORED</a>
-  <a href="../ad-health-check.html">AD CHECK €500</a>
-  <a href="../team.html">TEAM</a>
-  <a href="../operator.html">OPERATOR</a>
-  <a href="../engagement.html">ENGAGEMENT</a>
-  <a href="../toolkit.html">TOOLKIT</a>
-  <a href="../manifesto.html">MANIFESTO</a>
-  <a href="../notes/" aria-current="page">NOTES</a>
-  <a href="../logs/relay.log">LOG</a>
-  <a href="https://codeberg.org/n0hup">CODEBERG</a>
+<body class="nav-flush relay-interior">
+<nav class="top" aria-label="Main" data-i18n-attrs="{&quot;aria-label&quot;:&quot;teb814be3ca3b&quot;}">
+  <a href="../index.html"><span data-i18n="t36e65c39f83b">HOME</span></a>
+  <a href="../services.html"><span data-i18n="t019c527ea981">SERVICES</span></a>
+  <a href="../tailored.html"><span data-i18n="tca2f4dff4123">TAILORED</span></a>
+  <a href="../ad-health-check.html"><span data-i18n="te5023186ce0e">AD CHECK €500</span></a>
+  <a href="../team.html"><span data-i18n="tf404d4ef5343">TEAM</span></a>
+  <a href="../operator.html"><span data-i18n="tb4da21734593">OPERATOR</span></a>
+  <a href="../engagement.html"><span data-i18n="t866398370269">ENGAGEMENT</span></a>
+  <a href="../toolkit.html"><span data-i18n="te44c5e40a1f5">TOOLKIT</span></a>
+  <a href="../manifesto.html"><span data-i18n="t5807cd87a3b0">MANIFESTO</span></a>
+  <a href="../notes/" aria-current="page"><span data-i18n="t7bfab6c61f77">NOTES</span></a>
+  <a href="../logs/relay.log"><span data-i18n="t77e86824b1bc">LOG</span></a>
+  <a href="https://codeberg.org/n0hup"><span data-i18n-fixed lang="en" dir="ltr">CODEBERG</span></a>
+<details class="relay-language-menu" hidden data-language-menu>
+<summary dir="ltr">EN ▾</summary>
+<div class="relay-language" hidden data-language-controls role="group" aria-label="Language">
+<button type="button" data-language="en" lang="en" dir="ltr" aria-label="English" aria-pressed="false">English</button>
+<button type="button" data-language="ru" lang="ru" dir="ltr" aria-label="Русский" aria-pressed="false">Русский</button>
+<button type="button" data-language="de" lang="de" dir="ltr" aria-label="Deutsch" aria-pressed="false">Deutsch</button>
+<button type="button" data-language="nl" lang="nl" dir="ltr" aria-label="Nederlands" aria-pressed="false">Nederlands</button>
+<button type="button" data-language="be" lang="be" dir="ltr" aria-label="Беларуская" aria-pressed="false">Беларуская</button>
+<button type="button" data-language="az" lang="az" dir="ltr" aria-label="Azərbaycanca" aria-pressed="false">Azərbaycanca</button>
+<button type="button" data-language="ar" lang="ar" dir="ltr" aria-label="العربية" aria-pressed="false">العربية</button>
+<p class="relay-language-status" data-language-status role="status" aria-live="polite"></p>
+</div>
+</details>
 </nav>
+
 <header>
   <div class="prompt">n0hup@relay:~/notes$ ls</div>
-  <h1>TECHNICAL NOTES<span class="cursor">_</span></h1>
-  <p>Unix / Networks / Security / Resilience</p>
+  <h1><span data-i18n="t4dc54e83f167">TECHNICAL NOTES</span><span class="cursor">_</span></h1>
+  <p><span data-i18n="t18cfccae870f">Unix / Networks / Security / Resilience</span></p>
   
 </header>
 
 <main>
 <article>
-  <h2>007 / ENGINEERING CONTINUITY</h2>
-  <time datetime="2026-11-11">2026-11-11</time>
-  <p>Make knowledge transferable, recovery executable and service ownership resilient to absence.</p>
-  <p><a href="continuity.html">[ READ THE NOTE ]</a></p>
+  <h2><span data-i18n="t655e76ccda2a">007 / ENGINEERING CONTINUITY</span></h2>
+  <time datetime="2026-11-11"><span data-i18n-fixed lang="en" dir="ltr">2026-11-11</span></time>
+  <p><span data-i18n="t60099a5d6b8b">Make knowledge transferable, recovery executable and service ownership resilient to absence.</span></p>
+  <p><a href="continuity.html"><span data-i18n="tbfa15386398d">[ READ THE NOTE ]</span></a></p>
 </article>
 
 <article>
-  <h2>006 / AUTOMATION WITHOUT LOSING CONTROL</h2>
-  <time datetime="2026-11-11">2026-11-11</time>
-  <p>Design explicit states, safe retries, accountable decisions and a recoverable exception path.</p>
-  <p><a href="automation.html">[ READ THE NOTE ]</a></p>
+  <h2><span data-i18n="tf248744fe632">006 / AUTOMATION WITHOUT LOSING CONTROL</span></h2>
+  <time datetime="2026-11-11"><span data-i18n-fixed lang="en" dir="ltr">2026-11-11</span></time>
+  <p><span data-i18n="t88a59ba0b222">Design explicit states, safe retries, accountable decisions and a recoverable exception path.</span></p>
+  <p><a href="automation.html"><span data-i18n="tbfa15386398d">[ READ THE NOTE ]</span></a></p>
 </article>
 
 <article>
-  <h2>005 / INFRASTRUCTURE IS A SYSTEM</h2>
-  <time datetime="2026-11-11">2026-11-11</time>
-  <p>Map the service path, expose shared dependencies, and verify recovery at the user boundary.</p>
-  <p><a href="infrastructure.html">[ READ THE NOTE ]</a></p>
+  <h2><span data-i18n="t221163bd6003">005 / INFRASTRUCTURE IS A SYSTEM</span></h2>
+  <time datetime="2026-11-11"><span data-i18n-fixed lang="en" dir="ltr">2026-11-11</span></time>
+  <p><span data-i18n="t04f8b7f6cef6">Map the service path, expose shared dependencies, and verify recovery at the user boundary.</span></p>
+  <p><a href="infrastructure.html"><span data-i18n="tbfa15386398d">[ READ THE NOTE ]</span></a></p>
 </article>
 
 <article>
-  <h2>004 / SSHOLE: ASSESS THE AUTHENTICATION PATH</h2>
-  <time datetime="2026-11-09">2026-11-09</time>
+  <h2><span data-i18n="tdb82cd4be349">004 / SSHOLE: ASSESS THE AUTHENTICATION PATH</span></h2>
+  <time datetime="2026-11-09"><span data-i18n-fixed lang="en" dir="ltr">2026-11-09</span></time>
   <p>
-    An old SSH banner is not an assessment. Establish which daemon
+    <span data-i18n="t87a482aaac7d">An old SSH banner is not an assessment. Establish which daemon
     is running, how it authenticates users, and whether the vendor
-    has already supplied a fix.
+    has already supplied a fix.</span>
   </p>
-  <p><a href="sshole-en.html">[ READ THE ADVISORY ]</a> · <a href="../ssh-check.html">[ SSHOLE CHECK ]</a></p>
+  <p><a href="sshole-en.html"><span data-i18n="t7a94befec5af">[ READ THE ADVISORY ]</span></a> · <a href="../ssh-check.html"><span data-i18n="te0df4a84a7c4">[ SSHOLE CHECK ]</span></a></p>
 </article>
 
 <article id="operational-resilience">
-  <h2>003 / OPERATIONAL RESILIENCE</h2>
-  <time datetime="2026-11-07">2026-11-07</time>
+  <h2><span data-i18n="t2fc649777d69">003 / OPERATIONAL RESILIENCE</span></h2>
+  <time datetime="2026-11-07"><span data-i18n-fixed lang="en" dir="ltr">2026-11-07</span></time>
   <p>
-    Reliability is engineered, not assumed.
+    <span data-i18n="t68d1feb0dfab">Reliability is engineered, not assumed.</span>
   </p>
   <p>
-    Understand dependencies. Remove single
+    <span data-i18n="t22d4b7063d38">Understand dependencies. Remove single
     points of failure. Test backups. Document
-    recovery procedures. Observe the result.
+    recovery procedures. Observe the result.</span>
   </p>
 </article>
 
 <article>
-  <h2>002 / SIGNAL INTEGRITY</h2>
-  <time datetime="2026-11-07">2026-11-07</time>
+  <h2><span data-i18n="t68490582aa5a">002 / SIGNAL INTEGRITY</span></h2>
+  <time datetime="2026-11-07"><span data-i18n-fixed lang="en" dir="ltr">2026-11-07</span></time>
   <p>
-    A communication path is valuable only when
-    information arrives intact and can be trusted.
+    <span data-i18n="tea4489b19db9">A communication path is valuable only when
+    information arrives intact and can be trusted.</span>
   </p>
   <p>
-    Monitor the channel. Verify the source.
+    <span data-i18n="te349ba646532">Monitor the channel. Verify the source.
     Preserve message integrity.
-    Maintain an alternative route.
+    Maintain an alternative route.</span>
   </p>
 </article>
 
 <article>
-  <h2>001 / THE NOHUP PRINCIPLE</h2>
-  <time datetime="2026-11-07">2026-11-07</time>
+  <h2><span data-i18n="t2706ff3326c6">001 / THE NOHUP PRINCIPLE</span></h2>
+  <time datetime="2026-11-07"><span data-i18n-fixed lang="en" dir="ltr">2026-11-07</span></time>
   <p>
-    A process should not depend on an interactive
-    terminal longer than necessary.
+    <span data-i18n="t049732355f35">A process should not depend on an interactive
+    terminal longer than necessary.</span>
   </p>
   <p>
-    In Unix, nohup arranges for a command to ignore
-    SIGHUP. It does not protect against every failure.
+    <span data-i18n="t9d82a25f3de7">In Unix, nohup arranges for a command to ignore
+    SIGHUP. It does not protect against every failure.</span>
   </p>
-  <pre><code>nohup ./worker.sh &gt; worker.log 2&gt;&amp;1 &amp;</code></pre>
+  <pre dir="ltr" translate="no"><code dir="ltr" translate="no">nohup ./worker.sh &gt; worker.log 2&gt;&amp;1 &amp;</code></pre>
   <p>
-    The broader lesson: identify dependencies,
-    design for failure, and verify recovery.
+    <span data-i18n="t614108c3ed74">The broader lesson: identify dependencies,
+    design for failure, and verify recovery.</span>
   </p>
 </article>
 </main>
@@ -222,8 +238,8 @@ body.nav-flush > nav.top { margin-bottom: 2rem; }
   <p class="prompt">
   n0hup@relay:~/notes$ <span class="cursor">_</span>
 </p>
-  <p class="muted">RELAY / RLY-01 · EST. 2026</p>
-  <a href="../index.html">[ RETURN HOME ]</a>
+  <p class="muted"><span data-i18n="t1b11bc09fd95">RELAY / RLY-01 · EST. 2026</span></p>
+  <a href="../index.html"><span data-i18n="tfbbe683be353">[ RETURN HOME ]</span></a>
 </footer>
 </body>
 </html>

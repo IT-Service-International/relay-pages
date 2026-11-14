@@ -152,7 +152,8 @@
   function print(text = "", className = "") {
     const line = document.createElement("div");
     line.className = "terminal-line " + className;
-    line.textContent = text;
+    if (!className && window.RELAYI18N) window.RELAYI18N.terminal(line, text);
+    else line.textContent = text;
     output.appendChild(line);
     output.scrollTop = output.scrollHeight;
   }

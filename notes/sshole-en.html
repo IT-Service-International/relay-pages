@@ -4,21 +4,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0a110c">
-<title>SSHole: assess the authentication path // RELAY</title>
-<meta name="description" content="A source-backed technical advisory on SSHole and RELAY&#x27;s passive local assessment CLI.">
+<title data-i18n="tbaeead726926">SSHole: assess the authentication path // RELAY</title>
+<meta name="description" content="A source-backed technical advisory on SSHole and RELAY&#x27;s passive local assessment CLI." data-i18n-attrs="{&quot;content&quot;:&quot;t1041c4ff1865&quot;}">
 <link rel="canonical" href="https://n0hup.nl/notes/sshole-en.html">
 <meta property="og:site_name" content="RELAY">
 <meta property="og:type" content="website">
-<meta property="og:title" content="SSHole: assess the authentication path // RELAY">
-<meta property="og:description" content="A source-backed technical advisory on SSHole and RELAY&#x27;s passive local assessment CLI.">
+<meta property="og:title" content="SSHole: assess the authentication path // RELAY" data-i18n-attrs="{&quot;content&quot;:&quot;tbaeead726926&quot;}">
+<meta property="og:description" content="A source-backed technical advisory on SSHole and RELAY&#x27;s passive local assessment CLI." data-i18n-attrs="{&quot;content&quot;:&quot;t1041c4ff1865&quot;}">
 <meta property="og:url" content="https://n0hup.nl/notes/sshole-en.html">
 <meta property="og:image" content="https://n0hup.nl/assets/og-relay.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="RELAY_ — Connection lost. Mission continues.">
+<meta property="og:image:alt" content="RELAY_ — Connection lost. Mission continues." data-i18n-attrs="{&quot;content&quot;:&quot;tb79e5cb115e9&quot;}">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="SSHole: assess the authentication path // RELAY">
-<meta name="twitter:description" content="A source-backed technical advisory on SSHole and RELAY&#x27;s passive local assessment CLI.">
+<meta name="twitter:title" content="SSHole: assess the authentication path // RELAY" data-i18n-attrs="{&quot;content&quot;:&quot;tbaeead726926&quot;}">
+<meta name="twitter:description" content="A source-backed technical advisory on SSHole and RELAY&#x27;s passive local assessment CLI." data-i18n-attrs="{&quot;content&quot;:&quot;t1041c4ff1865&quot;}">
 <meta name="twitter:image" content="https://n0hup.nl/assets/og-relay.png">
 <link rel="stylesheet" href="../assets/relay-sales.css">
 <style>
@@ -55,58 +55,74 @@ body.nav-flush > nav.top { margin-bottom: 2rem; }
 
 @media print { body > nav.top { display: none; } }
 </style>
+<link rel="stylesheet" href="../assets/i18n.css?v=full4"/>
+<script defer src="../assets/i18n.js?v=full4"></script>
 </head>
-<body>
-<a class="skip" href="#main">Skip to content</a>
-<nav class="top" aria-label="Main">
-  <a href="../index.html">HOME</a>
-  <a href="../services.html">SERVICES</a>
-  <a href="../tailored.html">TAILORED</a>
-  <a href="../ad-health-check.html">AD CHECK €500</a>
-  <a href="../team.html">TEAM</a>
-  <a href="../operator.html">OPERATOR</a>
-  <a href="../engagement.html">ENGAGEMENT</a>
-  <a href="../toolkit.html">TOOLKIT</a>
-  <a href="../manifesto.html">MANIFESTO</a>
-  <a href="../notes/" aria-current="page">NOTES</a>
-  <a href="../logs/relay.log">LOG</a>
-  <a href="https://codeberg.org/n0hup">CODEBERG</a>
+<body class="relay-interior">
+<a class="skip" href="#main"><span data-i18n="tac576a66d456">Skip to content</span></a>
+<nav class="top" aria-label="Main" data-i18n-attrs="{&quot;aria-label&quot;:&quot;teb814be3ca3b&quot;}">
+  <a href="../index.html"><span data-i18n="t36e65c39f83b">HOME</span></a>
+  <a href="../services.html"><span data-i18n="t019c527ea981">SERVICES</span></a>
+  <a href="../tailored.html"><span data-i18n="tca2f4dff4123">TAILORED</span></a>
+  <a href="../ad-health-check.html"><span data-i18n="te5023186ce0e">AD CHECK €500</span></a>
+  <a href="../team.html"><span data-i18n="tf404d4ef5343">TEAM</span></a>
+  <a href="../operator.html"><span data-i18n="tb4da21734593">OPERATOR</span></a>
+  <a href="../engagement.html"><span data-i18n="t866398370269">ENGAGEMENT</span></a>
+  <a href="../toolkit.html"><span data-i18n="te44c5e40a1f5">TOOLKIT</span></a>
+  <a href="../manifesto.html"><span data-i18n="t5807cd87a3b0">MANIFESTO</span></a>
+  <a href="../notes/" aria-current="page"><span data-i18n="t7bfab6c61f77">NOTES</span></a>
+  <a href="../logs/relay.log"><span data-i18n="t77e86824b1bc">LOG</span></a>
+  <a href="https://codeberg.org/n0hup"><span data-i18n-fixed lang="en" dir="ltr">CODEBERG</span></a>
+<details class="relay-language-menu" hidden data-language-menu>
+<summary dir="ltr">EN ▾</summary>
+<div class="relay-language" hidden data-language-controls role="group" aria-label="Language">
+<button type="button" data-language="en" lang="en" dir="ltr" aria-label="English" aria-pressed="false">English</button>
+<button type="button" data-language="ru" lang="ru" dir="ltr" aria-label="Русский" aria-pressed="false">Русский</button>
+<button type="button" data-language="de" lang="de" dir="ltr" aria-label="Deutsch" aria-pressed="false">Deutsch</button>
+<button type="button" data-language="nl" lang="nl" dir="ltr" aria-label="Nederlands" aria-pressed="false">Nederlands</button>
+<button type="button" data-language="be" lang="be" dir="ltr" aria-label="Беларуская" aria-pressed="false">Беларуская</button>
+<button type="button" data-language="az" lang="az" dir="ltr" aria-label="Azərbaycanca" aria-pressed="false">Azərbaycanca</button>
+<button type="button" data-language="ar" lang="ar" dir="ltr" aria-label="العربية" aria-pressed="false">العربية</button>
+<p class="relay-language-status" data-language-status role="status" aria-live="polite"></p>
+</div>
+</details>
 </nav>
+
 
 <main id="main">
 <p class="prompt">n0hup@relay:~/notes$ <b>cat sshole-en.txt</b></p>
-<p><a href="../notes/">← Technical notes</a> · <a href="../ssh-check.html">SSHole Check</a></p>
-<article class="advisory"><h1>SSHole: assess the authentication path, not just the OpenSSH version</h1>
-<p><strong>RELAY / n0hup.nl · 9 November 2026 · Technical advisory and tool release</strong></p>
-<p>SSHole deserves prompt attention, but an old SSH banner is not an assessment. The practical task is to establish which daemon is running, how it authenticates users, and whether its vendor has already supplied a fix.</p>
-<p>CVE-2026-123158 concerns a password-authentication bypass in certain Linux deployments combining OpenSSH, musl libc and a non-PAM authentication path. NVD identifies upstream versions before 10.6p2 and displays a CNA score of 8.1 (High); its own assessment was not yet available when checked. These conditions matter more than the headline version range. <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-123158">NVD record</a></p>
-<h2>What fails</h2>
-<p>At the boundary between the password-checking code and the C library, a failure representation can be mistaken for a successful password comparison. OpenSSH&#x27;s corrective commit adds a minimum stored-hash-length condition before accepting the comparison and adjusts password-buffer handling. The maintainers describe the change as avoiding the bypass, while locating the root cause outside OpenSSH. This distinction is useful for understanding the fix; it does not reduce an operator&#x27;s need to remediate affected systems. <a href="https://github.com/openssh/openssh-portable/commit/4353fdc43ef646c43a8dda7025cc1a898caf1482">Upstream corrective commit</a></p>
-<p>Portable OpenSSH 10.6p2 was released on 5 November 2026. Distribution backports mean an earlier upstream version can nevertheless contain the correction. Use the vendor&#x27;s package revision and branch-specific advisory, not a comparison against <code>10.6p2</code> alone. <a href="https://www.openssh.org/releasenotes.html#10.6p2">OpenSSH release notes</a></p>
-<h2>Where to focus</h2>
-<p>Alpine&#x27;s advisory describes the relevant account combination as an exact <code>*</code> password field together with another local account using a SHA-256 or SHA-512 crypt hash. Password authentication must be enabled; PAM-enabled builds with <code>UsePAM yes</code> are outside that described path. Root&#x27;s login policy is a separate constraint. A container without a running SSH server is not exposed through that container&#x27;s SSH service. <a href="https://alpinelinux.org/posts/2026-11-05-openssh-password-authentication-bypass/">Alpine advisory</a></p>
-<p>Do not turn a distribution name into a verdict. Red Hat states that its product builds are unaffected because they use glibc and PAM. That statement applies to those builds; a separately deployed container or custom binary needs its own inventory. <a href="https://access.redhat.com/security/cve/cve-2026-123158">Red Hat assessment</a></p>
-<p>For an estate review, start with services reachable from untrusted networks, then inspect images and appliances that embed an SSH server. Record the actual executable, package origin, configuration path and service launch arguments. Distinguish the filesystem being inspected from the host, container or namespace serving the connection. A package in an image inventory does not prove that its daemon is active.</p>
-<h2>Why a passive assessment is useful</h2>
-<p>RELAY SSHole Check v0.1.0 collects a small set of local facts without attempting authentication. It reads distribution identifiers, Alpine package metadata, the presence of a conventional musl loader and SSH binary, and counts selected directives in the main SSH configuration. Optional shadow inspection reports only aggregate counts. No username, password field or hash is printed.</p>
-<p>The result is deliberately conservative:</p>
-<ul><li><code>REVIEW_REQUIRED</code>: evidence remains incomplete.</li><li><code>PRIORITY_REVIEW</code>: a musl loader and the local account pattern coexist; investigate promptly.</li></ul>
-<p>Neither result asserts exploitability. Neither is a safety certificate. A loader on disk does not establish the daemon&#x27;s linkage; local files do not cover directory-service accounts; a patched package does not prove that the running process has been replaced.</p>
-<p>The tool does not run <code>sshd</code>, query NSS, call a package manager, create temporary files or contact a host. It can read an existing <code>sshd -T</code> report, but labels that evidence as supplied and unverified. Its main configuration scan counts directives rather than pretending to implement OpenSSH&#x27;s parser.</p>
-<h2>Configuration needs context</h2>
-<p>OpenSSH provides <code>sshd -T</code> to validate and display configuration. Supplying <code>-C</code> applies rules for a selected connection context. Inspect relevant combinations of user, source and destination, including the service&#x27;s actual configuration and overrides; one default-context report cannot establish every user&#x27;s policy. <a href="https://man.openbsd.org/sshd.8">sshd manual</a></p>
-<p>For a review record, retain the source of each observation and its time. Keep “installed package”, “running executable”, “effective connection policy” and “account eligibility” as separate fields. This makes disagreements actionable: a fixed package and an old process require different work from a disabled password path and an unpatched image template.</p>
-<h2>Remediate, then verify the deployment</h2>
-<p>Use the <a href="https://codeberg.org/n0hup/relay-ssh-check/src/branch/main/docs/REMEDIATION.md">remediation guide</a> for the verified Alpine revision table and an operator-controlled workflow. Schedule changes with working console access and a tested alternate login. Update deployment sources as well as current instances, then verify a new connection before closing the maintenance session.</p>
-<p>If exposure is suspected, preserve authentication logs and investigate unexpected successful logins and privilege use. A missing log entry is not evidence that access never occurred. This article does not claim that attacks were observed in your environment, nor does it establish a global exploitation timeline.</p>
-<h2>Release scope</h2>
-<p>The release includes source, documentation and synthetic offline tests. Local validation covers <code>/bin/sh</code> and <code>dash</code> on macOS; it does not constitute Alpine, BusyBox or production integration testing. The repository records these limits explicitly. AI-assisted preparation is disclosed; independent security review remains pending.</p>
-<p>The useful outcome is an evidence-backed remediation decision. Start with passive inventory, establish vendor patch provenance, and close the operational loop on the daemon that actually serves users.</p></article>
-<p class="dim">Independent technical publication · Verified 9 November 2026 · RELAY SSHole Check v0.1.0 · <a href="https://codeberg.org/n0hup/relay-ssh-check">Source</a></p>
+<p><a href="../notes/"><span data-i18n="t823044109684">← Technical notes</span></a> · <a href="../ssh-check.html"><span data-i18n="t82709ae06ebe">SSHole Check</span></a></p>
+<article class="advisory"><h1><span data-i18n="t3347b912007b">SSHole: assess the authentication path, not just the OpenSSH version</span></h1>
+<p><strong><span data-i18n="t11181939c303">RELAY / n0hup.nl · 9 November 2026 · Technical advisory and tool release</span></strong></p>
+<p><span data-i18n="t4059d35be4fd">SSHole deserves prompt attention, but an old SSH banner is not an assessment. The practical task is to establish which daemon is running, how it authenticates users, and whether its vendor has already supplied a fix.</span></p>
+<p><span data-i18n="tb1dd43a75c9b">CVE-2026-123158 concerns a password-authentication bypass in certain Linux deployments combining OpenSSH, musl libc and a non-PAM authentication path. NVD identifies upstream versions before 10.6p2 and displays a CNA score of 8.1 (High); its own assessment was not yet available when checked. These conditions matter more than the headline version range.</span> <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-123158"><span data-i18n="t2c97dde0722a">NVD record</span></a></p>
+<h2><span data-i18n="t0edf7571be8a">What fails</span></h2>
+<p><span data-i18n="ta268ad570134">At the boundary between the password-checking code and the C library, a failure representation can be mistaken for a successful password comparison. OpenSSH&#x27;s corrective commit adds a minimum stored-hash-length condition before accepting the comparison and adjusts password-buffer handling. The maintainers describe the change as avoiding the bypass, while locating the root cause outside OpenSSH. This distinction is useful for understanding the fix; it does not reduce an operator&#x27;s need to remediate affected systems.</span> <a href="https://github.com/openssh/openssh-portable/commit/4353fdc43ef646c43a8dda7025cc1a898caf1482"><span data-i18n="t349c89ab1071">Upstream corrective commit</span></a></p>
+<p><span data-i18n="td9b1e5afe685">Portable OpenSSH 10.6p2 was released on 5 November 2026. Distribution backports mean an earlier upstream version can nevertheless contain the correction. Use the vendor&#x27;s package revision and branch-specific advisory, not a comparison against</span> <code dir="ltr" translate="no">10.6p2</code> <span data-i18n="t72c2c9c19e68">alone.</span> <a href="https://www.openssh.org/releasenotes.html#10.6p2"><span data-i18n="t28387f7dfade">OpenSSH release notes</span></a></p>
+<h2><span data-i18n="t3813c1a63326">Where to focus</span></h2>
+<p><span data-i18n="taa0907d8e12c">Alpine&#x27;s advisory describes the relevant account combination as an exact</span> <code dir="ltr" translate="no">*</code> <span data-i18n="tbb44e83443e5">password field together with another local account using a SHA-256 or SHA-512 crypt hash. Password authentication must be enabled; PAM-enabled builds with</span> <code dir="ltr" translate="no">UsePAM yes</code> <span data-i18n="t9fd366a9f048">are outside that described path. Root&#x27;s login policy is a separate constraint. A container without a running SSH server is not exposed through that container&#x27;s SSH service.</span> <a href="https://alpinelinux.org/posts/2026-11-05-openssh-password-authentication-bypass/"><span data-i18n="t5babb3a3622f">Alpine advisory</span></a></p>
+<p><span data-i18n="t7f642e44f986">Do not turn a distribution name into a verdict. Red Hat states that its product builds are unaffected because they use glibc and PAM. That statement applies to those builds; a separately deployed container or custom binary needs its own inventory.</span> <a href="https://access.redhat.com/security/cve/cve-2026-123158"><span data-i18n="tc04831b6324a">Red Hat assessment</span></a></p>
+<p><span data-i18n="tdf1040f2b85c">For an estate review, start with services reachable from untrusted networks, then inspect images and appliances that embed an SSH server. Record the actual executable, package origin, configuration path and service launch arguments. Distinguish the filesystem being inspected from the host, container or namespace serving the connection. A package in an image inventory does not prove that its daemon is active.</span></p>
+<h2><span data-i18n="t246dff7912d7">Why a passive assessment is useful</span></h2>
+<p><span data-i18n="t23d7f632f183">RELAY SSHole Check v0.1.0 collects a small set of local facts without attempting authentication. It reads distribution identifiers, Alpine package metadata, the presence of a conventional musl loader and SSH binary, and counts selected directives in the main SSH configuration. Optional shadow inspection reports only aggregate counts. No username, password field or hash is printed.</span></p>
+<p><span data-i18n="t1fc992ad728d">The result is deliberately conservative:</span></p>
+<ul><li><code dir="ltr" translate="no">REVIEW_REQUIRED</code><span data-i18n="t97799f66f53b">: evidence remains incomplete.</span></li><li><code dir="ltr" translate="no">PRIORITY_REVIEW</code><span data-i18n="t3625d064953d">: a musl loader and the local account pattern coexist; investigate promptly.</span></li></ul>
+<p><span data-i18n="tcd3eeefb8013">Neither result asserts exploitability. Neither is a safety certificate. A loader on disk does not establish the daemon&#x27;s linkage; local files do not cover directory-service accounts; a patched package does not prove that the running process has been replaced.</span></p>
+<p><span data-i18n="t8d9ae88f4913">The tool does not run</span> <code dir="ltr" translate="no">sshd</code><span data-i18n="t130b2f0ff328">, query NSS, call a package manager, create temporary files or contact a host. It can read an existing</span> <code dir="ltr" translate="no">sshd -T</code> <span data-i18n="te9e81a7d5887">report, but labels that evidence as supplied and unverified. Its main configuration scan counts directives rather than pretending to implement OpenSSH&#x27;s parser.</span></p>
+<h2><span data-i18n="ta92e622278b3">Configuration needs context</span></h2>
+<p><span data-i18n="te6d150be80c5">OpenSSH provides</span> <code dir="ltr" translate="no">sshd -T</code> <span data-i18n="t1d04e123352b">to validate and display configuration. Supplying</span> <code dir="ltr" translate="no">-C</code> <span data-i18n="t897b4921989b">applies rules for a selected connection context. Inspect relevant combinations of user, source and destination, including the service&#x27;s actual configuration and overrides; one default-context report cannot establish every user&#x27;s policy.</span> <a href="https://man.openbsd.org/sshd.8"><span data-i18n="t7d7e37d60a8a">sshd manual</span></a></p>
+<p><span data-i18n="tb3a3f772b06d">For a review record, retain the source of each observation and its time. Keep “installed package”, “running executable”, “effective connection policy” and “account eligibility” as separate fields. This makes disagreements actionable: a fixed package and an old process require different work from a disabled password path and an unpatched image template.</span></p>
+<h2><span data-i18n="t33b551e33582">Remediate, then verify the deployment</span></h2>
+<p><span data-i18n="t3ffa30fbc409">Use the</span> <a href="https://codeberg.org/n0hup/relay-ssh-check/src/branch/main/docs/REMEDIATION.md"><span data-i18n="tc84f2862f6db">remediation guide</span></a> <span data-i18n="t4c5aba5df6bd">for the verified Alpine revision table and an operator-controlled workflow. Schedule changes with working console access and a tested alternate login. Update deployment sources as well as current instances, then verify a new connection before closing the maintenance session.</span></p>
+<p><span data-i18n="t85bc3c8f62de">If exposure is suspected, preserve authentication logs and investigate unexpected successful logins and privilege use. A missing log entry is not evidence that access never occurred. This article does not claim that attacks were observed in your environment, nor does it establish a global exploitation timeline.</span></p>
+<h2><span data-i18n="ta985dec80441">Release scope</span></h2>
+<p><span data-i18n="td33633271523">The release includes source, documentation and synthetic offline tests. Local validation covers</span> <code dir="ltr" translate="no">/bin/sh</code> <span data-i18n="t6201111b83a0">and</span> <code dir="ltr" translate="no">dash</code> <span data-i18n="t2c484c5ded9e">on macOS.</span></p>
+<p><span data-i18n="tf50a67d44142">The useful outcome is an evidence-backed remediation decision. Start with passive inventory, establish vendor patch provenance, and close the operational loop on the daemon that actually serves users.</span></p></article>
+<p class="dim"><span data-i18n="t99b85d44fe0e">Independent technical publication · Verified 9 November 2026 · RELAY SSHole Check v0.1.0 ·</span> <a href="https://codeberg.org/n0hup/relay-ssh-check"><span data-i18n="t0e570ca6fabe">Source</span></a></p>
 </main>
 <footer>
-  RELAY / RLY-01 · a brand of IT Service International · <a href="../operator.html#imprint">Imprint</a><br>
-  Connection lost. Mission continues.
+  <span data-i18n="t37dd60c0e351">RELAY / RLY-01 · a brand of IT Service International ·</span> <a href="../operator.html#imprint"><span data-i18n="td198ed30d09b">Imprint</span></a><br>
+  <span data-i18n="t7f524f2021b4">Connection lost. Mission continues.</span>
 </footer>
 </body>
 </html>

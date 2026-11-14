@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0a110c">
-<title>Automation Without Losing Control // RELAY</title>
-<meta name="description" content="Design explicit states, safe retries, accountable decisions and a recoverable exception path.">
+<title data-i18n="t16f7533f45b0">Automation Without Losing Control // RELAY</title>
+<meta name="description" content="Design explicit states, safe retries, accountable decisions and a recoverable exception path." data-i18n-attrs="{&quot;content&quot;:&quot;t88a59ba0b222&quot;}">
 <link rel="canonical" href="https://n0hup.nl/notes/automation.html">
 <meta property="og:site_name" content="RELAY">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Automation Without Losing Control // RELAY">
-<meta property="og:description" content="Design explicit states, safe retries, accountable decisions and a recoverable exception path.">
+<meta property="og:title" content="Automation Without Losing Control // RELAY" data-i18n-attrs="{&quot;content&quot;:&quot;t16f7533f45b0&quot;}">
+<meta property="og:description" content="Design explicit states, safe retries, accountable decisions and a recoverable exception path." data-i18n-attrs="{&quot;content&quot;:&quot;t88a59ba0b222&quot;}">
 <meta property="og:url" content="https://n0hup.nl/notes/automation.html">
 <meta property="og:image" content="https://n0hup.nl/assets/og-relay.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -115,60 +115,76 @@ h1 { overflow-wrap: anywhere; }
 .skip:focus { position: static; }
 :focus-visible { outline: 2px solid var(--green); outline-offset: 4px; }
 </style>
+<link rel="stylesheet" href="../assets/i18n.css?v=full4"/>
+<script defer src="../assets/i18n.js?v=full4"></script>
 </head>
-<body class="nav-flush">
-<a class="skip" href="#main">Skip to content</a>
-<nav class="top" aria-label="Main">
-  <a href="../index.html">HOME</a>
-  <a href="../services.html">SERVICES</a>
-  <a href="../tailored.html">TAILORED</a>
-  <a href="../ad-health-check.html">AD CHECK €500</a>
-  <a href="../team.html">TEAM</a>
-  <a href="../operator.html">OPERATOR</a>
-  <a href="../engagement.html">ENGAGEMENT</a>
-  <a href="../toolkit.html">TOOLKIT</a>
-  <a href="../manifesto.html">MANIFESTO</a>
-  <a href="../notes/" aria-current="page">NOTES</a>
-  <a href="../logs/relay.log">LOG</a>
-  <a href="https://codeberg.org/n0hup">CODEBERG</a>
+<body class="nav-flush relay-interior">
+<a class="skip" href="#main"><span data-i18n="tac576a66d456">Skip to content</span></a>
+<nav class="top" aria-label="Main" data-i18n-attrs="{&quot;aria-label&quot;:&quot;teb814be3ca3b&quot;}">
+  <a href="../index.html"><span data-i18n="t36e65c39f83b">HOME</span></a>
+  <a href="../services.html"><span data-i18n="t019c527ea981">SERVICES</span></a>
+  <a href="../tailored.html"><span data-i18n="tca2f4dff4123">TAILORED</span></a>
+  <a href="../ad-health-check.html"><span data-i18n="te5023186ce0e">AD CHECK €500</span></a>
+  <a href="../team.html"><span data-i18n="tf404d4ef5343">TEAM</span></a>
+  <a href="../operator.html"><span data-i18n="tb4da21734593">OPERATOR</span></a>
+  <a href="../engagement.html"><span data-i18n="t866398370269">ENGAGEMENT</span></a>
+  <a href="../toolkit.html"><span data-i18n="te44c5e40a1f5">TOOLKIT</span></a>
+  <a href="../manifesto.html"><span data-i18n="t5807cd87a3b0">MANIFESTO</span></a>
+  <a href="../notes/" aria-current="page"><span data-i18n="t7bfab6c61f77">NOTES</span></a>
+  <a href="../logs/relay.log"><span data-i18n="t77e86824b1bc">LOG</span></a>
+  <a href="https://codeberg.org/n0hup"><span data-i18n-fixed lang="en" dir="ltr">CODEBERG</span></a>
+<details class="relay-language-menu" hidden data-language-menu>
+<summary dir="ltr">EN ▾</summary>
+<div class="relay-language" hidden data-language-controls role="group" aria-label="Language">
+<button type="button" data-language="en" lang="en" dir="ltr" aria-label="English" aria-pressed="false">English</button>
+<button type="button" data-language="ru" lang="ru" dir="ltr" aria-label="Русский" aria-pressed="false">Русский</button>
+<button type="button" data-language="de" lang="de" dir="ltr" aria-label="Deutsch" aria-pressed="false">Deutsch</button>
+<button type="button" data-language="nl" lang="nl" dir="ltr" aria-label="Nederlands" aria-pressed="false">Nederlands</button>
+<button type="button" data-language="be" lang="be" dir="ltr" aria-label="Беларуская" aria-pressed="false">Беларуская</button>
+<button type="button" data-language="az" lang="az" dir="ltr" aria-label="Azərbaycanca" aria-pressed="false">Azərbaycanca</button>
+<button type="button" data-language="ar" lang="ar" dir="ltr" aria-label="العربية" aria-pressed="false">العربية</button>
+<p class="relay-language-status" data-language-status role="status" aria-live="polite"></p>
+</div>
+</details>
 </nav>
+
 <header>
 <p class="prompt">n0hup@relay:~/notes$ open automation.html</p>
-<h1>Automation Without Losing Control<span class="cursor" aria-hidden="true">_</span></h1>
-<p class="muted">NOTE 006 / ENGINEERING PRACTICE / <time datetime="2026-11-11">2026-11-11</time></p>
-<p>Design explicit states, safe retries, accountable decisions and a recoverable exception path.</p>
+<h1><span data-i18n="tc1458594d404">Automation Without Losing Control</span><span class="cursor" aria-hidden="true">_</span></h1>
+<p class="muted"><span data-i18n="t65dffedf366a">NOTE 006 / ENGINEERING PRACTICE /</span> <time datetime="2026-11-11"><span data-i18n-fixed lang="en" dir="ltr">2026-11-11</span></time></p>
+<p><span data-i18n="t88a59ba0b222">Design explicit states, safe retries, accountable decisions and a recoverable exception path.</span></p>
 </header>
 <main id="main"><article>
 
-<p class="motto">An automated action still needs an accountable owner.</p>
-<p>Automation can move information faster than a team can correct it. A workflow that copies a request, sends an approval and updates a register may look simple, yet every boundary can introduce delay, duplication or ambiguity. The engineering task is to make the process understandable when one of those steps fails.</p>
-<h2>01 / Define the process before the trigger</h2>
-<p>Start with the decision and its owner. State what makes a request valid, who can authorize it, which record is authoritative and what counts as completion. A flow diagram should expose rejected, expired and failed requests as clearly as successful ones. Avoid using an email notification as the only evidence that business state changed.</p>
-<pre><code>DRAFT → SUBMITTED → REVIEW → APPROVED → APPLYING → COMPLETED
+<p class="motto"><span data-i18n="t11b1260cdd36">An automated action still needs an accountable owner.</span></p>
+<p><span data-i18n="t516e854dd291">Automation can move information faster than a team can correct it. A workflow that copies a request, sends an approval and updates a register may look simple, yet every boundary can introduce delay, duplication or ambiguity. The engineering task is to make the process understandable when one of those steps fails.</span></p>
+<h2><span data-i18n="tb3f938d799eb">01 / Define the process before the trigger</span></h2>
+<p><span data-i18n="t1db3ef2332c7">Start with the decision and its owner. State what makes a request valid, who can authorize it, which record is authoritative and what counts as completion. A flow diagram should expose rejected, expired and failed requests as clearly as successful ones. Avoid using an email notification as the only evidence that business state changed.</span></p>
+<pre dir="ltr" translate="no"><code dir="ltr" translate="no">DRAFT → SUBMITTED → REVIEW → APPROVED → APPLYING → COMPLETED
                       ↓                     ↓
                    REJECTED             EXCEPTION
 
 Notification status is separate from business status.</code></pre>
-<p>In a SharePoint-based resource request, for example, distinguish the submitted allocation from the approved allocation and the allocation actually recorded downstream. An approval is permission to apply a change; it is not proof that the receiving system accepted it. These are design states, not assumptions about any particular platform's built-in behavior.</p>
-<h2>02 / Design for repeated and delayed events</h2>
-<p>Treat duplicate delivery and uncertain outcomes as normal cases to handle. Give each request a stable identifier and each intended operation a deduplication key. Before applying an action, check whether that operation has already completed. Keep the decision and its recorded outcome together where the underlying system permits an atomic operation.</p>
-<p>A timeout does not establish that a remote write failed. Reconcile the destination using the request identifier before retrying. For systems without atomic deduplication, serialize work or use a durable operation ledger and an explicit reconciliation step. Do not claim exactly-once behavior merely because the trigger ran once in a test.</p>
-<h2>03 / Preserve the meaning of approval</h2>
-<p>Bind approval to the version of the request that was reviewed. If cost, dates, scope or recipients change, decide whether a new approval is required before applying the change. Recheck the relevant preconditions at execution time so that an old approval cannot silently authorize a different action.</p>
-<p>Use a managed execution identity with only the access the process needs. Document its owner and renewal path. Keep credentials out of list fields, screenshots and runbooks. Separation between requester, approver and executor should follow the process risk, with exceptional overrides recorded and reviewable.</p>
-<h2>04 / Make exceptions operable</h2>
-<p>Use bounded retries for temporary failures. Route persistent failures to a named queue with an owner, a reason, the last completed step and a safe next action. A stopped flow without an accountable queue is a hidden backlog. Alert on age and impact as well as failure count.</p>
-<ul><li>Record the request ID, version, actor, decision and timestamps.</li><li>Retain enough evidence to reconcile a partial write.</li><li>Provide a pause point before further external changes.</li><li>Define compensation or manual correction for irreversible effects.</li></ul>
-<p>A rollback of workflow code does not unsend a message or reverse a payment. Recovery instructions must describe the business correction separately from restoring the previous automation version.</p>
-<h2>05 / Test the uncomfortable paths</h2>
-<p>Exercise duplicate requests, late approvals, revoked access, changed records and a timeout immediately after a downstream write. Confirm that an operator can identify the outcome without replaying blindly. Promote a known version with a small initial scope, watch exception age and reconciliation results, and keep a way to stop new work.</p>
-<p>Automation earns trust when the team can explain what happened, who authorized it and how to recover. A shorter happy path is useful only when its failure paths remain under control.</p>
+<p><span data-i18n="t32c968fff895">In a SharePoint-based resource request, for example, distinguish the submitted allocation from the approved allocation and the allocation actually recorded downstream. An approval is permission to apply a change; it is not proof that the receiving system accepted it. These are design states, not assumptions about any particular platform's built-in behavior.</span></p>
+<h2><span data-i18n="te8050b440701">02 / Design for repeated and delayed events</span></h2>
+<p><span data-i18n="t04cba1c0bb6a">Treat duplicate delivery and uncertain outcomes as normal cases to handle. Give each request a stable identifier and each intended operation a deduplication key. Before applying an action, check whether that operation has already completed. Keep the decision and its recorded outcome together where the underlying system permits an atomic operation.</span></p>
+<p><span data-i18n="t9318696c2b05">A timeout does not establish that a remote write failed. Reconcile the destination using the request identifier before retrying. For systems without atomic deduplication, serialize work or use a durable operation ledger and an explicit reconciliation step. Do not claim exactly-once behavior merely because the trigger ran once in a test.</span></p>
+<h2><span data-i18n="td66c0a531a73">03 / Preserve the meaning of approval</span></h2>
+<p><span data-i18n="tcc9abeae1926">Bind approval to the version of the request that was reviewed. If cost, dates, scope or recipients change, decide whether a new approval is required before applying the change. Recheck the relevant preconditions at execution time so that an old approval cannot silently authorize a different action.</span></p>
+<p><span data-i18n="t01f6ed5d8720">Use a managed execution identity with only the access the process needs. Document its owner and renewal path. Keep credentials out of list fields, screenshots and runbooks. Separation between requester, approver and executor should follow the process risk, with exceptional overrides recorded and reviewable.</span></p>
+<h2><span data-i18n="t38e55f8b5bb5">04 / Make exceptions operable</span></h2>
+<p><span data-i18n="tca8461147b67">Use bounded retries for temporary failures. Route persistent failures to a named queue with an owner, a reason, the last completed step and a safe next action. A stopped flow without an accountable queue is a hidden backlog. Alert on age and impact as well as failure count.</span></p>
+<ul><li><span data-i18n="t4f0cfce70fa8">Record the request ID, version, actor, decision and timestamps.</span></li><li><span data-i18n="t8fcb0b37921d">Retain enough evidence to reconcile a partial write.</span></li><li><span data-i18n="tb1486b4552bb">Provide a pause point before further external changes.</span></li><li><span data-i18n="tdf3b410cb43c">Define compensation or manual correction for irreversible effects.</span></li></ul>
+<p><span data-i18n="t99adcceac130">A rollback of workflow code does not unsend a message or reverse a payment. Recovery instructions must describe the business correction separately from restoring the previous automation version.</span></p>
+<h2><span data-i18n="ta27832d89a48">05 / Test the uncomfortable paths</span></h2>
+<p><span data-i18n="t0ca48e8919a8">Exercise duplicate requests, late approvals, revoked access, changed records and a timeout immediately after a downstream write. Confirm that an operator can identify the outcome without replaying blindly. Promote a known version with a small initial scope, watch exception age and reconciliation results, and keep a way to stop new work.</span></p>
+<p><span data-i18n="tb0852e36e63a">Automation earns trust when the team can explain what happened, who authorized it and how to recover. A shorter happy path is useful only when its failure paths remain under control.</span></p>
 
 </article>
-<nav aria-label="Related notes"><a href="infrastructure.html">Infrastructure Is a System</a> · <a href="continuity.html">Engineering Continuity</a></nav>
+<nav aria-label="Related notes" data-i18n-attrs="{&quot;aria-label&quot;:&quot;t5cd827dd2456&quot;}"><a href="infrastructure.html"><span data-i18n="t767c3e1b75a3">Infrastructure Is a System</span></a> · <a href="continuity.html"><span data-i18n="t4029fb0f2ff0">Engineering Continuity</span></a></nav>
 </main>
 <footer><p class="prompt">Connection lost. Mission continues.</p>
-<p class="muted">RELAY / RLY-01 · EST. 2026</p>
-<a href="index.html">[ ALL TECHNICAL NOTES ]</a> · <a href="../index.html">[ RETURN HOME ]</a></footer>
+<p class="muted"><span data-i18n="t1b11bc09fd95">RELAY / RLY-01 · EST. 2026</span></p>
+<a href="index.html"><span data-i18n="td637814f6f7f">[ ALL TECHNICAL NOTES ]</span></a> · <a href="../index.html"><span data-i18n="tfbbe683be353">[ RETURN HOME ]</span></a></footer>
 </body>
 </html>

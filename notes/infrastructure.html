@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0a110c">
-<title>Infrastructure Is a System // RELAY</title>
-<meta name="description" content="Map the service path, expose shared dependencies, and verify recovery at the user boundary.">
+<title data-i18n="t6febf064cc84">Infrastructure Is a System // RELAY</title>
+<meta name="description" content="Map the service path, expose shared dependencies, and verify recovery at the user boundary." data-i18n-attrs="{&quot;content&quot;:&quot;t04f8b7f6cef6&quot;}">
 <link rel="canonical" href="https://n0hup.nl/notes/infrastructure.html">
 <meta property="og:site_name" content="RELAY">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Infrastructure Is a System // RELAY">
-<meta property="og:description" content="Map the service path, expose shared dependencies, and verify recovery at the user boundary.">
+<meta property="og:title" content="Infrastructure Is a System // RELAY" data-i18n-attrs="{&quot;content&quot;:&quot;t6febf064cc84&quot;}">
+<meta property="og:description" content="Map the service path, expose shared dependencies, and verify recovery at the user boundary." data-i18n-attrs="{&quot;content&quot;:&quot;t04f8b7f6cef6&quot;}">
 <meta property="og:url" content="https://n0hup.nl/notes/infrastructure.html">
 <meta property="og:image" content="https://n0hup.nl/assets/og-relay.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -115,58 +115,74 @@ h1 { overflow-wrap: anywhere; }
 .skip:focus { position: static; }
 :focus-visible { outline: 2px solid var(--green); outline-offset: 4px; }
 </style>
+<link rel="stylesheet" href="../assets/i18n.css?v=full4"/>
+<script defer src="../assets/i18n.js?v=full4"></script>
 </head>
-<body class="nav-flush">
-<a class="skip" href="#main">Skip to content</a>
-<nav class="top" aria-label="Main">
-  <a href="../index.html">HOME</a>
-  <a href="../services.html">SERVICES</a>
-  <a href="../tailored.html">TAILORED</a>
-  <a href="../ad-health-check.html">AD CHECK €500</a>
-  <a href="../team.html">TEAM</a>
-  <a href="../operator.html">OPERATOR</a>
-  <a href="../engagement.html">ENGAGEMENT</a>
-  <a href="../toolkit.html">TOOLKIT</a>
-  <a href="../manifesto.html">MANIFESTO</a>
-  <a href="../notes/" aria-current="page">NOTES</a>
-  <a href="../logs/relay.log">LOG</a>
-  <a href="https://codeberg.org/n0hup">CODEBERG</a>
+<body class="nav-flush relay-interior">
+<a class="skip" href="#main"><span data-i18n="tac576a66d456">Skip to content</span></a>
+<nav class="top" aria-label="Main" data-i18n-attrs="{&quot;aria-label&quot;:&quot;teb814be3ca3b&quot;}">
+  <a href="../index.html"><span data-i18n="t36e65c39f83b">HOME</span></a>
+  <a href="../services.html"><span data-i18n="t019c527ea981">SERVICES</span></a>
+  <a href="../tailored.html"><span data-i18n="tca2f4dff4123">TAILORED</span></a>
+  <a href="../ad-health-check.html"><span data-i18n="te5023186ce0e">AD CHECK €500</span></a>
+  <a href="../team.html"><span data-i18n="tf404d4ef5343">TEAM</span></a>
+  <a href="../operator.html"><span data-i18n="tb4da21734593">OPERATOR</span></a>
+  <a href="../engagement.html"><span data-i18n="t866398370269">ENGAGEMENT</span></a>
+  <a href="../toolkit.html"><span data-i18n="te44c5e40a1f5">TOOLKIT</span></a>
+  <a href="../manifesto.html"><span data-i18n="t5807cd87a3b0">MANIFESTO</span></a>
+  <a href="../notes/" aria-current="page"><span data-i18n="t7bfab6c61f77">NOTES</span></a>
+  <a href="../logs/relay.log"><span data-i18n="t77e86824b1bc">LOG</span></a>
+  <a href="https://codeberg.org/n0hup"><span data-i18n-fixed lang="en" dir="ltr">CODEBERG</span></a>
+<details class="relay-language-menu" hidden data-language-menu>
+<summary dir="ltr">EN ▾</summary>
+<div class="relay-language" hidden data-language-controls role="group" aria-label="Language">
+<button type="button" data-language="en" lang="en" dir="ltr" aria-label="English" aria-pressed="false">English</button>
+<button type="button" data-language="ru" lang="ru" dir="ltr" aria-label="Русский" aria-pressed="false">Русский</button>
+<button type="button" data-language="de" lang="de" dir="ltr" aria-label="Deutsch" aria-pressed="false">Deutsch</button>
+<button type="button" data-language="nl" lang="nl" dir="ltr" aria-label="Nederlands" aria-pressed="false">Nederlands</button>
+<button type="button" data-language="be" lang="be" dir="ltr" aria-label="Беларуская" aria-pressed="false">Беларуская</button>
+<button type="button" data-language="az" lang="az" dir="ltr" aria-label="Azərbaycanca" aria-pressed="false">Azərbaycanca</button>
+<button type="button" data-language="ar" lang="ar" dir="ltr" aria-label="العربية" aria-pressed="false">العربية</button>
+<p class="relay-language-status" data-language-status role="status" aria-live="polite"></p>
+</div>
+</details>
 </nav>
+
 <header>
 <p class="prompt">n0hup@relay:~/notes$ open infrastructure.html</p>
-<h1>Infrastructure Is a System<span class="cursor" aria-hidden="true">_</span></h1>
-<p class="muted">NOTE 005 / ENGINEERING PRACTICE / <time datetime="2026-11-11">2026-11-11</time></p>
-<p>Map the service path, expose shared dependencies, and verify recovery at the user boundary.</p>
+<h1><span data-i18n="t767c3e1b75a3">Infrastructure Is a System</span><span class="cursor" aria-hidden="true">_</span></h1>
+<p class="muted"><span data-i18n="te489289ced1e">NOTE 005 / ENGINEERING PRACTICE /</span> <time datetime="2026-11-11"><span data-i18n-fixed lang="en" dir="ltr">2026-11-11</span></time></p>
+<p><span data-i18n="t04f8b7f6cef6">Map the service path, expose shared dependencies, and verify recovery at the user boundary.</span></p>
 </header>
 <main id="main"><article>
 
-<p class="motto">A healthy component does not prove a healthy service.</p>
-<p>A user sees a successful request or a failure. Between those outcomes sit name resolution, routing, identity, compute, storage and application state. Each team may report its component as available while the complete path remains broken. Engineering begins by describing that path and the evidence needed to trust it.</p>
-<h2>01 / Start at the service boundary</h2>
-<p>Choose one concrete transaction: a colleague signs in, opens a project record and saves a change. Record where the request enters, how identity is established, where data is read and written, and how success reaches the caller. Include supporting services such as time, certificates and secrets. A diagram of server names alone misses the relationships that decide whether the transaction works.</p>
-<pre><code>USER → NAME RESOLUTION → NETWORK → APPLICATION → DATA
+<p class="motto"><span data-i18n="t2f454441942f">A healthy component does not prove a healthy service.</span></p>
+<p><span data-i18n="tbae63466275b">A user sees a successful request or a failure. Between those outcomes sit name resolution, routing, identity, compute, storage and application state. Each team may report its component as available while the complete path remains broken. Engineering begins by describing that path and the evidence needed to trust it.</span></p>
+<h2><span data-i18n="ta7c4962d2bdf">01 / Start at the service boundary</span></h2>
+<p><span data-i18n="t217b234ba0a6">Choose one concrete transaction: a colleague signs in, opens a project record and saves a change. Record where the request enters, how identity is established, where data is read and written, and how success reaches the caller. Include supporting services such as time, certificates and secrets. A diagram of server names alone misses the relationships that decide whether the transaction works.</span></p>
+<pre dir="ltr" translate="no"><code dir="ltr" translate="no">USER → NAME RESOLUTION → NETWORK → APPLICATION → DATA
                                   ↕
                                IDENTITY
 Shared dependencies: time / certificates / power / control plane</code></pre>
-<p>For every dependency, record its owner, its failure signal and the consequence of losing it. Distinguish what is required for a running service from what is required to start, scale or recover it. A workload may continue during a control-plane outage and still be impossible to rebuild.</p>
-<h2>02 / Find shared failure domains</h2>
-<p>Two instances are not independent if they share a storage array, an upstream link, an administrative account or a single recovery operator. Trace common dependencies before calling a design redundant. Ask what survives the loss of a host, a site and the primary identity service. State the scope of each answer; resilience to one failure says little about another.</p>
-<p>For example, moving an application to a second site can preserve compute capacity while leaving both sites dependent on the same resolver or authentication path. Test the complete login and data transaction from the recovery location. A successful ping establishes only a narrow observation.</p>
-<h2>03 / Separate observation from diagnosis</h2>
-<p>During an incident, retain the time, source and scope of each observation. “The service responds from one subnet” differs from “all users can authenticate.” Build a timeline before assigning a cause. Compare a failed transaction with a successful one and locate the first boundary where their behavior diverges.</p>
-<ul><li>Check the user's outcome and the application's error.</li><li>Correlate name resolution, connection, identity and data access evidence.</li><li>Record missing evidence as unknown, not healthy.</li><li>Change one bounded hypothesis at a time and verify its effect.</li></ul>
-<h2>04 / Make recovery a design input</h2>
-<p>Define the acceptable interruption and data loss with the service owner. Use those requirements to choose recovery arrangements and test scope. A backup job's success establishes that a job completed; a recovery exercise must establish that the data can be restored, opened and used consistently by the application.</p>
-<p>Keep recovery access and instructions available when the main service is unavailable. Establish the restoration order from dependencies, including how the recovery environment obtains identity, names and secrets. Avoid a circular plan in which the only instructions or credentials needed to restore a platform live inside that platform.</p>
-<h2>05 / Leave evidence the next engineer can use</h2>
-<p>A useful system record contains a service boundary, a dependency map, named owners, known failure domains and the results of the latest recovery exercise. Record the scenario and limits of each test. “Recovered in a lab with prepared credentials” is valuable evidence when its conditions are explicit.</p>
-<p>The next change should update that record. Infrastructure becomes understandable when its relationships, failure behavior and recovery path can be inspected by someone who did not build it.</p>
+<p><span data-i18n="t990cfbb0d4cf">For every dependency, record its owner, its failure signal and the consequence of losing it. Distinguish what is required for a running service from what is required to start, scale or recover it. A workload may continue during a control-plane outage and still be impossible to rebuild.</span></p>
+<h2><span data-i18n="t96bb519f9eaa">02 / Find shared failure domains</span></h2>
+<p><span data-i18n="t0050c3461541">Two instances are not independent if they share a storage array, an upstream link, an administrative account or a single recovery operator. Trace common dependencies before calling a design redundant. Ask what survives the loss of a host, a site and the primary identity service. State the scope of each answer; resilience to one failure says little about another.</span></p>
+<p><span data-i18n="t8517fa29a1a6">For example, moving an application to a second site can preserve compute capacity while leaving both sites dependent on the same resolver or authentication path. Test the complete login and data transaction from the recovery location. A successful ping establishes only a narrow observation.</span></p>
+<h2><span data-i18n="t6fb2c6687c8c">03 / Separate observation from diagnosis</span></h2>
+<p><span data-i18n="t4c289249ae73">During an incident, retain the time, source and scope of each observation. “The service responds from one subnet” differs from “all users can authenticate.” Build a timeline before assigning a cause. Compare a failed transaction with a successful one and locate the first boundary where their behavior diverges.</span></p>
+<ul><li><span data-i18n="t7aaf90ce715d">Check the user's outcome and the application's error.</span></li><li><span data-i18n="t7514e94a4b27">Correlate name resolution, connection, identity and data access evidence.</span></li><li><span data-i18n="t353ac3a9aec6">Record missing evidence as unknown, not healthy.</span></li><li><span data-i18n="t3c5b8396adc5">Change one bounded hypothesis at a time and verify its effect.</span></li></ul>
+<h2><span data-i18n="t3b312cb6a2d0">04 / Make recovery a design input</span></h2>
+<p><span data-i18n="t500a7b75c69b">Define the acceptable interruption and data loss with the service owner. Use those requirements to choose recovery arrangements and test scope. A backup job's success establishes that a job completed; a recovery exercise must establish that the data can be restored, opened and used consistently by the application.</span></p>
+<p><span data-i18n="t8e8dfc4a470a">Keep recovery access and instructions available when the main service is unavailable. Establish the restoration order from dependencies, including how the recovery environment obtains identity, names and secrets. Avoid a circular plan in which the only instructions or credentials needed to restore a platform live inside that platform.</span></p>
+<h2><span data-i18n="tacb20a47d1af">05 / Leave evidence the next engineer can use</span></h2>
+<p><span data-i18n="t010974fa8587">A useful system record contains a service boundary, a dependency map, named owners, known failure domains and the results of the latest recovery exercise. Record the scenario and limits of each test. “Recovered in a lab with prepared credentials” is valuable evidence when its conditions are explicit.</span></p>
+<p><span data-i18n="tad58b36a600e">The next change should update that record. Infrastructure becomes understandable when its relationships, failure behavior and recovery path can be inspected by someone who did not build it.</span></p>
 
 </article>
-<nav aria-label="Related notes"><a href="automation.html">Automation Without Losing Control</a> · <a href="continuity.html">Engineering Continuity</a></nav>
+<nav aria-label="Related notes" data-i18n-attrs="{&quot;aria-label&quot;:&quot;t5cd827dd2456&quot;}"><a href="automation.html"><span data-i18n="tc1458594d404">Automation Without Losing Control</span></a> · <a href="continuity.html"><span data-i18n="t4029fb0f2ff0">Engineering Continuity</span></a></nav>
 </main>
 <footer><p class="prompt">Connection lost. Mission continues.</p>
-<p class="muted">RELAY / RLY-01 · EST. 2026</p>
-<a href="index.html">[ ALL TECHNICAL NOTES ]</a> · <a href="../index.html">[ RETURN HOME ]</a></footer>
+<p class="muted"><span data-i18n="t1b11bc09fd95">RELAY / RLY-01 · EST. 2026</span></p>
+<a href="index.html"><span data-i18n="td637814f6f7f">[ ALL TECHNICAL NOTES ]</span></a> · <a href="../index.html"><span data-i18n="tfbbe683be353">[ RETURN HOME ]</span></a></footer>
 </body>
 </html>
