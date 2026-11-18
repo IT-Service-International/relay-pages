@@ -1879,6 +1879,22 @@
     "t7363ae716f1a": "RELAY OPERATING ENVIRONMENT",
     "tc6b25c71866e": "RLY-01 / VIRTUAL UNIX SHELL",
     "t94c40f05ef93": "Connecting to RELAY archive...",
-    "ta3ae3ae22485": "Opening RELAY Technical Notes..."
+    "ta3ae3ae22485": "Opening RELAY Technical Notes...",
+    "pm_title": "Project management",
+    "pm_intro": "From agreed scope to operational handover. RELAY coordinates infrastructure projects with the engineers who deliver them, keeping ownership, dependencies and decisions visible.",
+    "pm_scope": "Scope & baseline",
+    "pm_scope_text": "Agree inclusions, exclusions, deliverables and acceptance criteria before work starts. Assess changes against the approved baseline.",
+    "pm_plan": "Delivery planning",
+    "pm_plan_text": "Build the schedule with the delivery team, linking milestones to resources, technical dependencies and realistic change windows.",
+    "pm_risk": "Risks & decisions",
+    "pm_risk_text": "Maintain a shared record of risks, issues, dependencies and decisions, with named owners, due dates and escalation paths.",
+    "pm_vendors": "Multi-vendor coordination",
+    "pm_vendors_text": "Align client teams and suppliers around one integrated plan, a consolidated status and a clear point of contact.",
+    "pm_cutover": "Cutover & migration",
+    "pm_cutover_text": "Coordinate rehearsals, go/no-go criteria, communications and rollback planning. Execution follows the agreed scope and client approvals.",
+    "pm_reporting": "Reporting & handover",
+    "pm_reporting_text": "Report progress against the baseline, changes and decisions needed. Track acceptance, open actions and the transfer of documentation to operations.",
+    "pm_terms": "Available as a scoped project-management engagement or alongside engineering delivery. Responsibilities, authority, deliverables and reporting cadence are agreed before work starts.",
+    "pm_cta": "[ DISCUSS YOUR PROJECT → ]"
   }
 }

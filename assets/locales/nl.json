@@ -1879,6 +1879,22 @@
     "t7363ae716f1a": "RELAY-WERKOMGEVING",
     "tc6b25c71866e": "RLY-01 / VIRTUELE UNIX-SHELL",
     "t94c40f05ef93": "Verbinding maken met het RELAY-archief…",
-    "ta3ae3ae22485": "Technische notities van RELAY openen…"
+    "ta3ae3ae22485": "Technische notities van RELAY openen…",
+    "pm_title": "Projectmanagement",
+    "pm_intro": "Van afgesproken scope tot overdracht aan beheer. RELAY coördineert infrastructuurprojecten samen met de engineers die ze uitvoeren en maakt verantwoordelijkheden, afhankelijkheden en besluiten inzichtelijk.",
+    "pm_scope": "Scope & uitgangsplan",
+    "pm_scope_text": "Spreek vooraf af wat binnen en buiten de scope valt, wat wordt opgeleverd en welke acceptatiecriteria gelden. Beoordeel wijzigingen ten opzichte van het goedgekeurde uitgangsplan.",
+    "pm_plan": "Uitvoeringsplanning",
+    "pm_plan_text": "Stel de planning op met het uitvoeringsteam en koppel mijlpalen aan capaciteit, technische afhankelijkheden en haalbare wijzigingsvensters.",
+    "pm_risk": "Risico’s & besluiten",
+    "pm_risk_text": "Houd een gezamenlijk register bij van risico’s, knelpunten, afhankelijkheden en besluiten, met benoemde verantwoordelijken, deadlines en escalatieroutes.",
+    "pm_vendors": "Coördinatie van meerdere leveranciers",
+    "pm_vendors_text": "Breng klantteams en leveranciers samen rond één geïntegreerd plan, een geconsolideerde voortgangsrapportage en een duidelijk aanspreekpunt.",
+    "pm_cutover": "Ingebruikname & migratie",
+    "pm_cutover_text": "Coördineer repetities, go/no-go-criteria, communicatie en terugvalplannen. Uitvoering vindt plaats binnen de afgesproken scope en na goedkeuring door de klant.",
+    "pm_reporting": "Rapportage & overdracht",
+    "pm_reporting_text": "Rapporteer de voortgang ten opzichte van het uitgangsplan, wijzigingen en benodigde besluiten. Volg acceptatie, openstaande acties en de overdracht van documentatie aan beheer.",
+    "pm_terms": "Beschikbaar als afgebakende projectmanagementopdracht of naast de technische uitvoering. Verantwoordelijkheden, bevoegdheden, resultaten en rapportagefrequentie worden vooraf afgesproken.",
+    "pm_cta": "[ BESPREEK UW PROJECT → ]"
   }
 }

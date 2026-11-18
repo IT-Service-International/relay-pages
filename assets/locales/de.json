@@ -1879,6 +1879,22 @@
     "t7363ae716f1a": "RELAY-BETRIEBSUMGEBUNG",
     "tc6b25c71866e": "RLY-01 / VIRTUELLE UNIX-SHELL",
     "t94c40f05ef93": "Verbindung zum RELAY-Archiv wird hergestellt…",
-    "ta3ae3ae22485": "Technische Notizen von RELAY werden geöffnet…"
+    "ta3ae3ae22485": "Technische Notizen von RELAY werden geöffnet…",
+    "pm_title": "Projektmanagement",
+    "pm_intro": "Vom vereinbarten Leistungsumfang bis zur Betriebsübergabe. RELAY koordiniert Infrastrukturprojekte gemeinsam mit den ausführenden Ingenieuren und macht Verantwortlichkeiten, Abhängigkeiten und Entscheidungen transparent.",
+    "pm_scope": "Leistungsumfang & Baseline",
+    "pm_scope_text": "Leistungen, Ausschlüsse, Ergebnisse und Abnahmekriterien vor Beginn vereinbaren. Änderungen anhand der freigegebenen Baseline bewerten.",
+    "pm_plan": "Umsetzungsplanung",
+    "pm_plan_text": "Den Terminplan gemeinsam mit dem Umsetzungsteam erstellen und Meilensteine mit Ressourcen, technischen Abhängigkeiten und realistischen Änderungsfenstern verknüpfen.",
+    "pm_risk": "Risiken & Entscheidungen",
+    "pm_risk_text": "Risiken, Probleme, Abhängigkeiten und Entscheidungen in einem gemeinsamen Register mit benannten Verantwortlichen, Fristen und Eskalationswegen führen.",
+    "pm_vendors": "Lieferantenübergreifende Koordination",
+    "pm_vendors_text": "Kundenteams und Lieferanten auf einen integrierten Plan, einen konsolidierten Status und eine klare Ansprechperson ausrichten.",
+    "pm_cutover": "Produktivumschaltung & Migration",
+    "pm_cutover_text": "Probeläufe, Go/No-Go-Kriterien, Kommunikation und Rückfallplanung koordinieren. Die Ausführung richtet sich nach dem vereinbarten Umfang und den Freigaben des Kunden.",
+    "pm_reporting": "Berichterstattung & Übergabe",
+    "pm_reporting_text": "Fortschritt gegenüber der Baseline, Änderungen und erforderliche Entscheidungen berichten. Abnahme, offene Maßnahmen und die Dokumentationsübergabe an den Betrieb verfolgen.",
+    "pm_terms": "Als abgegrenzter Projektmanagementauftrag oder begleitend zur technischen Umsetzung verfügbar. Verantwortlichkeiten, Befugnisse, Ergebnisse und Berichtsintervalle werden vor Beginn vereinbart.",
+    "pm_cta": "[ IHR PROJEKT BESPRECHEN → ]"
   }
 }

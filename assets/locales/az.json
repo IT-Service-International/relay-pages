@@ -1879,6 +1879,22 @@
     "t7363ae716f1a": "RELAY İŞ MÜHİTİ",
     "tc6b25c71866e": "RLY-01 / VİRTUAL UNIX ÖRTÜYÜ",
     "t94c40f05ef93": "RELAY arxivinə qoşulur…",
-    "ta3ae3ae22485": "RELAY texniki qeydləri açılır…"
+    "ta3ae3ae22485": "RELAY texniki qeydləri açılır…",
+    "pm_title": "Layihələrin idarə edilməsi",
+    "pm_intro": "Razılaşdırılmış iş həcmindən istismara təhvilədək. RELAY infrastruktur layihələrini onları həyata keçirən mühəndislərlə birlikdə əlaqələndirir, məsuliyyətləri, asılılıqları və qərarları aydın göstərir.",
+    "pm_scope": "İş həcmi və baza planı",
+    "pm_scope_text": "İşə başlamazdan əvvəl əhatə olunan və olunmayan işləri, təhvil veriləcək nəticələri və qəbul meyarlarını razılaşdırırıq. Dəyişiklikləri təsdiqlənmiş baza planına əsasən qiymətləndiririk.",
+    "pm_plan": "İcra planlaşdırılması",
+    "pm_plan_text": "Qrafiki icra komandası ilə hazırlayır, mərhələləri resurslar, texniki asılılıqlar və real dəyişiklik pəncərələri ilə əlaqələndiririk.",
+    "pm_risk": "Risklər və qərarlar",
+    "pm_risk_text": "Risklərin, problemlərin, asılılıqların və qərarların vahid reyestrini aparır, məsul şəxsləri, son tarixləri və eskalasiya qaydalarını müəyyənləşdiririk.",
+    "pm_vendors": "Çoxsaylı təchizatçıların koordinasiyası",
+    "pm_vendors_text": "Müştəri komandalarını və təchizatçıları vahid inteqrasiya olunmuş plan, ümumiləşdirilmiş status və aydın əlaqə nöqtəsi ətrafında birləşdiririk.",
+    "pm_cutover": "Keçid və miqrasiya",
+    "pm_cutover_text": "Sınaq məşqlərini, başlama/dayandırma meyarlarını, kommunikasiya və geri qaytarma planlarını əlaqələndiririk. İcra razılaşdırılmış iş həcminə və müştərinin təsdiqlərinə uyğun aparılır.",
+    "pm_reporting": "Hesabatlılıq və təhvil",
+    "pm_reporting_text": "Baza planına nəzərən irəliləyiş, dəyişikliklər və tələb olunan qərarlar barədə hesabat veririk. Qəbulu, açıq tədbirləri və sənədlərin istismar komandasına ötürülməsini izləyirik.",
+    "pm_terms": "Ayrıca müəyyənləşdirilmiş layihə idarəetməsi xidməti və ya mühəndislik işləri ilə birlikdə təqdim olunur. Məsuliyyətlər, səlahiyyətlər, nəticələr və hesabat dövriliyi işə başlamazdan əvvəl razılaşdırılır.",
+    "pm_cta": "[ LAYİHƏNİZİ MÜZAKİRƏ EDƏK → ]"
   }
 }
